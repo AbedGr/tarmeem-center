@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abedgr.github.io/tarmeem-center/sitemap.xml

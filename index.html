@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#144B52">
+
+  <title data-i18n="meta.title">مركز ترميم للمحافظة على التراث</title>
+  <meta name="description" content="الموقع الرسمي لمركز ترميم للمحافظة على التراث. استعرضوا مشاريع المركز في الترميم والتوثيق والتعليم والمعارض." data-i18n-attr="content:meta.description">
+
+  <link rel="canonical" href="https://abedgr.github.io/tarmeem-center/">
+
+  <!--
+    Open Graph / social sharing. These URLs must be ABSOLUTE to work on
+    WhatsApp, Facebook, X, etc. Update them if the site moves to a custom domain.
+    The OG image is a JPG on purpose: several crawlers still do not read WebP.
+  -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="مركز ترميم للمحافظة على التراث" data-i18n-attr="content:meta.title">
+  <meta property="og:title" content="مركز ترميم للمحافظة على التراث" data-i18n-attr="content:meta.title">
+  <meta property="og:description" content="الموقع الرسمي لمركز ترميم للمحافظة على التراث. استعرضوا مشاريع المركز في الترميم والتوثيق والتعليم والمعارض." data-i18n-attr="content:meta.description">
+  <meta property="og:url" content="https://abedgr.github.io/tarmeem-center/">
+  <meta property="og:image" content="https://abedgr.github.io/tarmeem-center/assets/images/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="مركز ترميم للمحافظة على التراث" data-i18n-attr="content:meta.title">
+  <meta property="og:locale" content="ar_AR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="مركز ترميم للمحافظة على التراث" data-i18n-attr="content:meta.title">
+  <meta name="twitter:description" content="الموقع الرسمي لمركز ترميم للمحافظة على التراث. استعرضوا مشاريع المركز في الترميم والتوثيق والتعليم والمعارض." data-i18n-attr="content:meta.description">
+  <meta name="twitter:image" content="https://abedgr.github.io/tarmeem-center/assets/images/og-image.jpg">
+
+  <!-- Favicons -->
+  <link rel="icon" href="assets/images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/images/favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
+  <!-- Apply the saved language before first paint to avoid a flash of the wrong direction. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try {
+        var saved = localStorage.getItem('tarmeem-lang');
+        if (saved === 'en' || saved === 'ar') {
+          root.lang = saved;
+          root.dir = saved === 'ar' ? 'rtl' : 'ltr';
+        }
+      } catch (e) { /* localStorage unavailable: keep the default */ }
+    })();
+  </script>
+
+  <!-- Fonts: Noto Naskh Arabic + Lora for headings, IBM Plex Sans Arabic + IBM Plex Sans for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="top">
+
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">الانتقال إلى المحتوى</a>
+
+  <!-- ============================== HEADER ============================== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="مركز ترميم للمحافظة على التراث - الرئيسية" data-i18n-attr="aria-label:brand.homeLink">
+        <img class="brand__logo" src="assets/images/logo-mark.png" width="270" height="321" alt="" aria-hidden="true">
+        <span class="brand__text">
+          <span class="brand__name" data-i18n="brand.name">مركز ترميم</span>
+          <span class="brand__sub" data-i18n="brand.sub">للمحافظة على التراث</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="فتح القائمة" data-i18n-attr="aria-label:nav.open">
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="القائمة الرئيسية" data-i18n-attr="aria-label:nav.label">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="#top" data-nav="top" data-i18n="nav.home">الرئيسية</a></li>
+          <li><a class="site-nav__link" href="#about" data-nav="about" data-i18n="nav.about">عن المركز</a></li>
+          <li><a class="site-nav__link" href="#projects" data-nav="projects" data-i18n="nav.projects">المشاريع</a></li>
+          <li><a class="site-nav__link" href="#contact" data-nav="contact" data-i18n="nav.contact">تواصل معنا</a></li>
+        </ul>
+
+        <div class="lang-toggle" role="group" aria-label="اللغة" data-i18n-attr="aria-label:lang.label">
+          <button type="button" class="lang-toggle__btn" data-lang="ar" lang="ar" aria-pressed="true" aria-label="العربية">AR</button>
+          <span class="lang-toggle__sep" aria-hidden="true">|</span>
+          <button type="button" class="lang-toggle__btn" data-lang="en" lang="en" aria-pressed="false" aria-label="English">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <!-- Hero photograph: Jerash (1024x640). A wider original (1920px+) would look sharper on large screens. -->
+      <img class="hero__image" src="assets/images/hero.webp" width="1024" height="640" fetchpriority="high" decoding="async"
+           alt="أعمدة كورنثية في الشارع المعمّد بمدينة جرش الأثرية عند الغروب"
+           data-i18n-attr="alt:hero.imageAlt">
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="hero__pattern" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <p class="eyebrow eyebrow--light" data-i18n="hero.eyebrow">مركز ترميم</p>
+        <h1 class="hero__title" id="hero-title" data-i18n="hero.title">مركز ترميم للمحافظة على التراث</h1>
+        <p class="hero__mission" data-i18n="hero.mission">[نص الرسالة في جملة واحدة]</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#projects">
+            <span data-i18n="hero.cta">استعرض المشاريع</span>
+            <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#about" data-i18n="hero.ctaSecondary">تعرّف على المركز</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ABOUT ============================== -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="eyebrow" data-i18n="about.eyebrow">من نحن</p>
+          <h2 class="section-title" id="about-title" data-i18n="about.title">عن المركز</h2>
+          <!-- TODO: replace with the founding year and location. -->
+          <p class="section-lead" data-i18n="about.intro">[نبذة عن المركز: سنة التأسيس، والموقع، ومجالات العمل الرئيسية]</p>
+        </header>
+
+        <div class="about__grid">
+          <article class="about__card reveal">
+            <span class="about__card-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2 L14.8 9.2 L22 12 L14.8 14.8 L12 22 L9.2 14.8 L2 12 L9.2 9.2 Z"/></svg>
+            </span>
+            <h3 class="about__card-title" data-i18n="about.missionTitle">رسالتنا</h3>
+            <p data-i18n="about.mission">[نص الرسالة]</p>
+          </article>
+
+          <article class="about__card reveal">
+            <span class="about__card-mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false"><path d="M12 3 C7 3 3 12 3 12 C3 12 7 21 12 21 C17 21 21 12 21 12 C21 12 17 3 12 3 Z"/><circle cx="12" cy="12" r="3.5"/></svg>
+            </span>
+            <h3 class="about__card-title" data-i18n="about.visionTitle">رؤيتنا</h3>
+            <p data-i18n="about.vision">[نص الرؤية]</p>
+          </article>
+        </div>
+
+        <!--
+          Key numbers. Edit data-stat-value (and optional data-stat-suffix) here.
+          Numeric values animate on scroll; placeholders such as [00] are shown as-is.
+        -->
+        <dl class="stats reveal" aria-label="أرقام رئيسية" data-i18n-attr="aria-label:stats.label">
+          <div class="stat">
+            <dt class="stat__label" data-i18n="stats.projects">مشاريع منجزة</dt>
+            <dd class="stat__value" data-stat-value="[00]" data-stat-suffix="">[00]</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__label" data-i18n="stats.years">سنوات من العمل</dt>
+            <dd class="stat__value" data-stat-value="[00]" data-stat-suffix="">[00]</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__label" data-i18n="stats.sites">مواقع مُرمَّمة</dt>
+            <dd class="stat__value" data-stat-value="[00]" data-stat-suffix="">[00]</dd>
+          </div>
+          <div class="stat">
+            <dt class="stat__label" data-i18n="stats.events">فعاليات ومعارض</dt>
+            <dd class="stat__value" data-stat-value="[00]" data-stat-suffix="">[00]</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- ============================== PROJECTS ============================== -->
+    <section class="section projects" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="eyebrow" data-i18n="projects.eyebrow">أعمالنا</p>
+          <h2 class="section-title" id="projects-title" data-i18n="projects.title">المشاريع</h2>
+          <p class="section-lead" data-i18n="projects.subtitle">نماذج من أعمال المركز في الترميم والتوثيق والتعليم والمعارض.</p>
+        </header>
+
+        <div class="filters reveal" id="project-filters" role="group" aria-label="تصفية المشاريع حسب الفئة" data-i18n-attr="aria-label:filters.label">
+          <!-- Filter chips are rendered by js/main.js -->
+        </div>
+
+        <p class="visually-hidden" id="projects-status" role="status" aria-live="polite"></p>
+
+        <ul class="project-grid" id="project-grid" aria-labelledby="projects-title">
+          <!-- Project cards are rendered from js/projects.js -->
+        </ul>
+
+        <p class="projects__empty" id="projects-empty" hidden data-i18n="projects.empty">لا توجد مشاريع في هذه الفئة حاليًا.</p>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+
+    <!-- ============================== CONTACT ============================== -->
+    <section class="section contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="eyebrow" data-i18n="contact.eyebrow">نرحّب بكم</p>
+          <h2 class="section-title" id="contact-title" data-i18n="contact.title">تواصل معنا</h2>
+          <p class="section-lead" data-i18n="contact.subtitle">يسعدنا تواصلكم للاستفسار أو التعاون أو زيارة المركز.</p>
+        </header>
+
+        <div class="contact__grid">
+          <div class="contact__info reveal">
+            <!-- TODO: replace the placeholders below with the real contact details. -->
+            <dl class="contact__list">
+              <div class="contact__item">
+                <dt data-i18n="contact.email">البريد الإلكتروني</dt>
+                <dd><a id="contact-email" href="mailto:[EMAIL]" dir="ltr">[EMAIL]</a></dd>
+              </div>
+              <div class="contact__item">
+                <dt data-i18n="contact.phone">الهاتف</dt>
+                <dd><a href="tel:[PHONE]" dir="ltr">[PHONE]</a></dd>
+              </div>
+              <div class="contact__item">
+                <dt data-i18n="contact.address">العنوان</dt>
+                <dd data-i18n="contact.addressValue">[العنوان الكامل]</dd>
+              </div>
+            </dl>
+
+            <h3 class="contact__social-title" data-i18n="contact.social">تابعونا</h3>
+            <!-- TODO: replace href="#" with the real profile URLs (or remove unused networks). -->
+            <ul class="social" aria-label="روابط التواصل الاجتماعي" data-i18n-attr="aria-label:contact.socialLabel">
+              <li>
+                <a class="social__link" href="#" aria-label="Instagram" rel="noopener" target="_blank">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>
+                </a>
+              </li>
+              <li>
+                <a class="social__link" href="#" aria-label="X (Twitter)" rel="noopener" target="_blank">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4l16 16M20 4L4 20"/></svg>
+                </a>
+              </li>
+              <li>
+                <a class="social__link" href="#" aria-label="Facebook" rel="noopener" target="_blank">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z" fill="currentColor" stroke="none"/></svg>
+                </a>
+              </li>
+              <li>
+                <a class="social__link" href="#" aria-label="YouTube" rel="noopener" target="_blank">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l5-2.8z" fill="currentColor" stroke="none"/></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <form class="contact-form reveal" id="contact-form" action="#" method="get">
+            <p class="contact-form__note" data-i18n="form.note">سيؤدي الإرسال إلى فتح تطبيق البريد الإلكتروني لديكم مع رسالة مُعدّة مسبقًا.</p>
+
+            <div class="field">
+              <label class="field__label" for="form-name" data-i18n="form.name">الاسم</label>
+              <input class="field__input" id="form-name" name="name" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="form-email" data-i18n="form.email">البريد الإلكتروني</label>
+              <input class="field__input" id="form-email" name="email" type="email" autocomplete="email" inputmode="email" dir="ltr" required>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="form-message" data-i18n="form.message">الرسالة</label>
+              <textarea class="field__input" id="form-message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button class="btn btn--primary" type="submit">
+              <span data-i18n="form.submit">إرسال الرسالة</span>
+              <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer__brand">
+        <img class="footer__logo" src="assets/images/logo-full.png" width="274" height="446" loading="lazy" decoding="async"
+             alt="شعار مركز ترميم للمحافظة على التراث" data-i18n-attr="alt:brand.logoAlt">
+        <div>
+          <p class="footer__name" data-i18n="meta.title">مركز ترميم للمحافظة على التراث</p>
+          <!-- TODO: founding year and location. -->
+          <p class="footer__meta" data-i18n="footer.founded">تأسس عام [سنة التأسيس] - [الموقع]</p>
+        </div>
+      </div>
+
+      <nav class="footer__nav" aria-label="روابط التذييل" data-i18n-attr="aria-label:footer.navLabel">
+        <a href="#about" data-i18n="nav.about">عن المركز</a>
+        <a href="#projects" data-i18n="nav.projects">المشاريع</a>
+        <a href="#contact" data-i18n="nav.contact">تواصل معنا</a>
+      </nav>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          <span>&copy; <span id="footer-year">2026</span></span>
+          <span data-i18n="footer.rights">مركز ترميم للمحافظة على التراث. جميع الحقوق محفوظة.</span>
+        </p>
+        <a class="footer__top" href="#top">
+          <span data-i18n="footer.backToTop">العودة إلى الأعلى</span>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================== PROJECT MODAL ============================== -->
+  <dialog class="modal" id="project-modal" aria-labelledby="modal-title">
+    <div class="modal__inner">
+      <button class="modal__close" id="modal-close" type="button" aria-label="إغلاق" data-i18n-attr="aria-label:modal.close">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+
+      <figure class="gallery" id="gallery">
+        <div class="gallery__stage">
+          <img class="gallery__image" id="gallery-image" src="" alt="" width="1200" height="800" decoding="async">
+          <button class="gallery__nav gallery__nav--prev" id="gallery-prev" type="button" aria-label="الصورة السابقة" data-i18n-attr="aria-label:modal.prev">
+            <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button class="gallery__nav gallery__nav--next" id="gallery-next" type="button" aria-label="الصورة التالية" data-i18n-attr="aria-label:modal.next">
+            <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <figcaption class="gallery__counter" id="gallery-counter" aria-live="polite"></figcaption>
+        <ul class="gallery__thumbs" id="gallery-thumbs" aria-label="الصور المصغّرة" data-i18n-attr="aria-label:modal.thumbs"></ul>
+      </figure>
+
+      <div class="modal__content">
+        <p class="modal__category" id="modal-category"></p>
+        <h2 class="modal__title" id="modal-title"></h2>
+        <dl class="modal__meta">
+          <div class="modal__meta-item">
+            <dt data-i18n="modal.location">الموقع</dt>
+            <dd id="modal-location"></dd>
+          </div>
+          <div class="modal__meta-item">
+            <dt data-i18n="modal.year">السنة</dt>
+            <dd id="modal-year"></dd>
+          </div>
+        </dl>
+        <div class="modal__description" id="modal-description"></div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Icon templates cloned by js/main.js when rendering cards -->
+  <template id="tpl-icon-arrow">
+    <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </template>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
