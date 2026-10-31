@@ -42,21 +42,18 @@ window.PROJECTS = [
       ar: 'قيمة التراث محرّكاً للنمو الاقتصادي عبر السياحة المجتمعية التشاركية',
       en: 'Heritage Value as a Driver for Economic Growth through Participatory Community-Based Tourism'
     },
-    location: {
-      ar: 'قرية المعطن التراثية، محافظة الطفيلة',
-      en: 'Al Matan Heritage Village, Tafileh Governorate'
-    },
-    period: {
-      ar: '1 تشرين الثاني 2017 – 30 حزيران 2020',
-      en: '1 November 2017 – 30 June 2020'
-    },
+    location: { ar: 'قرية المعطن التراثية، محافظة الطفيلة', en: 'Al Matan Heritage Village, Tafileh Governorate' },
+    period: { ar: '1 تشرين الثاني 2017 – 30 حزيران 2020', en: '1 November 2017 – 30 June 2020' },
     value: { ar: '196,000 دينار أردني', en: '196,000 JOD' },
     summary: {
       ar: 'هُجرت قرية المعطن في ثمانينيات القرن الماضي حين انتقل سكانها إلى قرية عين البيضا المجاورة. وقد سكنها الأدوميون منذ القرن الحادي عشر قبل الميلاد ثم الأنباط، وعانت عقوداً من التدهور.',
       en: 'Al Matan was abandoned in the 1980s when its residents relocated to nearby Ain Al Bayda. Inhabited by the Edomites since the 11th century BC and later by the Nabataeans, the village had suffered decades of deterioration.'
     },
     figures: [
-      { value: '150+', label: { ar: 'فرداً من المجتمع المحلي شاركوا في التنفيذ', en: 'community members engaged' } },
+      {
+        value: '150+',
+        label: { ar: 'فرداً من المجتمع المحلي شاركوا في التنفيذ', en: 'community members engaged' }
+      },
       { value: '50+', label: { ar: 'متدرباً في ورش موقعية', en: 'trained on site' } },
       { value: '~500 m²', label: { ar: 'خمسة بيوت تراثية مرمّمة', en: 'five heritage houses restored' } }
     ],
@@ -67,7 +64,7 @@ window.PROJECTS = [
         'بمتابعة وزارة الصناعة والتجارة، ووزارة السياحة والآثار، ووزارة الثقافة.'
       ],
       en: [
-        'Funded by the Embassy of the Kingdom of the Netherlands (MFA contract 4000000869).',
+        'Funded by the Embassy of the Kingdom of the Netherlands.',
         'Local partners: Al-Baqee’a Cooperative Society for Tourism; Himmitna Ghair NGO.',
         'Monitored by the Ministry of Industry and Trade, the Ministry of Tourism and Antiquities, and the Ministry of Culture.'
       ]
@@ -142,19 +139,27 @@ window.PROJECTS = [
     gallery: [
       {
         src: 'assets/images/projects/almatan-3.webp',
-        alt: { ar: 'عمّال يرمّمون قوساً حجرياً داخل أحد بيوت قرية المعطن التراثية', en: 'Workers restoring a stone arch inside one of the heritage houses at Al Matan' }
+        alt: {
+          ar: 'عمّال يرمّمون قوساً حجرياً داخل أحد بيوت قرية المعطن التراثية',
+          en: 'Workers restoring a stone arch inside one of the heritage houses at Al Matan'
+        }
       },
       {
         src: 'assets/images/projects/almatan-1.webp',
-        alt: { ar: 'بيوت قرية المعطن الحجرية على سفح الجبل بين الأشجار', en: 'The stone houses of Al Matan on the hillside among the trees' }
+        alt: {
+          ar: 'بيوت قرية المعطن الحجرية على سفح الجبل بين الأشجار',
+          en: 'The stone houses of Al Matan on the hillside among the trees'
+        }
       },
       {
         src: 'assets/images/projects/almatan-2.webp',
-        alt: { ar: 'أربع صور مرقّمة لمجموعة البيوت التراثية في المعطن خلال مراحل الترميم', en: 'Four numbered views of the Al Matan house cluster through the stages of restoration' }
+        alt: {
+          ar: 'أربع صور مرقّمة لمجموعة البيوت التراثية في المعطن خلال مراحل الترميم',
+          en: 'Four numbered views of the Al Matan house cluster through the stages of restoration'
+        }
       }
     ]
   },
-
   /* ------------------------------------------------------------------ 02 */
   {
     id: 'qasr-al-mshatta',
@@ -183,8 +188,14 @@ window.PROJECTS = [
       en: 'Qasr Al-Mshatta is one of the largest and most important Umayyad palaces in Jordan, constructed by Walid II and left unfinished after his death in 744 AD. An earthquake is believed to have destroyed the palace before 800 AD. In 1903 Sultan Abdul Hamid II donated two-thirds of the richly decorated main gate to Emperor Wilhelm II; it remains a landmark of the Museum of Islamic Art in Berlin. The site is inscribed on the UNESCO World Heritage Tentative List.'
     },
     figures: [
-      { value: '7+', label: { ar: 'سنوات من الإشراف المتواصل على الموقع', en: 'years of continuous custody' } },
-      { value: '40', label: { ar: 'عاملاً، منهم 30 من القرى المجاورة', en: 'workers, 30 from nearby villages' } },
+      {
+        value: '7+',
+        label: { ar: 'سنوات من الإشراف المتواصل على الموقع', en: 'years of continuous custody' }
+      },
+      {
+        value: '40',
+        label: { ar: 'عاملاً، منهم 30 من القرى المجاورة', en: 'workers, 30 from nearby villages' }
+      },
       { value: '3D', label: { ar: 'أرشيف توثيق رقمي متكامل', en: 'complete digital archive' } }
     ],
     cooperation: {
@@ -271,27 +282,41 @@ window.PROJECTS = [
     gallery: [
       {
         src: 'assets/images/projects/mshatta-1.webp',
-        alt: { ar: 'القوس الحجري في قصر المشتى تحيط به جدران الطوب، مع سقالة وعمّال في أثناء الترميم', en: 'The stone arch of Qasr Al-Mshatta framed by brick walls, with scaffolding and workers during restoration' }
+        alt: {
+          ar: 'القوس الحجري في قصر المشتى تحيط به جدران الطوب، مع سقالة وعمّال في أثناء الترميم',
+          en: 'The stone arch of Qasr Al-Mshatta framed by brick walls, with scaffolding and workers during restoration'
+        }
       },
       {
         src: 'assets/images/projects/mshatta-2.webp',
-        alt: { ar: 'فريق ترميم بسترات السلامة يعمل على فرز الحجارة وتقويتها في الموقع', en: 'Conservation team in safety vests sorting and consolidating stones on site' }
+        alt: {
+          ar: 'فريق ترميم بسترات السلامة يعمل على فرز الحجارة وتقويتها في الموقع',
+          en: 'Conservation team in safety vests sorting and consolidating stones on site'
+        }
       },
       {
         src: 'assets/images/projects/mshatta-3.webp',
-        alt: { ar: 'مرمّم يعمل على حجارة الواجهة المنحوتة في قصر المشتى', en: 'A conservator working on the carved façade stones of Qasr Al-Mshatta' }
+        alt: {
+          ar: 'مرمّم يعمل على حجارة الواجهة المنحوتة في قصر المشتى',
+          en: 'A conservator working on the carved façade stones of Qasr Al-Mshatta'
+        }
       },
       {
         src: 'assets/images/projects/mshatta-4.webp',
-        alt: { ar: 'الشظايا المعمارية مرقّمة ومصفوفة في الموقع قبل إعادة تركيبها', en: 'Numbered architectural fragments laid out on site before reassembly' }
+        alt: {
+          ar: 'الشظايا المعمارية مرقّمة ومصفوفة في الموقع قبل إعادة تركيبها',
+          en: 'Numbered architectural fragments laid out on site before reassembly'
+        }
       },
       {
         src: 'assets/images/projects/mshatta-5.webp',
-        alt: { ar: 'أعضاء الفريق يوثّقون حجارة الواجهة المنحوتة', en: 'Team members documenting the carved façade stones' }
+        alt: {
+          ar: 'أعضاء الفريق يوثّقون حجارة الواجهة المنحوتة',
+          en: 'Team members documenting the carved façade stones'
+        }
       }
     ]
   },
-
   /* ------------------------------------------------------------------ 03 */
   {
     id: 'maan-railway',
@@ -361,13 +386,34 @@ window.PROJECTS = [
       ]
     },
     boq: [
-      { item: { ar: 'أعمال ترميم القصارة — 8 مبانٍ', en: 'Plaster (qasara) restoration — 8 buildings' }, qty: { ar: '3,459 م²', en: '3,459 m²' } },
-      { item: { ar: 'أعمال الحجر والكحلة — 11 مبنى', en: 'Stone and repointing (kahla) — 11 buildings' }, qty: { ar: '2,993 م²', en: '2,993 m²' } },
-      { item: { ar: 'أعمال ترميم القرميد — 6 مبانٍ', en: 'Roof tile (qarmeed) restoration — 6 buildings' }, qty: { ar: '1,584 م²', en: '1,584 m²' } },
-      { item: { ar: 'تصريف مياه الأمطار — 7 مبانٍ', en: 'Rainwater drainage / gutter system — 7 buildings' }, qty: { ar: '312 م.ط', en: '312 lin. m' } },
-      { item: { ar: 'أعمال الدهان — 9 مبانٍ', en: 'Painting to specification — 9 buildings' }, qty: { ar: '4,481 م²', en: '4,481 m²' } },
-      { item: { ar: 'صيانة حديد الحمايات — 9 مبانٍ', en: 'Protective ironwork maintenance — 9 buildings' }, qty: { ar: '89 وحدة', en: '89 units' } },
-      { item: { ar: 'ترميم المداخن — 6 مبانٍ', en: 'Chimney restoration — 6 buildings' }, qty: { ar: '20 وحدة', en: '20 units' } }
+      {
+        item: { ar: 'أعمال ترميم القصارة — 8 مبانٍ', en: 'Plaster (qasara) restoration — 8 buildings' },
+        qty: { ar: '3,459 م²', en: '3,459 m²' }
+      },
+      {
+        item: { ar: 'أعمال الحجر والكحلة — 11 مبنى', en: 'Stone and repointing (kahla) — 11 buildings' },
+        qty: { ar: '2,993 م²', en: '2,993 m²' }
+      },
+      {
+        item: { ar: 'أعمال ترميم القرميد — 6 مبانٍ', en: 'Roof tile (qarmeed) restoration — 6 buildings' },
+        qty: { ar: '1,584 م²', en: '1,584 m²' }
+      },
+      {
+        item: { ar: 'تصريف مياه الأمطار — 7 مبانٍ', en: 'Rainwater drainage / gutter system — 7 buildings' },
+        qty: { ar: '312 م.ط', en: '312 lin. m' }
+      },
+      {
+        item: { ar: 'أعمال الدهان — 9 مبانٍ', en: 'Painting to specification — 9 buildings' },
+        qty: { ar: '4,481 م²', en: '4,481 m²' }
+      },
+      {
+        item: { ar: 'صيانة حديد الحمايات — 9 مبانٍ', en: 'Protective ironwork maintenance — 9 buildings' },
+        qty: { ar: '89 وحدة', en: '89 units' }
+      },
+      {
+        item: { ar: 'ترميم المداخن — 6 مبانٍ', en: 'Chimney restoration — 6 buildings' },
+        qty: { ar: '20 وحدة', en: '20 units' }
+      }
     ],
     achievements: {
       ar: [
@@ -395,31 +441,48 @@ window.PROJECTS = [
     gallery: [
       {
         src: 'assets/images/projects/maan-1.webp',
-        alt: { ar: 'مبنى المحطة الحجري المكوّن من طابقين بسقف القرميد الأحمر بعد الترميم في معان', en: 'The two-storey stone station building with its red tile roof after restoration, Ma’an' }
+        alt: {
+          ar: 'مبنى المحطة الحجري المكوّن من طابقين بسقف القرميد الأحمر بعد الترميم في معان',
+          en: 'The two-storey stone station building with its red tile roof after restoration, Ma’an'
+        }
       },
       {
         src: 'assets/images/projects/maan-4.webp',
-        alt: { ar: 'منظر علوي لمجمّع المحطة خلال أعمال ترميم السقف', en: 'Elevated view of the station complex during roof restoration' }
+        alt: {
+          ar: 'منظر علوي لمجمّع المحطة خلال أعمال ترميم السقف',
+          en: 'Elevated view of the station complex during roof restoration'
+        }
       },
       {
         src: 'assets/images/projects/maan-2.webp',
-        alt: { ar: 'مبنى المحطة تحيط به السقالات في أثناء الترميم', en: 'The station building wrapped in scaffolding during restoration' }
+        alt: {
+          ar: 'مبنى المحطة تحيط به السقالات في أثناء الترميم',
+          en: 'The station building wrapped in scaffolding during restoration'
+        }
       },
       {
         src: 'assets/images/projects/maan-3.webp',
-        alt: { ar: 'أحد مباني المجمّع بسقف قرميد جديد وساحات مرصوفة', en: 'One of the complex buildings with a new tile roof and paved surroundings' }
+        alt: {
+          ar: 'أحد مباني المجمّع بسقف قرميد جديد وساحات مرصوفة',
+          en: 'One of the complex buildings with a new tile roof and paved surroundings'
+        }
       },
       {
         src: 'assets/images/projects/maan-5.webp',
-        alt: { ar: 'واجهة مبنى المحطة الحجرية بعد اكتمال الأعمال', en: 'The stone façade of the station building after completion' }
+        alt: {
+          ar: 'واجهة مبنى المحطة الحجرية بعد اكتمال الأعمال',
+          en: 'The stone façade of the station building after completion'
+        }
       },
       {
         src: 'assets/images/projects/maan-6.webp',
-        alt: { ar: 'مبنى المحطة خلال أعمال الترميم والسقالات', en: 'The station building during restoration works and scaffolding' }
+        alt: {
+          ar: 'مبنى المحطة خلال أعمال الترميم والسقالات',
+          en: 'The station building during restoration works and scaffolding'
+        }
       }
     ]
   },
-
   /* ------------------------------------------------------------------ 04 */
   {
     id: 'sharif-hussein-house',
@@ -490,9 +553,27 @@ window.PROJECTS = [
       ]
     },
     boq: [
-      { item: { ar: 'ترميم الواجهات الحجرية والتكحيل، داخلياً وخارجياً', en: 'Stone façade restoration and repointing, internal and external' }, qty: { ar: '1,500 م²', en: '1,500 m²' } },
-      { item: { ar: 'توريد وتركيب حجارة غشيمة (جرانيت) مطابقة للقائم', en: 'Supply and installation of rough-dressed granite matching existing' }, qty: { ar: '40 م²', en: '40 m²' } },
-      { item: { ar: 'ترميم الواجهات الخرسانية الخارجية (إعادة القصارة) والواجهات الداخلية', en: 'External concrete façade restoration (re-plastering) and internal façades' }, qty: { ar: '185 م²', en: '185 m²' } }
+      {
+        item: {
+          ar: 'ترميم الواجهات الحجرية والتكحيل، داخلياً وخارجياً',
+          en: 'Stone façade restoration and repointing, internal and external'
+        },
+        qty: { ar: '1,500 م²', en: '1,500 m²' }
+      },
+      {
+        item: {
+          ar: 'توريد وتركيب حجارة غشيمة (جرانيت) مطابقة للقائم',
+          en: 'Supply and installation of rough-dressed granite matching existing'
+        },
+        qty: { ar: '40 م²', en: '40 m²' }
+      },
+      {
+        item: {
+          ar: 'ترميم الواجهات الخرسانية الخارجية (إعادة القصارة) والواجهات الداخلية',
+          en: 'External concrete façade restoration (re-plastering) and internal façades'
+        },
+        qty: { ar: '185 م²', en: '185 m²' }
+      }
     ],
     achievements: {
       ar: [
@@ -518,19 +599,27 @@ window.PROJECTS = [
     gallery: [
       {
         src: 'assets/images/projects/aqaba-1.webp',
-        alt: { ar: 'واجهة بيت الشريف حسين بن علي الحجرية بنوافذها المقوّسة مضاءة ليلاً', en: 'The stone façade of the House of Al-Sharif Hussein bin Ali with its arched windows, lit at night' }
+        alt: {
+          ar: 'واجهة بيت الشريف حسين بن علي الحجرية بنوافذها المقوّسة مضاءة ليلاً',
+          en: 'The stone façade of the House of Al-Sharif Hussein bin Ali with its arched windows, lit at night'
+        }
       },
       {
         src: 'assets/images/projects/aqaba-2.webp',
-        alt: { ar: 'قاعة العرض المتحفية داخل البيت بعد إعادة التأهيل', en: 'The museum display hall inside the house after rehabilitation' }
+        alt: {
+          ar: 'قاعة العرض المتحفية داخل البيت بعد إعادة التأهيل',
+          en: 'The museum display hall inside the house after rehabilitation'
+        }
       },
       {
         src: 'assets/images/projects/aqaba-3.webp',
-        alt: { ar: 'مدخل البيت بسقفه الخشبي وجدرانه الحجرية ودرجاته ليلاً', en: 'The entrance with its timber ceiling, stone walls and steps at night' }
+        alt: {
+          ar: 'مدخل البيت بسقفه الخشبي وجدرانه الحجرية ودرجاته ليلاً',
+          en: 'The entrance with its timber ceiling, stone walls and steps at night'
+        }
       }
     ]
   },
-
   /* ------------------------------------------------------------------ 05 */
   {
     id: 'beit-ras-theatre',
@@ -539,10 +628,7 @@ window.PROJECTS = [
     ongoing: false,
     site: { ar: 'المسرح الروماني في بيت رأس', en: 'Roman Theatre of Beit Ras' },
     title: { ar: 'مشروع صون مسرح بيت رأس', en: 'Beit Ras Theatre Conservation Project' },
-    location: {
-      ar: 'المسرح الروماني في بيت رأس، محافظة إربد',
-      en: 'Roman Theatre of Beit Ras, Irbid Governorate'
-    },
+    location: { ar: 'المسرح الروماني في بيت رأس، محافظة إربد', en: 'Roman Theatre of Beit Ras, Irbid Governorate' },
     period: { ar: '16 نيسان – 17 أيلول 2024', en: '16 April – 17 September 2024' },
     summary: {
       ar: 'يُعد المسرح الروماني في بيت رأس، مدينة كابيتولياس القديمة، من المعالم الكلاسيكية المهمة في شمال الأردن.',
@@ -624,23 +710,38 @@ window.PROJECTS = [
     gallery: [
       {
         src: 'assets/images/projects/beitras-1.webp',
-        alt: { ar: 'منظر عام للمسرح الروماني في بيت رأس خلال أعمال الصون، وتظهر البلدة في الخلفية', en: 'Overview of the Roman theatre at Beit Ras during conservation works, with the town behind' }
+        alt: {
+          ar: 'منظر عام للمسرح الروماني في بيت رأس خلال أعمال الصون، وتظهر البلدة في الخلفية',
+          en: 'Overview of the Roman theatre at Beit Ras during conservation works, with the town behind'
+        }
       },
       {
         src: 'assets/images/projects/beitras-5.webp',
-        alt: { ar: 'زوّار يستخدمون الدرج المعدني الجديد المؤدي إلى مدرجات المسرح', en: 'Visitors using the new steel staircase leading to the theatre seating' }
+        alt: {
+          ar: 'زوّار يستخدمون الدرج المعدني الجديد المؤدي إلى مدرجات المسرح',
+          en: 'Visitors using the new steel staircase leading to the theatre seating'
+        }
       },
       {
         src: 'assets/images/projects/beitras-2.webp',
-        alt: { ar: 'ممر معدني جديد بمحاذاة المدرجات الحجرية', en: 'A new steel walkway alongside the stone seating' }
+        alt: {
+          ar: 'ممر معدني جديد بمحاذاة المدرجات الحجرية',
+          en: 'A new steel walkway alongside the stone seating'
+        }
       },
       {
         src: 'assets/images/projects/beitras-3.webp',
-        alt: { ar: 'درجات حجرية مرمّمة ولوحة تفسيرية في الموقع', en: 'Restored stone steps and an interpretation panel on site' }
+        alt: {
+          ar: 'درجات حجرية مرمّمة ولوحة تفسيرية في الموقع',
+          en: 'Restored stone steps and an interpretation panel on site'
+        }
       },
       {
         src: 'assets/images/projects/beitras-4.webp',
-        alt: { ar: 'المسرح من الأعلى خلال الأعمال مع رافعة في الموقع', en: 'The theatre from above during works, with a crane on site' }
+        alt: {
+          ar: 'المسرح من الأعلى خلال الأعمال مع رافعة في الموقع',
+          en: 'The theatre from above during works, with a crane on site'
+        }
       }
     ]
   }
