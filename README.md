@@ -8,57 +8,41 @@ Plain HTML, CSS and vanilla JavaScript — no build step, no frameworks.
 ## Structure
 
 ```
-index.html          Page markup (one page, sections: hero, about, projects, contact)
+index.html          Page markup: hero, about, vision & mission, expertise, materials,
+                    methodology, projects, team, partners, contact
 404.html            Bilingual "page not found" page
 css/style.css       All styles (mobile-first, RTL/LTR via logical properties)
-js/i18n.js          All Arabic / English text
-js/projects.js      The project list (edit this to add or change projects)
-js/main.js          Behaviour: language toggle, menu, filters, modal, form
-assets/images/      Logo, favicons, hero, share image, project photos
+js/i18n.js          All Arabic / English text for the fixed sections
+js/projects.js      The five key projects (text, figures, quantities, photos)
+js/content.js       Key personnel (TEAM) and partner logos (PARTNERS)
+js/main.js          Behaviour: language toggle, menu, project cards & modal, team, partners, form
+assets/images/
+  hero.webp, og-image.jpg, logos, favicons
+  site/             Section photos (about, vision, expertise, materials, methodology, team)
+  projects/         Project photos (<project>-1.webp, -2.webp, ...)
+  partners/         Partner logos
 ```
 
-## Adding a project
+All content and photographs come from the *Tarmeem Center Portfolio 2026* PDF.
 
-Everything about a project lives in **one file: `js/projects.js`**.
+## Adding or editing a project
 
-1. Prepare the photos and put them in `assets/images/projects/`:
-   - `my-project-cover.webp` — 3:2 crop for the card (e.g. 1200×800 px)
-   - `my-project-1.webp`, `my-project-2.webp`, … — full photos for the gallery
-   - Use **WebP**, lowercase file names, no spaces. Keep each image under ~300 KB.
-     Free converters: [Squoosh](https://squoosh.app) (in the browser) or any image editor's "Export as WebP".
-2. Open `js/projects.js`, copy one of the existing `{ … }` blocks and paste it into the list
-   (order in the file = order on the site).
-3. Fill in the fields:
+Everything about a project lives in **`js/projects.js`** - the comment at the top of the file
+documents every field. Each text field is bilingual (`{ ar: '...', en: '...' }`) and list fields
+(cooperation, objectives, works, achievements) are `{ ar: [...], en: [...] }`.
+`boq` (bill of quantities) and `figures` (key numbers) are optional.
 
-```js
-{
-  id: 'my-project',                   // unique, letters/numbers/dashes only
-  category: 'restoration',            // restoration | documentation | education | exhibitions
-  year: '2024',                       // text, e.g. '2019-2021'
-  title:       { ar: 'العنوان بالعربية', en: 'English title' },
-  location:    { ar: 'المدينة، الدولة', en: 'City, Country' },
-  description: { ar: 'الفقرة الأولى.\n\nالفقرة الثانية.', en: 'First paragraph.\n\nSecond paragraph.' },
-  cover: {
-    src: 'assets/images/projects/my-project-cover.webp',
-    alt: { ar: 'وصف الصورة', en: 'Description of the photo' }
-  },
-  gallery: [
-    { src: 'assets/images/projects/my-project-1.webp', alt: { ar: '…', en: '…' } },
-    { src: 'assets/images/projects/my-project-2.webp', alt: { ar: '…', en: '…' } }
-  ]
-}
-```
+Photos: WebP, lowercase names, no spaces, ideally under ~300 KB, in `assets/images/projects/`.
+The first gallery image is usually the same as the cover.
 
-4. Save, then redeploy (below). To remove a project, delete its block (and its images).
+## Editing other text
 
-## Editing text
-
-- Site text (navigation, headings, contact labels, mission/vision, footer): `js/i18n.js`.
-  Every key exists twice, once under `ar:` and once under `en:` — change both.
-- Contact e-mail, phone and social links: `index.html`, section `<!-- CONTACT -->`.
-- Key numbers (projects, years, sites): `index.html`, the `data-stat-value` attributes in the About section.
-
-Text in `[square brackets]` is a placeholder that still needs real content.
+- Section text (hero, about, vision & mission, expertise, materials, methodology, contact, footer):
+  `js/i18n.js` - every key exists under `ar:` and `en:`; change both.
+- Team members and partners: `js/content.js`.
+- Contact e-mail, phone, website and map link: `index.html`, section `<!-- CONTACT -->` (and the footer).
+- Key numbers: `index.html`, the `data-stat-value` attributes in the About section
+  (`data-stat-static` stops a value - such as a year - from counting up).
 
 ## Redeploying
 
@@ -87,4 +71,5 @@ python -m http.server 8000
 - [ ] File names are lowercase with no spaces (GitHub Pages is case-sensitive).
 - [ ] All paths are relative (`assets/images/...`, never `/assets/...`).
 - [ ] Every image has Arabic and English `alt` text.
+- [ ] Partner logos go in `assets/images/partners/` and are listed in `js/content.js`.
 - [ ] Images are WebP and under ~300 KB; share image `assets/images/og-image.jpg` is 1200×630.

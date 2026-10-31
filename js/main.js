@@ -1,6 +1,7 @@
 /* =============================================================================
    main.js - behaviour for the Tarmeem Center website.
-   Depends on js/i18n.js (window.I18n) and js/projects.js (window.PROJECTS).
+   Depends on js/i18n.js (window.I18n), js/projects.js (window.PROJECTS)
+   and js/content.js (window.TEAM, window.PARTNERS).
    ============================================================================ */
 (function () {
   'use strict';
@@ -9,8 +10,9 @@
   var root = doc.documentElement;
   var I18n = window.I18n;
   var PROJECTS = Array.isArray(window.PROJECTS) ? window.PROJECTS : [];
-  var CATEGORIES = ['restoration', 'documentation', 'education', 'exhibitions'];
-  var DESKTOP_QUERY = '(min-width: 900px)';
+  var TEAM = Array.isArray(window.TEAM) ? window.TEAM : [];
+  var PARTNERS = window.PARTNERS || { international: [], national: [] };
+  var DESKTOP_QUERY = '(min-width: 1100px)';
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var motionOK = function () { return !reduceMotion.matches; };
@@ -99,10 +101,17 @@
     var links = qsa('.site-nav__link[data-nav]');
     if (!links.length || !('IntersectionObserver' in window)) { return; }
 
+    /* sections without their own nav link highlight the closest parent topic */
     var sections = [
       { id: 'top', node: qs('.hero') },
       { id: 'about', node: qs('#about') },
+      { id: 'about', node: qs('#vision') },
+      { id: 'expertise', node: qs('#expertise') },
+      { id: 'expertise', node: qs('#materials') },
+      { id: 'expertise', node: qs('#methodology') },
       { id: 'projects', node: qs('#projects') },
+      { id: 'team', node: qs('#team') },
+      { id: 'partners', node: qs('#partners') },
       { id: 'contact', node: qs('#contact') }
     ].filter(function (s) { return s.node; });
 
@@ -179,7 +188,7 @@
       var suffix = node.getAttribute('data-stat-suffix') || '';
       var target = /^\d+$/.test(raw) ? parseInt(raw, 10) : NaN;
 
-      if (isNaN(target) || !motionOK()) {
+      if (isNaN(target) || !motionOK() || node.hasAttribute('data-stat-static')) {
         node.textContent = raw + suffix;
         return;
       }
@@ -212,41 +221,17 @@
 
   /* --------------------------------------------------------------- projects */
 
-  var projectState = { filter: 'all' };
-  var filtersNode = qs('#project-filters');
   var gridNode = qs('#project-grid');
-  var emptyNode = qs('#projects-empty');
-  var statusNode = qs('#projects-status');
 
-  function categoryLabel(category) { return I18n.t('category.' + category); }
-
-  function renderFilters() {
-    if (!filtersNode) { return; }
-    filtersNode.textContent = '';
-    ['all'].concat(CATEGORIES).forEach(function (key) {
-      var active = projectState.filter === key;
-      var chip = el('button', {
-        type: 'button',
-        class: 'chip',
-        'data-filter': key,
-        'aria-pressed': active ? 'true' : 'false',
-        text: key === 'all' ? I18n.t('filters.all') : categoryLabel(key)
-      });
-      chip.addEventListener('click', function () {
-        if (projectState.filter === key) { return; }
-        projectState.filter = key;
-        qsa('.chip', filtersNode).forEach(function (c) {
-          c.setAttribute('aria-pressed', c.getAttribute('data-filter') === key ? 'true' : 'false');
-        });
-        renderProjects();
-      });
-      filtersNode.appendChild(chip);
-    });
+  function pickList(obj) {
+    var value = I18n.pick(obj);
+    return Array.isArray(value) ? value : [];
   }
 
   function buildCard(project, index) {
     var title = I18n.pick(project.title);
     var cover = project.cover || {};
+    var photoCount = (project.gallery && project.gallery.length) || 1;
 
     var img = el('img', {
       src: cover.src || '',
@@ -267,48 +252,149 @@
     });
     trigger.addEventListener('click', function () { openProject(project.id, trigger); });
 
+    var badges = el('div', { class: 'project-card__badges' }, [
+      el('span', { class: 'project-card__badge project-card__badge--num', text: project.number || '' }),
+      project.ongoing ? el('span', { class: 'project-card__badge project-card__badge--live', text: I18n.t('projects.ongoing') }) : null
+    ]);
+
+    var photos = el('span', { class: 'project-card__photos', 'aria-hidden': 'true' }, [
+      cameraIcon(),
+      I18n.t('projects.photos', { count: photoCount })
+    ]);
+
+    var meta = el('p', { class: 'project-card__meta' }, [
+      el('span', { text: I18n.pick(project.location) }),
+      el('span', { class: 'project-card__dot', 'aria-hidden': 'true', text: '·' }),
+      el('span', { text: project.years || '' })
+    ]);
+
     var cta = el('span', { class: 'project-card__cta', 'aria-hidden': 'true' }, [
       el('span', { text: I18n.t('projects.viewDetails') }),
       cloneTemplate('tpl-icon-arrow')
     ]);
 
-    var meta = el('p', { class: 'project-card__meta' }, [
-      el('span', { text: I18n.pick(project.location) }),
-      el('span', { class: 'project-card__dot', 'aria-hidden': 'true', text: '\u00B7' }),
-      el('span', { text: project.year || '' })
-    ]);
-
     var card = el('article', { class: 'project-card' }, [
-      el('div', { class: 'project-card__media' }, [
-        img,
-        el('span', { class: 'project-card__badge', text: categoryLabel(project.category) })
-      ]),
+      el('div', { class: 'project-card__media' }, [img, badges, photos]),
       el('div', { class: 'project-card__body' }, [
+        el('p', { class: 'project-card__kicker', text: I18n.pick(project.site) }),
         el('h3', { class: 'project-card__title' }, trigger),
         meta,
+        el('p', { class: 'project-card__summary', text: I18n.pick(project.summary) }),
         cta
       ])
     ]);
 
     var item = el('li', { class: 'project-grid__item reveal' }, card);
-    item.style.setProperty('--i', String(index));
+    item.style.setProperty('--i', String(index % 3));
     return item;
+  }
+
+  function cameraIcon() {
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = doc.createElementNS(ns, 'svg');
+    svg.setAttribute('class', 'icon');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    var path = doc.createElementNS(ns, 'path');
+    path.setAttribute('d', 'M4 8h3l2-3h6l2 3h3v11H4z');
+    var circle = doc.createElementNS(ns, 'circle');
+    circle.setAttribute('cx', '12');
+    circle.setAttribute('cy', '13');
+    circle.setAttribute('r', '3.5');
+    svg.appendChild(path);
+    svg.appendChild(circle);
+    return svg;
   }
 
   function renderProjects() {
     if (!gridNode) { return; }
-    var visible = PROJECTS.filter(function (p) {
-      return projectState.filter === 'all' || p.category === projectState.filter;
+    gridNode.textContent = '';
+    var items = PROJECTS.map(buildCard);
+    items.forEach(function (item) { gridNode.appendChild(item); });
+    observeReveal(items);
+  }
+
+  /* ------------------------------------------------------------------- team */
+
+  function renderTeam() {
+    var grid = qs('#team-grid');
+    if (!grid) { return; }
+    grid.textContent = '';
+
+    var items = TEAM.map(function (person, index) {
+      var education = el('ol', { class: 'edu' }, (person.education || []).map(function (entry) {
+        return el('li', { class: 'edu__item' }, [
+          el('span', { class: 'edu__year', text: entry.year }),
+          el('span', { class: 'edu__text' }, [
+            el('strong', { text: I18n.pick(entry.title) }),
+            el('span', { text: I18n.pick(entry.place) })
+          ])
+        ]);
+      }));
+
+      var details = el('details', { class: 'person__more' }, [
+        el('summary', null, [
+          el('span', { text: I18n.t('team.more') }),
+          el('span', { class: 'person__chev', 'aria-hidden': 'true' })
+        ]),
+        el('div', { class: 'person__more-body' }, (person.groups || []).map(function (group) {
+          return el('div', { class: 'person__group' }, [
+            el('h4', { class: 'person__label', text: I18n.pick(group.title) }),
+            el('ul', { class: 'ticks' }, pickList(group.items).map(function (text) {
+              return el('li', { text: text });
+            }))
+          ]);
+        }))
+      ]);
+
+      var card = el('article', { class: 'person' }, [
+        el('header', { class: 'person__head' }, [
+          el('span', { class: 'person__avatar', 'aria-hidden': 'true', text: I18n.pick(person.initials) }),
+          el('div', null, [
+            el('h3', { class: 'person__name', text: I18n.pick(person.name) }),
+            el('p', { class: 'person__role', text: I18n.pick(person.role) })
+          ])
+        ]),
+        el('p', { class: 'person__bio', text: I18n.pick(person.bio) }),
+        person.roleAt ? el('p', { class: 'person__roleat' }, [
+          el('strong', { text: I18n.t('team.roleAt') }),
+          el('span', { text: I18n.pick(person.roleAt) })
+        ]) : null,
+        el('h4', { class: 'person__label', text: I18n.t('team.education') }),
+        education,
+        details
+      ]);
+
+      var li = el('li', { class: 'team__item reveal' }, card);
+      li.style.setProperty('--i', String(index));
+      return li;
     });
 
-    gridNode.textContent = '';
-    var items = visible.map(buildCard);
-    items.forEach(function (item) { gridNode.appendChild(item); });
-
-    if (emptyNode) { emptyNode.hidden = visible.length > 0; }
-    if (statusNode) { statusNode.textContent = I18n.t('projects.status', { count: visible.length }); }
-
+    items.forEach(function (item) { grid.appendChild(item); });
     observeReveal(items);
+  }
+
+  /* --------------------------------------------------------------- partners */
+
+  function renderPartners() {
+    ['international', 'national'].forEach(function (group) {
+      var list = qs('#partners-' + group);
+      if (!list) { return; }
+      list.textContent = '';
+      (PARTNERS[group] || []).forEach(function (partner) {
+        var name = I18n.pick(partner.name);
+        list.appendChild(el('li', { class: 'partner' }, [
+          el('span', { class: 'partner__logo' }, el('img', {
+            src: 'assets/images/partners/' + partner.logo + '.webp',
+            alt: name,
+            loading: 'lazy',
+            decoding: 'async'
+          })),
+          el('span', { class: 'partner__name', 'aria-hidden': 'true', text: name })
+        ]));
+      });
+    });
   }
 
   /* ------------------------------------------------------------------ modal */
@@ -323,12 +409,14 @@
       prev: qs('#gallery-prev'),
       next: qs('#gallery-next'),
       counter: qs('#gallery-counter'),
+      alt: qs('#gallery-alt'),
       thumbs: qs('#gallery-thumbs'),
-      category: qs('#modal-category'),
+      kicker: qs('#modal-kicker'),
       title: qs('#modal-title'),
-      location: qs('#modal-location'),
-      year: qs('#modal-year'),
-      description: qs('#modal-description')
+      meta: qs('#modal-meta'),
+      summary: qs('#modal-summary'),
+      figures: qs('#modal-figures'),
+      sections: qs('#modal-sections')
     };
   }
 
@@ -344,10 +432,14 @@
     var current = images[index];
     n.image.src = current.src || '';
     n.image.alt = I18n.pick(current.alt);
+    n.alt.textContent = I18n.pick(current.alt);
     n.counter.textContent = I18n.t('modal.counter', { current: index + 1, total: images.length });
 
     qsa('button', n.thumbs).forEach(function (btn, i) {
       btn.setAttribute('aria-pressed', i === index ? 'true' : 'false');
+      if (i === index && btn.scrollIntoView && isModalOpen()) {
+        btn.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      }
     });
 
     var single = images.length < 2;
@@ -362,20 +454,74 @@
     }
   }
 
+  function listSection(titleKey, items, modifier) {
+    if (!items.length) { return null; }
+    return el('section', { class: 'modal__section' + (modifier ? ' modal__section--' + modifier : '') }, [
+      el('h3', { class: 'modal__section-title', text: I18n.t(titleKey) }),
+      el('ul', { class: 'ticks' + (modifier === 'achievements' ? ' ticks--check' : '') }, items.map(function (text) {
+        return el('li', { text: text });
+      }))
+    ]);
+  }
+
+  function boqSection(rows) {
+    if (!rows || !rows.length) { return null; }
+    return el('section', { class: 'modal__section' }, [
+      el('h3', { class: 'modal__section-title', text: I18n.t('modal.boq') }),
+      el('div', { class: 'boq' }, el('table', null, [
+        el('thead', null, el('tr', null, [
+          el('th', { scope: 'col', text: I18n.t('modal.boqItem') }),
+          el('th', { scope: 'col', text: I18n.t('modal.boqQty') })
+        ])),
+        el('tbody', null, rows.map(function (row) {
+          return el('tr', null, [
+            el('td', { text: I18n.pick(row.item) }),
+            el('td', { class: 'boq__qty', text: I18n.pick(row.qty) })
+          ]);
+        }))
+      ]))
+    ]);
+  }
+
   function renderModal() {
     var project = modalState.project;
     if (!project) { return; }
     var n = modalNodes();
 
-    n.category.textContent = categoryLabel(project.category);
+    n.kicker.textContent = I18n.t('modal.project', { number: project.number || '' })
+      + (project.ongoing ? ' · ' + I18n.t('projects.ongoing') : '');
     n.title.textContent = I18n.pick(project.title);
-    n.location.textContent = I18n.pick(project.location);
-    n.year.textContent = project.year || '';
 
-    n.description.textContent = '';
-    String(I18n.pick(project.description)).split(/\n\s*\n/).forEach(function (paragraph) {
-      if (paragraph.trim()) { n.description.appendChild(el('p', { text: paragraph.trim() })); }
+    n.meta.textContent = '';
+    [['modal.location', project.location], ['modal.period', project.period], ['modal.value', project.value]]
+      .forEach(function (pair) {
+        var value = I18n.pick(pair[1]);
+        if (!value) { return; }
+        n.meta.appendChild(el('div', { class: 'modal__meta-item' }, [
+          el('dt', { text: I18n.t(pair[0]) }),
+          el('dd', { text: value })
+        ]));
+      });
+
+    n.summary.textContent = I18n.pick(project.summary);
+
+    n.figures.textContent = '';
+    (project.figures || []).forEach(function (figure) {
+      n.figures.appendChild(el('li', { class: 'modal__figure' }, [
+        el('strong', { dir: 'ltr', text: figure.value }),
+        el('span', { text: I18n.pick(figure.label) })
+      ]));
     });
+    n.figures.hidden = !(project.figures && project.figures.length);
+
+    n.sections.textContent = '';
+    [
+      listSection('modal.cooperation', pickList(project.cooperation)),
+      listSection('modal.objectives', pickList(project.objectives)),
+      listSection('modal.works', pickList(project.works)),
+      boqSection(project.boq),
+      listSection('modal.achievements', pickList(project.achievements), 'achievements')
+    ].forEach(function (section) { if (section) { n.sections.appendChild(section); } });
 
     modalState.images = (project.gallery && project.gallery.length) ? project.gallery : [project.cover];
 
@@ -431,7 +577,7 @@
   function onModalClosed() {
     doc.body.classList.remove('modal-open');
     var n = modalNodes();
-    if (n.image) { n.image.removeAttribute('src'); }
+    if (n.image) { n.image.src = 'data:,'; }
     var trigger = modalState.trigger;
     modalState.project = null;
     modalState.trigger = null;
@@ -519,8 +665,9 @@
   /* ------------------------------------------------------------------- boot */
 
   function onLangChange() {
-    renderFilters();
     renderProjects();
+    renderTeam();
+    renderPartners();
     if (isModalOpen()) { renderModal(); }
   }
 
