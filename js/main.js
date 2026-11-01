@@ -793,15 +793,22 @@
     }, svgIcon('M12 19V5M6 11l6-6 6 6'));
     doc.body.appendChild(btn);
 
-    var onScroll = function () { btn.classList.toggle('is-visible', window.scrollY > 300); };
+    var scrollTop = function () {
+      return window.pageYOffset || doc.documentElement.scrollTop || doc.body.scrollTop || 0;
+    };
+    var onScroll = function () { btn.classList.toggle('is-visible', scrollTop() > 300); };
     onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+    ['scroll', 'touchmove', 'resize', 'orientationchange'].forEach(function (type) {
+      window.addEventListener(type, onScroll, { passive: true });
+    });
+    window.addEventListener('load', onScroll);
 
     btn.addEventListener('click', function (event) {
       event.preventDefault();
-      window.scrollTo({ top: 0, behavior: motionOK() ? 'smooth' : 'auto' });
-      var skip = qs('.skip-link');
-      if (skip) { skip.focus({ preventScroll: true }); }
+      try { window.scrollTo({ top: 0, behavior: motionOK() ? 'smooth' : 'auto' }); }
+      catch (e) { window.scrollTo(0, 0); }
+      if (scrollTop() > 0 && !('scrollBehavior' in doc.documentElement.style)) { window.scrollTo(0, 0); }
+      btn.blur();
     });
   }
 
@@ -816,15 +823,21 @@
     if (isModalOpen()) { renderModal(); }
   }
 
+  /* Each part starts on its own, so a problem in one (e.g. an older phone
+     browser missing a feature) cannot stop the others from working. */
+  function safe(fn) {
+    try { fn(); } catch (e) { if (window.console) { console.error(e); } }
+  }
+
   function init() {
-    initLanguage();            /* triggers 'langchange' -> first render */
-    initHeader();
-    initReveal();
-    initStats();
-    initModal();
-    initContactForm();
-    initFooter();
-    initToTop();
+    safe(initLanguage);        /* triggers 'langchange' -> first render */
+    safe(initHeader);
+    safe(initToTop);
+    safe(initReveal);
+    safe(initStats);
+    safe(initModal);
+    safe(initContactForm);
+    safe(initFooter);
   }
 
   doc.addEventListener('langchange', onLangChange);
