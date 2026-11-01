@@ -33,137 +33,8 @@
 window.PROJECTS = [
   /* ------------------------------------------------------------------ 01 */
   {
-    id: 'al-matan',
-    number: '01',
-    years: '2017–2020',
-    ongoing: false,
-    site: { ar: 'قرية المعطن التراثية', en: 'Al Matan Heritage Village' },
-    title: {
-      ar: 'قيمة التراث محرّكاً للنمو الاقتصادي عبر السياحة المجتمعية التشاركية',
-      en: 'Heritage Value as a Driver for Economic Growth through Participatory Community-Based Tourism'
-    },
-    location: { ar: 'قرية المعطن التراثية، محافظة الطفيلة', en: 'Al Matan Heritage Village, Tafileh Governorate' },
-    period: { ar: '1 تشرين الثاني 2017 – 30 حزيران 2020', en: '1 November 2017 – 30 June 2020' },
-    value: { ar: '196,000 دينار أردني', en: '196,000 JOD' },
-    summary: {
-      ar: 'هُجرت قرية المعطن في ثمانينيات القرن الماضي حين انتقل سكانها إلى قرية عين البيضا المجاورة. وقد سكنها الأدوميون منذ القرن الحادي عشر قبل الميلاد ثم الأنباط، وعانت عقوداً من التدهور.',
-      en: 'Al Matan was abandoned in the 1980s when its residents relocated to nearby Ain Al Bayda. Inhabited by the Edomites since the 11th century BC and later by the Nabataeans, the village had suffered decades of deterioration.'
-    },
-    figures: [
-      {
-        value: '150+',
-        label: { ar: 'فرداً من المجتمع المحلي شاركوا في التنفيذ', en: 'community members engaged' }
-      },
-      { value: '50+', label: { ar: 'متدرباً في ورش موقعية', en: 'trained on site' } },
-      { value: '~500 m²', label: { ar: 'خمسة بيوت تراثية مرمّمة', en: 'five heritage houses restored' } }
-    ],
-    cooperation: {
-      ar: [
-        'بتمويل من سفارة مملكة هولندا (عقد وزارة الخارجية رقم 4000000869).',
-        'شركاء محليون: جمعية البقيعة التعاونية للسياحة، وجمعية همتنا غير.',
-        'بمتابعة وزارة الصناعة والتجارة، ووزارة السياحة والآثار، ووزارة الثقافة.'
-      ],
-      en: [
-        'Funded by the Embassy of the Kingdom of the Netherlands.',
-        'Local partners: Al-Baqee’a Cooperative Society for Tourism; Himmitna Ghair NGO.',
-        'Monitored by the Ministry of Industry and Trade, the Ministry of Tourism and Antiquities, and the Ministry of Culture.'
-      ]
-    },
-    objectives: {
-      ar: [
-        'توظيف التراث محرّكاً للنمو الاقتصادي المستدام في قرية مهجورة.',
-        'تفعيل دور المجتمع المحلي في تنمية السياحة وإدارتها.',
-        'ترميم النسيج التراثي بمواد وحرفية محلية وفق أفضل الممارسات الدولية.',
-        'تطوير نزل بيئية ومسارات سياحية ونموذج تبادل ثقافي تفاعلي.'
-      ],
-      en: [
-        'Use heritage as a driver of sustainable economic growth in an abandoned village.',
-        'Activate the role of the local community in tourism development and management.',
-        'Restore the heritage fabric using local materials and craftsmanship to international best practice.',
-        'Develop eco-lodges, tourism routes and an interactive cultural exchange model.'
-      ]
-    },
-    works: {
-      ar: [
-        'ترميم وإعادة تأهيل كاملة لمجموعة نموذجية من خمسة بيوت تراثية (نحو 500 م²) تشمل الفراغات الداخلية والخارجية والزقاق المؤدي إليها.',
-        'تطبيق ممارسات البناء الأخضر لتوفير التبريد والإضاءة الطبيعيين وخفض كلف التشغيل.',
-        'بنية تحتية جديدة تشمل شبكة منفصلة للمياه السوداء والرمادية لجميع البيوت.',
-        'إعداد دليل باللغة العربية للترميم وإعادة التأهيل مورداً للمجتمع المحلي.',
-        'برنامج توثيق بمشاركة طلبة الجامعات، وتوسيع الطريق المؤدي للموقع وتنظيفه.',
-        'ورش تدريب موقعية لأكثر من 50 فرداً من المجتمع المحلي في الترميم وصيانة الموقع والتشغيل والسياحة التجريبية والإشراف الفندقي والإرشاد السياحي.',
-        'تطوير نموذج السياحة المجتمعية مع جمعية همتنا غير، وتثبيته بعقد تشغيل موقّع بين الجمعيتين المحليتين.',
-        'خطة تشغيلية متكاملة، وهوية للوجهة السياحية، وموقع إلكتروني وتطبيق للهواتف.'
-      ],
-      en: [
-        'Full restoration and rehabilitation of a model cluster of five heritage houses (~500 m²), including indoor and outdoor spaces and the main alley leading to the cluster.',
-        'Green building practices delivering natural cooling and lighting to reduce operational costs.',
-        'New site infrastructure including a separate network for black and grey water across all houses.',
-        'Development of an Arabic-language manual for restoration and rehabilitation as a community resource.',
-        'Documentation programme engaging university students; access route widened and cleared.',
-        'On-site training workshops for more than 50 community members in restoration, site maintenance, operations, experiential tourism, housekeeping and tour guiding.',
-        'Community-Based Tourism model developed with Himmitna Ghair, formalised in a signed operating contract between the two local NGOs.',
-        'Full operational plan, destination branding, website and mobile application.'
-      ]
-    },
-    achievements: {
-      ar: [
-        'ترشّح ضمن القائمة القصيرة لجائزة إيكروم–الشارقة للممارسات الجيدة في صون التراث الثقافي.',
-        'أول مشروع من نوعه في الأردن ينفّذ الترميم وإعادة التأهيل عبر إشراك المجتمع المحلي.',
-        'إشراك أكثر من 150 فرداً من المجتمع المحلي في التنفيذ، واستشارة 100 فرد في تصميم الوجهة، وتشغيل أكثر من 40 عاملاً محلياً.',
-        'الحصول على رخصة تشغيل كاملة من وزارة السياحة، وتسجيل 24 موظفاً في الضمان الاجتماعي لدى الجمعية المشغّلة.',
-        'إدراج المشروع في خطة العمل الوطنية للنمو الأخضر 2021–2025، والتوصية باعتماده نموذجاً قابلاً للتوسع في قرى تراثية أخرى.',
-        'تأمين منحة أوروبية لاحقة بقيمة 30,000 يورو للجمعية المشغّلة، ودعم إضافي من مؤسسة ولي العهد والديوان الملكي.',
-        'اختيار الموقع من الهيئة الملكية للأفلام موقعاً للتصوير، بعائد تجاوز 12,000 دينار للمجتمع المحلي وتشغيل 25 شخصاً و9 نساء من القرية.',
-        'زيارة رفيعة المستوى من الديوان الملكي ووزارة السياحة والآثار بتاريخ 22 شباط 2020.',
-        'إدراج القرية على درب الأردن السياحي، وثلاث منشورات علمية منها مقال في مجلة علم الآثار في الأردن الصادرة عن أكور.'
-      ],
-      en: [
-        'Shortlisted for the ICCROM-Sharjah Award for Good Practices in Cultural Heritage Conservation.',
-        'First project of its kind in Jordan to deliver restoration and rehabilitation through community engagement.',
-        'More than 150 community members engaged in delivery; 100 consulted in destination design; over 40 local labourers employed.',
-        'Full operating licence secured from the Ministry of Tourism; 24 employees registered with Social Security under the operating NGO.',
-        'Featured in the Jordan Green Growth National Action Plan 2021–2025 and recommended as an upscaling model for other heritage villages.',
-        '€30,000 EU follow-on grant secured for the operating NGO; further support from the Crown Prince Foundation and the Royal Court.',
-        'Selected by the Royal Film Commission as a shooting location, generating over 12,000 JOD for the community and hiring 25 local people and 9 local women.',
-        'High-level visit by the Royal Court and the Ministry of Tourism and Antiquities, 22 February 2020.',
-        'Listed on the Jordan Tourism Trail; three academic publications including an article in Archaeology in Jordan (ACOR).'
-      ]
-    },
-    cover: {
-      src: 'assets/images/projects/almatan-3.webp',
-      alt: {
-        ar: 'عمّال يرمّمون قوساً حجرياً داخل أحد بيوت قرية المعطن التراثية',
-        en: 'Workers restoring a stone arch inside one of the heritage houses at Al Matan'
-      }
-    },
-    gallery: [
-      {
-        src: 'assets/images/projects/almatan-3.webp',
-        alt: {
-          ar: 'عمّال يرمّمون قوساً حجرياً داخل أحد بيوت قرية المعطن التراثية',
-          en: 'Workers restoring a stone arch inside one of the heritage houses at Al Matan'
-        }
-      },
-      {
-        src: 'assets/images/projects/almatan-1.webp',
-        alt: {
-          ar: 'بيوت قرية المعطن الحجرية على سفح الجبل بين الأشجار',
-          en: 'The stone houses of Al Matan on the hillside among the trees'
-        }
-      },
-      {
-        src: 'assets/images/projects/almatan-2.webp',
-        alt: {
-          ar: 'أربع صور مرقّمة لمجموعة البيوت التراثية في المعطن خلال مراحل الترميم',
-          en: 'Four numbered views of the Al Matan house cluster through the stages of restoration'
-        }
-      }
-    ]
-  },
-  /* ------------------------------------------------------------------ 02 */
-  {
     id: 'qasr-al-mshatta',
-    number: '02',
+    number: '01',
     years: '2019–2026',
     ongoing: true,
     site: { ar: 'قصر المشتى', en: 'Qasr Al-Mshatta' },
@@ -313,6 +184,135 @@ window.PROJECTS = [
         alt: {
           ar: 'أعضاء الفريق يوثّقون حجارة الواجهة المنحوتة',
           en: 'Team members documenting the carved façade stones'
+        }
+      }
+    ]
+  },
+  /* ------------------------------------------------------------------ 02 */
+  {
+    id: 'al-matan',
+    number: '02',
+    years: '2017–2020',
+    ongoing: false,
+    site: { ar: 'قرية المعطن التراثية', en: 'Al Matan Heritage Village' },
+    title: {
+      ar: 'قيمة التراث محرّكاً للنمو الاقتصادي عبر السياحة المجتمعية التشاركية',
+      en: 'Heritage Value as a Driver for Economic Growth through Participatory Community-Based Tourism'
+    },
+    location: { ar: 'قرية المعطن التراثية، محافظة الطفيلة', en: 'Al Matan Heritage Village, Tafileh Governorate' },
+    period: { ar: '1 تشرين الثاني 2017 – 30 حزيران 2020', en: '1 November 2017 – 30 June 2020' },
+    value: { ar: '196,000 دينار أردني', en: '196,000 JOD' },
+    summary: {
+      ar: 'هُجرت قرية المعطن في ثمانينيات القرن الماضي حين انتقل سكانها إلى قرية عين البيضا المجاورة. وقد سكنها الأدوميون منذ القرن الحادي عشر قبل الميلاد ثم الأنباط، وعانت عقوداً من التدهور.',
+      en: 'Al Matan was abandoned in the 1980s when its residents relocated to nearby Ain Al Bayda. Inhabited by the Edomites since the 11th century BC and later by the Nabataeans, the village had suffered decades of deterioration.'
+    },
+    figures: [
+      {
+        value: '150+',
+        label: { ar: 'فرداً من المجتمع المحلي شاركوا في التنفيذ', en: 'community members engaged' }
+      },
+      { value: '50+', label: { ar: 'متدرباً في ورش موقعية', en: 'trained on site' } },
+      { value: '~500 m²', label: { ar: 'خمسة بيوت تراثية مرمّمة', en: 'five heritage houses restored' } }
+    ],
+    cooperation: {
+      ar: [
+        'بتمويل من سفارة مملكة هولندا (عقد وزارة الخارجية رقم 4000000869).',
+        'شركاء محليون: جمعية البقيعة التعاونية للسياحة، وجمعية همتنا غير.',
+        'بمتابعة وزارة الصناعة والتجارة، ووزارة السياحة والآثار، ووزارة الثقافة.'
+      ],
+      en: [
+        'Funded by the Embassy of the Kingdom of the Netherlands.',
+        'Local partners: Al-Baqee’a Cooperative Society for Tourism; Himmitna Ghair NGO.',
+        'Monitored by the Ministry of Industry and Trade, the Ministry of Tourism and Antiquities, and the Ministry of Culture.'
+      ]
+    },
+    objectives: {
+      ar: [
+        'توظيف التراث محرّكاً للنمو الاقتصادي المستدام في قرية مهجورة.',
+        'تفعيل دور المجتمع المحلي في تنمية السياحة وإدارتها.',
+        'ترميم النسيج التراثي بمواد وحرفية محلية وفق أفضل الممارسات الدولية.',
+        'تطوير نزل بيئية ومسارات سياحية ونموذج تبادل ثقافي تفاعلي.'
+      ],
+      en: [
+        'Use heritage as a driver of sustainable economic growth in an abandoned village.',
+        'Activate the role of the local community in tourism development and management.',
+        'Restore the heritage fabric using local materials and craftsmanship to international best practice.',
+        'Develop eco-lodges, tourism routes and an interactive cultural exchange model.'
+      ]
+    },
+    works: {
+      ar: [
+        'ترميم وإعادة تأهيل كاملة لمجموعة نموذجية من خمسة بيوت تراثية (نحو 500 م²) تشمل الفراغات الداخلية والخارجية والزقاق المؤدي إليها.',
+        'تطبيق ممارسات البناء الأخضر لتوفير التبريد والإضاءة الطبيعيين وخفض كلف التشغيل.',
+        'بنية تحتية جديدة تشمل شبكة منفصلة للمياه السوداء والرمادية لجميع البيوت.',
+        'إعداد دليل باللغة العربية للترميم وإعادة التأهيل مورداً للمجتمع المحلي.',
+        'برنامج توثيق بمشاركة طلبة الجامعات، وتوسيع الطريق المؤدي للموقع وتنظيفه.',
+        'ورش تدريب موقعية لأكثر من 50 فرداً من المجتمع المحلي في الترميم وصيانة الموقع والتشغيل والسياحة التجريبية والإشراف الفندقي والإرشاد السياحي.',
+        'تطوير نموذج السياحة المجتمعية مع جمعية همتنا غير، وتثبيته بعقد تشغيل موقّع بين الجمعيتين المحليتين.',
+        'خطة تشغيلية متكاملة، وهوية للوجهة السياحية، وموقع إلكتروني وتطبيق للهواتف.'
+      ],
+      en: [
+        'Full restoration and rehabilitation of a model cluster of five heritage houses (~500 m²), including indoor and outdoor spaces and the main alley leading to the cluster.',
+        'Green building practices delivering natural cooling and lighting to reduce operational costs.',
+        'New site infrastructure including a separate network for black and grey water across all houses.',
+        'Development of an Arabic-language manual for restoration and rehabilitation as a community resource.',
+        'Documentation programme engaging university students; access route widened and cleared.',
+        'On-site training workshops for more than 50 community members in restoration, site maintenance, operations, experiential tourism, housekeeping and tour guiding.',
+        'Community-Based Tourism model developed with Himmitna Ghair, formalised in a signed operating contract between the two local NGOs.',
+        'Full operational plan, destination branding, website and mobile application.'
+      ]
+    },
+    achievements: {
+      ar: [
+        'ترشّح ضمن القائمة القصيرة لجائزة إيكروم–الشارقة للممارسات الجيدة في صون التراث الثقافي.',
+        'أول مشروع من نوعه في الأردن ينفّذ الترميم وإعادة التأهيل عبر إشراك المجتمع المحلي.',
+        'إشراك أكثر من 150 فرداً من المجتمع المحلي في التنفيذ، واستشارة 100 فرد في تصميم الوجهة، وتشغيل أكثر من 40 عاملاً محلياً.',
+        'الحصول على رخصة تشغيل كاملة من وزارة السياحة، وتسجيل 24 موظفاً في الضمان الاجتماعي لدى الجمعية المشغّلة.',
+        'إدراج المشروع في خطة العمل الوطنية للنمو الأخضر 2021–2025، والتوصية باعتماده نموذجاً قابلاً للتوسع في قرى تراثية أخرى.',
+        'تأمين منحة أوروبية لاحقة بقيمة 30,000 يورو للجمعية المشغّلة، ودعم إضافي من مؤسسة ولي العهد والديوان الملكي.',
+        'اختيار الموقع من الهيئة الملكية للأفلام موقعاً للتصوير، بعائد تجاوز 12,000 دينار للمجتمع المحلي وتشغيل 25 شخصاً و9 نساء من القرية.',
+        'زيارة رفيعة المستوى من الديوان الملكي ووزارة السياحة والآثار بتاريخ 22 شباط 2020.',
+        'إدراج القرية على درب الأردن السياحي، وثلاث منشورات علمية منها مقال في مجلة علم الآثار في الأردن الصادرة عن أكور.'
+      ],
+      en: [
+        'Shortlisted for the ICCROM-Sharjah Award for Good Practices in Cultural Heritage Conservation.',
+        'First project of its kind in Jordan to deliver restoration and rehabilitation through community engagement.',
+        'More than 150 community members engaged in delivery; 100 consulted in destination design; over 40 local labourers employed.',
+        'Full operating licence secured from the Ministry of Tourism; 24 employees registered with Social Security under the operating NGO.',
+        'Featured in the Jordan Green Growth National Action Plan 2021–2025 and recommended as an upscaling model for other heritage villages.',
+        '€30,000 EU follow-on grant secured for the operating NGO; further support from the Crown Prince Foundation and the Royal Court.',
+        'Selected by the Royal Film Commission as a shooting location, generating over 12,000 JOD for the community and hiring 25 local people and 9 local women.',
+        'High-level visit by the Royal Court and the Ministry of Tourism and Antiquities, 22 February 2020.',
+        'Listed on the Jordan Tourism Trail; three academic publications including an article in Archaeology in Jordan (ACOR).'
+      ]
+    },
+    cover: {
+      src: 'assets/images/projects/almatan-3.webp',
+      alt: {
+        ar: 'عمّال يرمّمون قوساً حجرياً داخل أحد بيوت قرية المعطن التراثية',
+        en: 'Workers restoring a stone arch inside one of the heritage houses at Al Matan'
+      }
+    },
+    gallery: [
+      {
+        src: 'assets/images/projects/almatan-3.webp',
+        alt: {
+          ar: 'عمّال يرمّمون قوساً حجرياً داخل أحد بيوت قرية المعطن التراثية',
+          en: 'Workers restoring a stone arch inside one of the heritage houses at Al Matan'
+        }
+      },
+      {
+        src: 'assets/images/projects/almatan-1.webp',
+        alt: {
+          ar: 'بيوت قرية المعطن الحجرية على سفح الجبل بين الأشجار',
+          en: 'The stone houses of Al Matan on the hillside among the trees'
+        }
+      },
+      {
+        src: 'assets/images/projects/almatan-2.webp',
+        alt: {
+          ar: 'أربع صور مرقّمة لمجموعة البيوت التراثية في المعطن خلال مراحل الترميم',
+          en: 'Four numbered views of the Al Matan house cluster through the stages of restoration'
         }
       }
     ]
