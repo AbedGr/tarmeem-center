@@ -1664,6 +1664,12 @@ textarea.field__input { resize: vertical; min-height: 8rem; }
 .page-hero .section-lead { max-width: 44rem; }
 .page-hero__title { font-size: var(--text-2xl); }
 
+.page-hero--compact { padding-block: clamp(2.25rem, 5vw, 3.5rem); }
+.page-hero--compact .breadcrumb { margin-block-end: 0.75rem; }
+.page-hero--compact .page-hero__title { color: var(--white); font-weight: 700; }
+/* a dark section right under the dark page header gets a hairline so they don't merge */
+.page-hero + .section--dark { border-block-start: 1px solid rgba(212, 179, 106, 0.28); }
+
 .breadcrumb { margin-block-end: 1.5rem; font-size: var(--text-sm); }
 .breadcrumb ol { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.6rem; padding: 0; margin: 0; list-style: none; }
 .breadcrumb li { display: inline-flex; align-items: center; gap: 0.6rem; }
@@ -1671,6 +1677,59 @@ textarea.field__input { resize: vertical; min-height: 8rem; }
 .breadcrumb a { color: rgba(255, 253, 249, 0.78); text-decoration: none; }
 .breadcrumb a:hover { color: var(--gold-light); text-decoration: underline; }
 .breadcrumb [aria-current="page"] { color: var(--white); font-weight: 500; }
+
+/* ------------------------------------------------- home: explore the pages */
+.explore__grid { display: grid; gap: clamp(1.25rem, 3vw, 1.75rem); }
+@media (min-width: 640px) { .explore__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px) { .explore__grid { grid-template-columns: repeat(3, 1fr); } }
+.explore__grid > li { display: flex; }
+
+.explore-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.explore-card:hover { color: var(--text); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.explore-card__media { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--sand-deep); }
+.explore-card__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease); }
+.explore-card:hover .explore-card__media img { transform: scale(1.05); }
+.explore-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+  border-block-start: 3px solid var(--gold);
+}
+.explore-card__title { font-family: var(--font-heading); font-size: var(--text-lg); font-weight: 700; color: var(--primary-deep); line-height: var(--lh-heading); }
+.explore-card__text { color: var(--text-muted); font-size: var(--text-sm); }
+.explore-card__cta {
+  margin-block-start: auto;
+  padding-block-start: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--primary);
+}
+.explore-card__cta .icon { transition: transform var(--dur) var(--ease); }
+.explore-card:hover .explore-card__cta .icon { transform: translateX(4px); }
+[dir="rtl"] .explore-card:hover .explore-card__cta .icon--dir { transform: scaleX(-1) translateX(4px); }
+
+.cta-band { padding-block: clamp(3.5rem, 8vw, 5.5rem); }
+.cta-band__inner { display: grid; gap: 1.5rem; align-items: center; }
+.cta-band .section-lead { max-width: 40rem; }
+.cta-band .btn { justify-self: start; }
+@media (min-width: 900px) { .cta-band__inner { grid-template-columns: 1fr auto; } }
 
 /* ---------------------------------------------- opportunities hub (cards) */
 .opp-hub__grid { display: grid; gap: clamp(1.25rem, 3vw, 2rem); }

@@ -11,6 +11,11 @@
 
   <link rel="canonical" href="https://abedgr.github.io/tarmeem-center/jobs.html">
 
+  <!--
+    Open Graph / social sharing. These URLs must be ABSOLUTE to work on
+    WhatsApp, Facebook, X, etc. Update them if the site moves to a custom domain.
+    The OG image is a JPG on purpose: several crawlers still do not read WebP.
+  -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="مركز ترميم للمحافظة على التراث" data-i18n-attr="content:meta.title">
   <meta property="og:title" content="الوظائف | مركز ترميم للمحافظة على التراث" data-i18n-attr="content:jobs.metaTitle">
@@ -20,14 +25,20 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="مركز ترميم للمحافظة على التراث" data-i18n-attr="content:meta.title">
   <meta property="og:locale" content="ar_AR">
   <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="الوظائف | مركز ترميم للمحافظة على التراث" data-i18n-attr="content:jobs.metaTitle">
+  <meta name="twitter:description" content="الوظائف الشاغرة لدى مركز ترميم للمحافظة على التراث في الصون والترميم والتوثيق والهندسة." data-i18n-attr="content:jobs.metaDescription">
+  <meta name="twitter:image" content="https://abedgr.github.io/tarmeem-center/assets/images/og-image.jpg">
 
+  <!-- Favicons -->
   <link rel="icon" href="assets/images/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="assets/images/favicon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 
+  <!-- Apply the saved language before first paint to avoid a flash of the wrong direction. -->
   <script>
     (function () {
       var root = document.documentElement;
@@ -42,6 +53,7 @@
     })();
   </script>
 
+  <!-- Fonts: Noto Naskh Arabic + Lora for headings, IBM Plex Sans Arabic + IBM Plex Sans for body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap">
@@ -53,6 +65,7 @@
   <a class="skip-link" href="#main" data-i18n="a11y.skip">الانتقال إلى المحتوى</a>
 
   <!-- ============================== HEADER ============================== -->
+  <!-- The header and footer are repeated on every page: change a menu item in all of them. -->
   <header class="site-header" id="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html" aria-label="مركز ترميم للمحافظة على التراث - الرئيسية" data-i18n-attr="aria-label:brand.homeLink">
@@ -71,11 +84,11 @@
 
       <nav class="site-nav" id="site-nav" aria-label="القائمة الرئيسية" data-i18n-attr="aria-label:nav.label">
         <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="index.html#about" data-i18n="nav.about">عن المركز</a></li>
-          <li><a class="site-nav__link" href="index.html#expertise" data-i18n="nav.expertise">خبراتنا</a></li>
-          <li><a class="site-nav__link" href="index.html#projects" data-i18n="nav.projects">المشاريع</a></li>
-          <li><a class="site-nav__link" href="index.html#team" data-i18n="nav.team">الفريق</a></li>
-          <li><a class="site-nav__link" href="index.html#partners" data-i18n="nav.partners">الشركاء</a></li>
+          <li><a class="site-nav__link" href="about.html" data-i18n="nav.about">عن المركز</a></li>
+          <li><a class="site-nav__link" href="expertise.html" data-i18n="nav.expertise">خبراتنا</a></li>
+          <li><a class="site-nav__link" href="projects.html" data-i18n="nav.projects">المشاريع</a></li>
+          <li><a class="site-nav__link" href="team.html" data-i18n="nav.team">الفريق</a></li>
+          <li><a class="site-nav__link" href="partners.html" data-i18n="nav.partners">الشركاء</a></li>
           <li class="site-nav__item--sub">
             <a class="site-nav__link" href="opportunities.html" aria-current="true"><span data-i18n="nav.opportunities">الفرص</span><svg class="icon site-nav__caret" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></a>
             <button class="site-nav__subtoggle" type="button" aria-expanded="false" aria-controls="nav-sub-opp" aria-label="عرض الوظائف والدعوات" data-i18n-attr="aria-label:nav.subToggle"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -84,7 +97,7 @@
               <li><a class="site-nav__sublink" href="calls.html" data-i18n="nav.calls">الدعوات</a></li>
             </ul>
           </li>
-          <li><a class="site-nav__link" href="index.html#contact" data-i18n="nav.contact">تواصل معنا</a></li>
+          <li><a class="site-nav__link" href="contact.html" data-i18n="nav.contact">تواصل معنا</a></li>
         </ul>
 
         <div class="lang-toggle" role="group" aria-label="اللغة" data-i18n-attr="aria-label:lang.label">
@@ -140,13 +153,13 @@
       </div>
 
       <nav class="footer__nav" aria-label="روابط التذييل" data-i18n-attr="aria-label:footer.navLabel">
-        <a href="index.html#about" data-i18n="nav.about">عن المركز</a>
-        <a href="index.html#expertise" data-i18n="nav.expertise">خبراتنا</a>
-        <a href="index.html#projects" data-i18n="nav.projects">المشاريع</a>
-        <a href="index.html#team" data-i18n="nav.team">الفريق</a>
-        <a href="index.html#partners" data-i18n="nav.partners">الشركاء</a>
+        <a href="about.html" data-i18n="nav.about">عن المركز</a>
+        <a href="expertise.html" data-i18n="nav.expertise">خبراتنا</a>
+        <a href="projects.html" data-i18n="nav.projects">المشاريع</a>
+        <a href="team.html" data-i18n="nav.team">الفريق</a>
+        <a href="partners.html" data-i18n="nav.partners">الشركاء</a>
         <a href="opportunities.html" data-i18n="nav.opportunities">الفرص</a>
-        <a href="index.html#contact" data-i18n="nav.contact">تواصل معنا</a>
+        <a href="contact.html" data-i18n="nav.contact">تواصل معنا</a>
       </nav>
 
       <div class="footer__bottom">
@@ -162,6 +175,7 @@
     </div>
   </footer>
 
+  <!-- Icon templates cloned by js/main.js when rendering cards -->
   <template id="tpl-icon-arrow">
     <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
   </template>

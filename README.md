@@ -8,8 +8,13 @@ Plain HTML, CSS and vanilla JavaScript — no build step, no frameworks.
 ## Structure
 
 ```
-index.html          Page markup: hero, about, vision & mission, expertise, materials,
-                    methodology, projects, team, partners, contact
+index.html          Home: hero, links to every page, contact band
+about.html          About, key numbers, vision & mission
+expertise.html      Expertise, materials & techniques, methodology
+projects.html       Projects (cards + details window), rendered from js/projects.js
+team.html           Key personnel, rendered from js/content.js
+partners.html       Partner logos, rendered from js/content.js
+contact.html        Contact details and form
 opportunities.html  Opportunities hub (links to Jobs and Calls)
 jobs.html           Job vacancies, rendered from js/opportunities.js
 calls.html          Open calls, rendered from js/opportunities.js
@@ -46,16 +51,20 @@ has a ready-to-copy example. Entries past their `deadline` are shown as *Closed*
 delete an entry to remove it. With an empty list the page shows a "nothing open right now" note.
 The Opportunities page shows how many of each are open.
 
-The header and footer are repeated in `index.html`, `opportunities.html`, `jobs.html` and `calls.html`;
-change a menu item in all four.
+## Header and footer
+
+The header (menu) and footer are repeated on every page (`index.html`, `about.html`, `expertise.html`,
+`projects.html`, `team.html`, `partners.html`, `contact.html`, `opportunities.html`, `jobs.html`,
+`calls.html`). To change a menu item, change it in all of them. The current page's menu link carries
+`aria-current="page"`. Old one-page links such as `index.html#projects` redirect to the new pages.
 
 ## Editing other text
 
 - Section text (hero, about, vision & mission, expertise, materials, methodology, contact, footer):
   `js/i18n.js` - every key exists under `ar:` and `en:`; change both.
 - Team members and partners: `js/content.js`.
-- Contact e-mail, phone, website and map link: `index.html`, section `<!-- CONTACT -->` (and the footer).
-- Key numbers: `index.html`, the `data-stat-value` attributes in the About section
+- Contact e-mail, phone, website and map link: `contact.html` (and the footer on every page).
+- Key numbers: `about.html`, the `data-stat-value` attributes
   (`data-stat-static` stops a value - such as a year - from counting up).
 
 ## Redeploying

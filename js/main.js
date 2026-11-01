@@ -109,46 +109,6 @@
     else if (desktop.addListener) { desktop.addListener(onBreakpoint); }
   }
 
-  /* ------------------------------------------------------------ active link */
-
-  function initActiveNav() {
-    var links = qsa('.site-nav__link[data-nav]');
-    /* only the home page has scroll sections; other pages mark their link in the HTML */
-    if (!qs('.hero') || !links.length || !('IntersectionObserver' in window)) { return; }
-
-    /* sections without their own nav link highlight the closest parent topic */
-    var sections = [
-      { id: 'top', node: qs('.hero') },
-      { id: 'about', node: qs('#about') },
-      { id: 'about', node: qs('#vision') },
-      { id: 'expertise', node: qs('#expertise') },
-      { id: 'expertise', node: qs('#materials') },
-      { id: 'expertise', node: qs('#methodology') },
-      { id: 'projects', node: qs('#projects') },
-      { id: 'team', node: qs('#team') },
-      { id: 'partners', node: qs('#partners') },
-      { id: 'contact', node: qs('#contact') }
-    ].filter(function (s) { return s.node; });
-
-    var setActive = function (id) {
-      links.forEach(function (link) {
-        if (link.getAttribute('data-nav') === id) { link.setAttribute('aria-current', 'true'); }
-        else { link.removeAttribute('aria-current'); }
-      });
-    };
-
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          var match = sections.filter(function (s) { return s.node === entry.target; })[0];
-          if (match) { setActive(match.id); }
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
-
-    sections.forEach(function (s) { observer.observe(s.node); });
-  }
-
   /* --------------------------------------------------------------- language */
 
   function initLanguage() {
@@ -834,7 +794,6 @@
   function init() {
     initLanguage();            /* triggers 'langchange' -> first render */
     initHeader();
-    initActiveNav();
     initReveal();
     initStats();
     initModal();

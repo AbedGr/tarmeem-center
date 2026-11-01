@@ -8,14 +8,17 @@
      js/projects.js  - projects (text, cover, gallery)
      js/content.js   - team and partners
      js/i18n.js      - page text (only the changed strings are rewritten)
-     index.html      - page photo paths (and their width/height)
+     *.html pages    - page photo paths (and their width/height)
    Photos are resized in the browser and saved as WebP.
    ============================================================================ */
 (function () {
   'use strict';
 
   var STORE_KEY = 'tarmeem-admin';
-  var DATA_FILES = ['index.html', 'js/projects.js', 'js/content.js', 'js/i18n.js', 'css/style.css', '404.html'];
+  /* every site page: page photos can appear on any of them */
+  var PAGE_FILES = ['index.html', 'about.html', 'expertise.html', 'projects.html', 'team.html', 'partners.html',
+    'contact.html', 'opportunities.html', 'jobs.html', 'calls.html'];
+  var DATA_FILES = PAGE_FILES.concat(['js/projects.js', 'js/content.js', 'js/i18n.js', 'js/opportunities.js', 'css/style.css', '404.html']);
   var PROJECT_KEYS = ['id', 'number', 'years', 'ongoing', 'site', 'title', 'location', 'period', 'value', 'summary',
     'figures', 'cooperation', 'objectives', 'works', 'boq', 'achievements', 'cover', 'gallery'];
   var LIST_KEYS = ['cooperation', 'objectives', 'works', 'achievements'];
@@ -24,7 +27,8 @@
     lang: 'Language switch', hero: 'Hero (top of the page)', about: 'About', stats: 'Key numbers',
     vm: 'Vision & mission', exp: 'Expertise', mat: 'Materials', method: 'Methodology', projects: 'Projects section',
     modal: 'Project details window', team: 'Team section', partners: 'Partners section', contact: 'Contact',
-    form: 'Contact form', footer: 'Footer'
+    form: 'Contact form', footer: 'Footer', home: 'Home page cards', opp: 'Opportunities page',
+    jobs: 'Jobs page', calls: 'Calls page', listing: 'Job / call listings'
   };
 
   var S = {
@@ -34,7 +38,7 @@
     files: {},             // path -> { sha, text }
     projects: [], team: [], partners: { international: [], national: [] },
     tr: { ar: {}, en: {} },
-    html: '',
+    pages: {},             // page file -> current HTML (photo edits are applied here)
     photos: [],
     orig: {},
     origRefs: new Set(),
@@ -340,7 +344,7 @@
       JSON.stringify(S.team) !== S.orig.team ||
       JSON.stringify(S.partners) !== S.orig.partners ||
       JSON.stringify(S.tr) !== S.orig.tr ||
-      S.html !== S.files['index.html'].text;
+      PAGE_FILES.some(function (p) { return S.pages[p] !== S.files[p].text; });
   }
   var dirtyTimer;
   function changed() {
@@ -790,9 +794,12 @@
     return storeImage(file, dir, stripSuffix(basename(ph.src)), 2000).then(function (r) {
       if (!r) { return false; }
       var old = ph.src;
-      S.html = S.html.split('"' + old + '"').join('"' + r.path + '"');
-      S.html = S.html.replace(new RegExp('<img\\b[^>]*src="' + r.path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '"[^>]*>'), function (tag) {
-        return tag.replace(/\swidth="\d+"/, ' width="' + r.width + '"').replace(/\sheight="\d+"/, ' height="' + r.height + '"');
+      var imgRe = new RegExp('<img\\b[^>]*src="' + r.path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '"[^>]*>', 'g');
+      PAGE_FILES.forEach(function (p) {
+        var html = S.pages[p].split('"' + old + '"').join('"' + r.path + '"');
+        S.pages[p] = html.replace(imgRe, function (tag) {
+          return tag.replace(/\swidth="\d+"/, ' width="' + r.width + '"').replace(/\sheight="\d+"/, ' height="' + r.height + '"');
+        });
       });
       ph.src = r.path;
       changed();
@@ -1025,8 +1032,9 @@
     S.partners = clone(data.PARTNERS || { international: [], national: [] });
     var tr = extractTranslations(S.files['js/i18n.js'].text);
     S.tr = { ar: clone(tr.ar || {}), en: clone(tr.en || {}) };
-    S.html = S.files['index.html'].text;
-    S.photos = parsePhotos(S.html);
+    S.pages = {};
+    PAGE_FILES.forEach(function (p) { S.pages[p] = S.files[p].text; });
+    S.photos = parsePhotos(PAGE_FILES.map(function (p) { return S.pages[p]; }).join('\n'));
     S.orig = {
       projects: JSON.stringify(S.projects.map(cleanProject)),
       team: JSON.stringify(S.team),
@@ -1087,7 +1095,7 @@
         if (bad) { throw new Error('Internal check failed for js/i18n.js - nothing was published.'); }
       }
     }
-    if (S.html !== S.files['index.html'].text) { texts['index.html'] = S.html; }
+    PAGE_FILES.forEach(function (p) { if (S.pages[p] !== S.files[p].text) { texts[p] = S.pages[p]; } });
     Object.keys(texts).forEach(function (p) { writes.push({ path: p, text: texts[p] }); });
 
     var refs = collectRefs();

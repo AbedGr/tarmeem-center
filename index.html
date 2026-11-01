@@ -53,6 +53,17 @@
     })();
   </script>
 
+  <!-- Links to the old one-page sections (e.g. #projects) open the new pages. -->
+  <script>
+    (function () {
+      var map = { about: 'about.html', vision: 'about.html#vision', expertise: 'expertise.html',
+        materials: 'expertise.html#materials', methodology: 'expertise.html#methodology',
+        projects: 'projects.html', team: 'team.html', partners: 'partners.html', contact: 'contact.html' };
+      var id = location.hash.slice(1);
+      if (map[id]) { location.replace(map[id]); }
+    })();
+  </script>
+
   <!-- Fonts: Noto Naskh Arabic + Lora for headings, IBM Plex Sans Arabic + IBM Plex Sans for body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,9 +77,10 @@
   <a class="skip-link" href="#main" data-i18n="a11y.skip">الانتقال إلى المحتوى</a>
 
   <!-- ============================== HEADER ============================== -->
+  <!-- The header and footer are repeated on every page: change a menu item in all of them. -->
   <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="مركز ترميم للمحافظة على التراث - الرئيسية" data-i18n-attr="aria-label:brand.homeLink">
+      <a class="brand" href="index.html" aria-label="مركز ترميم للمحافظة على التراث - الرئيسية" data-i18n-attr="aria-label:brand.homeLink">
         <img class="brand__logo" src="assets/images/logo-mark.png" width="270" height="321" alt="" aria-hidden="true">
         <span class="brand__text">
           <span class="brand__name" data-i18n="brand.name">مركز ترميم</span>
@@ -84,11 +96,11 @@
 
       <nav class="site-nav" id="site-nav" aria-label="القائمة الرئيسية" data-i18n-attr="aria-label:nav.label">
         <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="#about" data-nav="about" data-i18n="nav.about">عن المركز</a></li>
-          <li><a class="site-nav__link" href="#expertise" data-nav="expertise" data-i18n="nav.expertise">خبراتنا</a></li>
-          <li><a class="site-nav__link" href="#projects" data-nav="projects" data-i18n="nav.projects">المشاريع</a></li>
-          <li><a class="site-nav__link" href="#team" data-nav="team" data-i18n="nav.team">الفريق</a></li>
-          <li><a class="site-nav__link" href="#partners" data-nav="partners" data-i18n="nav.partners">الشركاء</a></li>
+          <li><a class="site-nav__link" href="about.html" data-i18n="nav.about">عن المركز</a></li>
+          <li><a class="site-nav__link" href="expertise.html" data-i18n="nav.expertise">خبراتنا</a></li>
+          <li><a class="site-nav__link" href="projects.html" data-i18n="nav.projects">المشاريع</a></li>
+          <li><a class="site-nav__link" href="team.html" data-i18n="nav.team">الفريق</a></li>
+          <li><a class="site-nav__link" href="partners.html" data-i18n="nav.partners">الشركاء</a></li>
           <li class="site-nav__item--sub">
             <a class="site-nav__link" href="opportunities.html"><span data-i18n="nav.opportunities">الفرص</span><svg class="icon site-nav__caret" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></a>
             <button class="site-nav__subtoggle" type="button" aria-expanded="false" aria-controls="nav-sub-opp" aria-label="عرض الوظائف والدعوات" data-i18n-attr="aria-label:nav.subToggle"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
@@ -97,7 +109,7 @@
               <li><a class="site-nav__sublink" href="calls.html" data-i18n="nav.calls">الدعوات</a></li>
             </ul>
           </li>
-          <li><a class="site-nav__link" href="#contact" data-nav="contact" data-i18n="nav.contact">تواصل معنا</a></li>
+          <li><a class="site-nav__link" href="contact.html" data-i18n="nav.contact">تواصل معنا</a></li>
         </ul>
 
         <div class="lang-toggle" role="group" aria-label="اللغة" data-i18n-attr="aria-label:lang.label">
@@ -124,11 +136,11 @@
         <h1 class="hero__title" id="hero-title" data-i18n="hero.title">مركز ترميم للمحافظة على التراث</h1>
         <p class="hero__mission" data-i18n="hero.mission">نصون التراث الثقافي والطبيعي الغني في الأردن، ونمكّن المجتمعات المحلية عبر التدريب والتشغيل، ونعزّز التنمية الثقافية المستدامة للأجيال القادمة.</p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#projects">
+          <a class="btn btn--primary" href="projects.html">
             <span data-i18n="hero.cta">استعرض المشاريع</span>
             <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a class="btn btn--ghost" href="#about" data-i18n="hero.ctaSecondary">تعرّف على المركز</a>
+          <a class="btn btn--ghost" href="about.html" data-i18n="hero.ctaSecondary">تعرّف على المركز</a>
         </div>
       </div>
 
@@ -145,349 +157,101 @@
       </div>
     </section>
 
-    <!-- ============================== ABOUT ============================== -->
-    <section class="section about" id="about" aria-labelledby="about-title">
-      <div class="container">
-        <div class="about__layout">
-          <div class="about__text reveal">
-            <p class="eyebrow" data-i18n="about.eyebrow">من نحن</p>
-            <h2 class="section-title" id="about-title" data-i18n="about.title">صون تراث الأردن مع مجتمعاته</h2>
-            <p class="about__lead" data-i18n="about.p1">تأسس مركز ترميم للمحافظة على التراث عام 2014.</p>
-            <p data-i18n="about.p2"></p>
-            <p data-i18n="about.p3"></p>
-          </div>
-
-          <figure class="about__media reveal">
-            <img class="about__img about__img--main" src="assets/images/site/about-field.webp" width="1400" height="946" loading="lazy" decoding="async"
-                 alt="" data-i18n-attr="alt:about.imageAlt1">
-            <img class="about__img about__img--inset" src="assets/images/site/about-crane.webp" width="763" height="343" loading="lazy" decoding="async"
-                 alt="" data-i18n-attr="alt:about.imageAlt2">
-            <span class="about__badge">
-              <strong>2014</strong>
-              <span data-i18n="about.badge">شركة غير ربحية</span>
-            </span>
-          </figure>
-        </div>
-
-        <!-- Key numbers. data-stat-static keeps a value from counting up (e.g. a year). -->
-        <dl class="stats reveal" aria-label="أرقام رئيسية" data-i18n-attr="aria-label:stats.label">
-          <div class="stat">
-            <dt class="stat__label" data-i18n="stats.founded">سنة التأسيس</dt>
-            <dd class="stat__value" data-stat-value="2014" data-stat-static>2014</dd>
-          </div>
-          <div class="stat">
-            <dt class="stat__label" data-i18n="stats.jobs">فرصة عمل مباشرة</dt>
-            <dd class="stat__value" data-stat-value="150" data-stat-suffix="+">150+</dd>
-          </div>
-          <div class="stat">
-            <dt class="stat__label" data-i18n="stats.governorates">محافظات</dt>
-            <dd class="stat__value" data-stat-value="5">5</dd>
-          </div>
-          <div class="stat">
-            <dt class="stat__label" data-i18n="stats.buildings">مبنى في مجمّع واحد</dt>
-            <dd class="stat__value" data-stat-value="11">11</dd>
-          </div>
-        </dl>
-      </div>
-    </section>
-
-    <!-- ============================== VISION & MISSION ============================== -->
-    <section class="section section--tint vm" id="vision" aria-labelledby="vm-title">
+    <!-- ============================== EXPLORE ============================== -->
+    <section class="section explore" aria-labelledby="explore-title">
       <div class="container">
         <header class="section-header section-header--center reveal">
-          <p class="eyebrow" data-i18n="vm.eyebrow">الرؤية والرسالة</p>
-          <h2 class="section-title" id="vm-title" data-i18n="vm.title">ما الذي يحرّكنا</h2>
+          <p class="eyebrow" data-i18n="home.exploreEyebrow">استكشفوا المركز</p>
+          <h2 class="section-title" id="explore-title" data-i18n="home.exploreTitle">تعرّفوا على عملنا</h2>
         </header>
-
-        <div class="vm__grid">
-          <article class="vm__card reveal">
-            <div class="vm__media">
-              <img src="assets/images/site/vision-worker.webp" width="359" height="538" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:vm.visionAlt">
-            </div>
-            <div class="vm__body">
-              <span class="vm__mark" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 5C6.5 5 2.5 12 2.5 12S6.5 19 12 19s9.5-7 9.5-7S17.5 5 12 5z"/><circle cx="12" cy="12" r="3.2"/></svg>
+        <ul class="explore__grid">
+          <li class="reveal" style="--i:0">
+            <a class="explore-card" href="about.html">
+              <span class="explore-card__media">
+                <img src="assets/images/site/about-field.webp" width="1400" height="946" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:about.imageAlt1">
               </span>
-              <h3 class="vm__title" data-i18n="vm.visionTitle">رؤيتنا</h3>
-              <p data-i18n="vm.vision"></p>
-            </div>
-          </article>
-
-          <article class="vm__card reveal" style="--i:1">
-            <div class="vm__media">
-              <img src="assets/images/site/mission-stucco.webp" width="1200" height="800" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:vm.missionAlt">
-            </div>
-            <div class="vm__body">
-              <span class="vm__mark" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false"><path d="M12 2 L14.8 9.2 L22 12 L14.8 14.8 L12 22 L9.2 14.8 L2 12 L9.2 9.2 Z"/></svg>
+              <span class="explore-card__body">
+                <span class="explore-card__title" data-i18n="nav.about">عن المركز</span>
+                <span class="explore-card__text" data-i18n="home.card.about"></span>
+                <span class="explore-card__cta"><span data-i18n="home.more">اقرأ المزيد</span><svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
               </span>
-              <h3 class="vm__title" data-i18n="vm.missionTitle">رسالتنا</h3>
-              <p data-i18n="vm.mission"></p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== EXPERTISE ============================== -->
-    <section class="section section--dark expertise" id="expertise" aria-labelledby="exp-title">
-      <div class="container">
-        <header class="section-header reveal">
-          <p class="eyebrow eyebrow--light" data-i18n="exp.eyebrow">مجالات خبرتنا</p>
-          <h2 class="section-title section-title--light" id="exp-title" data-i18n="exp.title">خمسة مجالات تخصص متكاملة</h2>
-          <p class="section-lead section-lead--light" data-i18n="exp.lead"></p>
-        </header>
-
-        <ul class="exp__grid">
-          <li class="exp__card reveal">
-            <span class="exp__num">01</span>
-            <svg class="exp__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 21h18M5 21V10l7-6 7 6v11M9.5 21v-5a2.5 2.5 0 0 1 5 0v5"/></svg>
-            <h3 class="exp__title" data-i18n="exp.1.title">الصون المعماري</h3>
-            <p data-i18n="exp.1.text"></p>
+            </a>
           </li>
-          <li class="exp__card reveal" style="--i:1">
-            <span class="exp__num">02</span>
-            <svg class="exp__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.6-.8 1.6-1.6 0-.9-.7-1.4-.7-2.2 0-.9.7-1.6 1.6-1.6H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.1"/><circle cx="10.5" cy="7" r="1.1"/><circle cx="15" cy="7.5" r="1.1"/></svg>
-            <h3 class="exp__title" data-i18n="exp.2.title">صون الأعمال الفنية</h3>
-            <p data-i18n="exp.2.text"></p>
+          <li class="reveal" style="--i:1">
+            <a class="explore-card" href="expertise.html">
+              <span class="explore-card__media">
+                <img src="assets/images/site/expertise-site.webp" width="953" height="636" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:exp.imageAlt">
+              </span>
+              <span class="explore-card__body">
+                <span class="explore-card__title" data-i18n="nav.expertise">خبراتنا</span>
+                <span class="explore-card__text" data-i18n="home.card.expertise"></span>
+                <span class="explore-card__cta"><span data-i18n="home.more">اقرأ المزيد</span><svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </span>
+            </a>
           </li>
-          <li class="exp__card reveal" style="--i:2">
-            <span class="exp__num">03</span>
-            <svg class="exp__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 7l4 4M3.5 20.5l9.5-9.5M11 5l3-3 8 8-3 3z"/></svg>
-            <h3 class="exp__title" data-i18n="exp.3.title">الحرف التقليدية</h3>
-            <p data-i18n="exp.3.text"></p>
+          <li class="reveal" style="--i:2">
+            <a class="explore-card" href="projects.html">
+              <span class="explore-card__media">
+                <img src="assets/images/projects/mshatta-1.webp" width="722" height="481" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:mat.mudbrick.alt">
+              </span>
+              <span class="explore-card__body">
+                <span class="explore-card__title" data-i18n="nav.projects">المشاريع</span>
+                <span class="explore-card__text" data-i18n="home.card.projects"></span>
+                <span class="explore-card__cta"><span data-i18n="home.more">اقرأ المزيد</span><svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </span>
+            </a>
           </li>
-          <li class="exp__card reveal" style="--i:3">
-            <span class="exp__num">04</span>
-            <svg class="exp__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.5l8.5 4.75v9.5L12 21.5l-8.5-4.75v-9.5z"/><path d="M12 12l8.5-4.75M12 12v9.5M12 12L3.5 7.25"/></svg>
-            <h3 class="exp__title" data-i18n="exp.4.title">التوثيق المتقدم</h3>
-            <p data-i18n="exp.4.text"></p>
+          <li class="reveal" style="--i:0">
+            <a class="explore-card" href="team.html">
+              <span class="explore-card__media">
+                <img src="assets/images/site/team-field.webp" width="1400" height="655" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:team.photoAlt">
+              </span>
+              <span class="explore-card__body">
+                <span class="explore-card__title" data-i18n="nav.team">الفريق</span>
+                <span class="explore-card__text" data-i18n="home.card.team"></span>
+                <span class="explore-card__cta"><span data-i18n="home.more">اقرأ المزيد</span><svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </span>
+            </a>
           </li>
-          <li class="exp__card reveal" style="--i:4">
-            <span class="exp__num">05</span>
-            <svg class="exp__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12h4l3-7 4 14 3-7h6"/></svg>
-            <h3 class="exp__title" data-i18n="exp.5.title">تقنيات المسح</h3>
-            <p data-i18n="exp.5.text"></p>
+          <li class="reveal" style="--i:1">
+            <a class="explore-card" href="partners.html">
+              <span class="explore-card__media">
+                <img src="assets/images/site/about-crane.webp" width="763" height="343" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:about.imageAlt2">
+              </span>
+              <span class="explore-card__body">
+                <span class="explore-card__title" data-i18n="nav.partners">الشركاء</span>
+                <span class="explore-card__text" data-i18n="home.card.partners"></span>
+                <span class="explore-card__cta"><span data-i18n="home.more">اقرأ المزيد</span><svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </span>
+            </a>
           </li>
-          <li class="exp__photo reveal" style="--i:5">
-            <img src="assets/images/site/expertise-site.webp" width="953" height="636" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:exp.imageAlt">
+          <li class="reveal" style="--i:2">
+            <a class="explore-card" href="opportunities.html">
+              <span class="explore-card__media">
+                <img src="assets/images/site/vision-worker.webp" width="359" height="538" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:vm.visionAlt">
+              </span>
+              <span class="explore-card__body">
+                <span class="explore-card__title" data-i18n="nav.opportunities">الفرص</span>
+                <span class="explore-card__text" data-i18n="home.card.opportunities"></span>
+                <span class="explore-card__cta"><span data-i18n="home.more">اقرأ المزيد</span><svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              </span>
+            </a>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- ============================== MATERIALS & TECHNIQUES ============================== -->
-    <section class="section materials" id="materials" aria-labelledby="mat-title">
-      <div class="container">
-        <header class="section-header reveal">
-          <p class="eyebrow" data-i18n="mat.eyebrow">المواد والتقنيات</p>
-          <h2 class="section-title" id="mat-title" data-i18n="mat.title">لكل مادة تخصّصها</h2>
-          <p class="section-lead" data-i18n="mat.lead"></p>
-        </header>
-
-        <div class="mat__grid">
-          <article class="mat__card reveal">
-            <div class="mat__media">
-              <img src="assets/images/site/material-masonry.webp" width="249" height="172" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:mat.masonry.alt">
-            </div>
-            <div class="mat__body">
-              <h3 class="mat__title" data-i18n="mat.masonry.title">البناء الحجري</h3>
-              <p data-i18n="mat.masonry.text"></p>
-              <p class="mat__delivered"><strong data-i18n="mat.delivered">منجز</strong> <span data-i18n="mat.masonry.delivered"></span></p>
-            </div>
-          </article>
-
-          <article class="mat__card reveal" style="--i:1">
-            <div class="mat__media">
-              <img src="assets/images/projects/mshatta-1.webp" width="722" height="481" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:mat.mudbrick.alt">
-            </div>
-            <div class="mat__body">
-              <h3 class="mat__title" data-i18n="mat.mudbrick.title">الطوب الطيني</h3>
-              <p data-i18n="mat.mudbrick.text"></p>
-              <p class="mat__delivered"><strong data-i18n="mat.delivered">منجز</strong> <span data-i18n="mat.mudbrick.delivered"></span></p>
-            </div>
-          </article>
-
-          <article class="mat__card reveal" style="--i:2">
-            <div class="mat__media">
-              <img src="assets/images/site/material-carpentry.webp" width="258" height="172" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:mat.carpentry.alt">
-            </div>
-            <div class="mat__body">
-              <h3 class="mat__title" data-i18n="mat.carpentry.title">النجارة التقليدية</h3>
-              <p data-i18n="mat.carpentry.text"></p>
-              <p class="mat__delivered"><strong data-i18n="mat.delivered">منجز</strong> <span data-i18n="mat.carpentry.delivered"></span></p>
-            </div>
-          </article>
+    <!-- ============================== CONTACT BAND ============================== -->
+    <section class="section section--dark cta-band" aria-labelledby="cta-title">
+      <div class="container cta-band__inner reveal">
+        <div>
+          <h2 class="section-title section-title--light" id="cta-title" data-i18n="contact.title">لنعمل معاً على صون التراث</h2>
+          <p class="section-lead section-lead--light" data-i18n="contact.subtitle"></p>
         </div>
-      </div>
-    </section>
-
-    <!-- ============================== METHODOLOGY ============================== -->
-    <section class="section section--tint method" id="methodology" aria-labelledby="method-title">
-      <div class="container">
-        <header class="section-header reveal">
-          <p class="eyebrow" data-i18n="method.eyebrow">منهجية العمل</p>
-          <h2 class="section-title" id="method-title" data-i18n="method.title">منهج علمي ومعايير دولية</h2>
-          <p class="section-lead" data-i18n="method.lead"></p>
-        </header>
-
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step__num" aria-hidden="true">1</span>
-            <h3 class="step__title" data-i18n="method.1.title">تقييم حالة الحفظ</h3>
-            <p data-i18n="method.1.text"></p>
-          </li>
-          <li class="step reveal" style="--i:1">
-            <span class="step__num" aria-hidden="true">2</span>
-            <h3 class="step__title" data-i18n="method.2.title">خطة التدخل</h3>
-            <p data-i18n="method.2.text"></p>
-          </li>
-          <li class="step reveal" style="--i:2">
-            <span class="step__num" aria-hidden="true">3</span>
-            <h3 class="step__title" data-i18n="method.3.title">التوثيق</h3>
-            <p data-i18n="method.3.text"></p>
-          </li>
-          <li class="step reveal" style="--i:3">
-            <span class="step__num" aria-hidden="true">4</span>
-            <h3 class="step__title" data-i18n="method.4.title">المتابعة والتقييم</h3>
-            <p data-i18n="method.4.text"></p>
-          </li>
-        </ol>
-
-        <div class="method__bottom">
-          <figure class="method__scans reveal">
-            <div class="method__scan-row">
-              <img src="assets/images/site/method-scan-1.webp" width="580" height="314" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:method.scan1Alt">
-              <img src="assets/images/site/method-scan-2.webp" width="584" height="317" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:method.scan2Alt">
-            </div>
-            <figcaption data-i18n="method.caption"></figcaption>
-          </figure>
-          <blockquote class="method__note reveal" style="--i:1">
-            <p data-i18n="method.note"></p>
-          </blockquote>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== PROJECTS ============================== -->
-    <section class="section projects" id="projects" aria-labelledby="projects-title">
-      <div class="container">
-        <header class="section-header reveal">
-          <p class="eyebrow" data-i18n="projects.eyebrow">أبرز المشاريع</p>
-          <h2 class="section-title" id="projects-title" data-i18n="projects.title">مشاريع منجزة وجارية</h2>
-          <p class="section-lead" data-i18n="projects.subtitle"></p>
-        </header>
-
-        <ul class="project-grid" id="project-grid" aria-labelledby="projects-title">
-          <!-- Project cards are rendered from js/projects.js -->
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============================== TEAM ============================== -->
-    <section class="section section--tint team" id="team" aria-labelledby="team-title">
-      <div class="container">
-        <div class="team__intro">
-          <header class="section-header reveal">
-            <p class="eyebrow" data-i18n="team.eyebrow">الكادر الرئيسي</p>
-            <h2 class="section-title" id="team-title" data-i18n="team.title">خبرة تقود العمل في الميدان</h2>
-            <p class="section-lead" data-i18n="team.lead"></p>
-          </header>
-          <figure class="team__photo reveal">
-            <img src="assets/images/site/team-field.webp" width="1400" height="655" loading="lazy" decoding="async" alt="" data-i18n-attr="alt:team.photoAlt">
-          </figure>
-        </div>
-
-        <ul class="team__grid" id="team-grid">
-          <!-- Rendered from js/content.js -->
-        </ul>
-      </div>
-    </section>
-
-    <!-- ============================== PARTNERS ============================== -->
-    <section class="section partners" id="partners" aria-labelledby="partners-title">
-      <div class="container">
-        <header class="section-header section-header--center reveal">
-          <p class="eyebrow" data-i18n="partners.eyebrow">شركاؤنا</p>
-          <h2 class="section-title" id="partners-title" data-i18n="partners.title">شراكات وطنية ودولية</h2>
-        </header>
-
-        <div class="partners__group reveal">
-          <h3 class="partners__heading" data-i18n="partners.international">الشركاء والجهات المانحة الدولية</h3>
-          <ul class="partners__grid" id="partners-international"></ul>
-        </div>
-        <div class="partners__group reveal">
-          <h3 class="partners__heading" data-i18n="partners.national">الشركاء الوطنيون</h3>
-          <ul class="partners__grid" id="partners-national"></ul>
-        </div>
-
-        <p class="partners__statement reveal" data-i18n="partners.statement"></p>
-      </div>
-    </section>
-
-    <!-- ============================== CONTACT ============================== -->
-    <section class="section section--dark contact" id="contact" aria-labelledby="contact-title">
-      <div class="container">
-        <div class="contact__grid">
-          <div class="contact__info reveal">
-            <p class="eyebrow eyebrow--light" data-i18n="contact.eyebrow">تواصل معنا</p>
-            <h2 class="section-title section-title--light" id="contact-title" data-i18n="contact.title">لنعمل معاً على صون التراث</h2>
-            <p class="section-lead section-lead--light" data-i18n="contact.subtitle"></p>
-
-            <dl class="contact__list">
-              <div class="contact__item">
-                <dt data-i18n="contact.email">البريد الإلكتروني</dt>
-                <dd><a id="contact-email" href="mailto:info@tarmeem-center.com" dir="ltr">info@tarmeem-center.com</a></dd>
-              </div>
-              <div class="contact__item">
-                <dt data-i18n="contact.phone">الهاتف</dt>
-                <dd><a href="tel:+962795109749" dir="ltr">+962 795 109 749</a></dd>
-              </div>
-              <div class="contact__item">
-                <dt data-i18n="contact.website">الموقع الإلكتروني</dt>
-                <dd><a href="https://www.tarmeem-center.com" dir="ltr" rel="noopener" target="_blank">www.tarmeem-center.com</a></dd>
-              </div>
-              <div class="contact__item">
-                <dt data-i18n="contact.registration">التسجيل</dt>
-                <dd data-i18n="contact.registrationValue">رقم التسجيل 601</dd>
-              </div>
-              <div class="contact__item contact__item--wide">
-                <dt data-i18n="contact.address">العنوان</dt>
-                <dd>
-                  <span data-i18n="contact.addressValue">91 شارع جبل عرفات، الياسمين، عمّان 11623، الأردن</span>
-                  <a class="contact__map" href="https://www.google.com/maps/search/?api=1&amp;query=91+Jabal+Arafat+St%2C+Yasmeen%2C+Amman+11623%2C+Jordan" rel="noopener" target="_blank">
-                    <span data-i18n="contact.map">افتح في الخرائط</span>
-                    <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg>
-                  </a>
-                </dd>
-              </div>
-            </dl>
-          </div>
-
-          <form class="contact-form reveal" id="contact-form" action="#" method="get">
-            <p class="contact-form__note" data-i18n="form.note">سيؤدي الإرسال إلى فتح تطبيق البريد الإلكتروني لديكم مع رسالة مُعدّة مسبقًا.</p>
-
-            <div class="field">
-              <label class="field__label" for="form-name" data-i18n="form.name">الاسم</label>
-              <input class="field__input" id="form-name" name="name" type="text" autocomplete="name" required>
-            </div>
-
-            <div class="field">
-              <label class="field__label" for="form-email" data-i18n="form.email">البريد الإلكتروني</label>
-              <input class="field__input" id="form-email" name="email" type="email" autocomplete="email" inputmode="email" dir="ltr" required>
-            </div>
-
-            <div class="field">
-              <label class="field__label" for="form-message" data-i18n="form.message">الرسالة</label>
-              <textarea class="field__input" id="form-message" name="message" rows="5" required></textarea>
-            </div>
-
-            <button class="btn btn--primary" type="submit">
-              <span data-i18n="form.submit">إرسال الرسالة</span>
-              <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </button>
-          </form>
-        </div>
+        <a class="btn btn--primary" href="contact.html">
+          <span data-i18n="nav.contact">تواصل معنا</span>
+          <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
     </section>
   </main>
@@ -509,13 +273,13 @@
       </div>
 
       <nav class="footer__nav" aria-label="روابط التذييل" data-i18n-attr="aria-label:footer.navLabel">
-        <a href="#about" data-i18n="nav.about">عن المركز</a>
-        <a href="#expertise" data-i18n="nav.expertise">خبراتنا</a>
-        <a href="#projects" data-i18n="nav.projects">المشاريع</a>
-        <a href="#team" data-i18n="nav.team">الفريق</a>
-        <a href="#partners" data-i18n="nav.partners">الشركاء</a>
+        <a href="about.html" data-i18n="nav.about">عن المركز</a>
+        <a href="expertise.html" data-i18n="nav.expertise">خبراتنا</a>
+        <a href="projects.html" data-i18n="nav.projects">المشاريع</a>
+        <a href="team.html" data-i18n="nav.team">الفريق</a>
+        <a href="partners.html" data-i18n="nav.partners">الشركاء</a>
         <a href="opportunities.html" data-i18n="nav.opportunities">الفرص</a>
-        <a href="#contact" data-i18n="nav.contact">تواصل معنا</a>
+        <a href="contact.html" data-i18n="nav.contact">تواصل معنا</a>
       </nav>
 
       <div class="footer__bottom">
@@ -531,49 +295,12 @@
     </div>
   </footer>
 
-  <!-- ============================== PROJECT MODAL ============================== -->
-  <dialog class="modal" id="project-modal" aria-labelledby="modal-title">
-    <div class="modal__inner">
-      <button class="modal__close" id="modal-close" type="button" aria-label="إغلاق" data-i18n-attr="aria-label:modal.close">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-
-      <figure class="gallery" id="gallery">
-        <div class="gallery__stage">
-          <img class="gallery__image" id="gallery-image" src="data:," alt="" width="1200" height="800" decoding="async">
-          <button class="gallery__nav gallery__nav--prev" id="gallery-prev" type="button" aria-label="الصورة السابقة" data-i18n-attr="aria-label:modal.prev">
-            <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg>
-          </button>
-          <button class="gallery__nav gallery__nav--next" id="gallery-next" type="button" aria-label="الصورة التالية" data-i18n-attr="aria-label:modal.next">
-            <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-        <figcaption class="gallery__caption">
-          <span class="gallery__alt" id="gallery-alt"></span>
-          <span class="gallery__counter" id="gallery-counter" aria-live="polite"></span>
-        </figcaption>
-        <ul class="gallery__thumbs" id="gallery-thumbs" aria-label="الصور المصغّرة" data-i18n-attr="aria-label:modal.thumbs"></ul>
-      </figure>
-
-      <div class="modal__content">
-        <p class="modal__kicker" id="modal-kicker"></p>
-        <h2 class="modal__title" id="modal-title"></h2>
-        <dl class="modal__meta" id="modal-meta"></dl>
-        <p class="modal__summary" id="modal-summary"></p>
-        <ul class="modal__figures" id="modal-figures"></ul>
-        <div class="modal__sections" id="modal-sections"></div>
-      </div>
-    </div>
-  </dialog>
-
   <!-- Icon templates cloned by js/main.js when rendering cards -->
   <template id="tpl-icon-arrow">
     <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
   </template>
 
   <script src="js/i18n.js"></script>
-  <script src="js/projects.js"></script>
-  <script src="js/content.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
