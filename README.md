@@ -58,6 +58,13 @@ The header (menu) and footer are repeated on every page (`index.html`, `about.ht
 `calls.html`). To change a menu item, change it in all of them. The current page's menu link carries
 `aria-current="page"`. Old one-page links such as `index.html#projects` redirect to the new pages.
 
+## Language
+
+Every visit starts in **English**. If a visitor switches to Arabic, that choice is kept while they move
+between pages, for the rest of that visit only (it is stored in `sessionStorage`). The default is
+`DEFAULT_LANG` in `js/i18n.js`; the text written in the HTML files is English to match, and is
+replaced by `js/i18n.js` when the page loads.
+
 ## Editing other text
 
 - Section text (hero, about, vision & mission, expertise, materials, methodology, contact, footer):
@@ -80,7 +87,7 @@ git push
 
 Hard-refresh the browser (Ctrl+F5) if you still see the old version.
 
-Every page loads its CSS and JavaScript with a version number, e.g. `css/style.css?v=20261101`.
+Every page loads its CSS and JavaScript with a version number, e.g. `css/style.css?v=20261101b`.
 After changing `css/style.css` or a file in `js/`, change that number on every page (any new value,
 such as today's date) so phones and browsers download the new files instead of a cached copy.
 

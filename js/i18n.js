@@ -6,6 +6,8 @@
      (text content) or data-i18n-attr="attribute:key;attribute2:key2"
      (attributes such as aria-label, alt, content, placeholder).
    - Content source: "Tarmeem Center Portfolio 2026".
+   - Every visit starts in English (DEFAULT_LANG). A visitor's switch to Arabic
+     is remembered for the rest of that visit only (sessionStorage).
    - To add a new string: add the same key to BOTH `ar` and `en`, then use it
      in index.html (or via I18n.t('key') from main.js).
    ============================================================================ */
@@ -13,7 +15,7 @@
   'use strict';
 
   var STORAGE_KEY = 'tarmeem-lang';
-  var DEFAULT_LANG = 'ar';
+  var DEFAULT_LANG = 'en';
   var SUPPORTED = ['ar', 'en'];
 
   var translations = {
@@ -512,7 +514,7 @@
 
   function readStoredLang() {
     try {
-      var value = localStorage.getItem(STORAGE_KEY);
+      var value = sessionStorage.getItem(STORAGE_KEY);
       return SUPPORTED.indexOf(value) !== -1 ? value : null;
     } catch (e) {
       return null;
@@ -521,7 +523,7 @@
 
   function storeLang(lang) {
     try {
-      localStorage.setItem(STORAGE_KEY, lang);
+      sessionStorage.setItem(STORAGE_KEY, lang);
     } catch (e) { /* ignore: private mode or storage disabled */ }
   }
 

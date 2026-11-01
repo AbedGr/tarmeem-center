@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#144B52">
 
-  <title data-i18n="contact.metaTitle">تواصل معنا | مركز ترميم للمحافظة على التراث</title>
-  <meta name="description" content="تواصلوا مع مركز ترميم للمحافظة على التراث في عمّان، الأردن: البريد الإلكتروني والهاتف والعنوان." data-i18n-attr="content:contact.metaDescription">
+  <title data-i18n="contact.metaTitle">Contact | Tarmeem Center for the Preservation of Heritage</title>
+  <meta name="description" content="Contact Tarmeem Center for the Preservation of Heritage in Amman, Jordan: email, phone and address." data-i18n-attr="content:contact.metaDescription">
 
   <link rel="canonical" href="https://abedgr.github.io/tarmeem-center/contact.html">
 
@@ -17,20 +17,20 @@
     The OG image is a JPG on purpose: several crawlers still do not read WebP.
   -->
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="مركز ترميم للمحافظة على التراث" data-i18n-attr="content:meta.title">
-  <meta property="og:title" content="تواصل معنا | مركز ترميم للمحافظة على التراث" data-i18n-attr="content:contact.metaTitle">
-  <meta property="og:description" content="تواصلوا مع مركز ترميم للمحافظة على التراث في عمّان، الأردن: البريد الإلكتروني والهاتف والعنوان." data-i18n-attr="content:contact.metaDescription">
+  <meta property="og:site_name" content="Tarmeem Center for the Preservation of Heritage" data-i18n-attr="content:meta.title">
+  <meta property="og:title" content="Contact | Tarmeem Center for the Preservation of Heritage" data-i18n-attr="content:contact.metaTitle">
+  <meta property="og:description" content="Contact Tarmeem Center for the Preservation of Heritage in Amman, Jordan: email, phone and address." data-i18n-attr="content:contact.metaDescription">
   <meta property="og:url" content="https://abedgr.github.io/tarmeem-center/contact.html">
   <meta property="og:image" content="https://abedgr.github.io/tarmeem-center/assets/images/og-image.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="مركز ترميم للمحافظة على التراث" data-i18n-attr="content:meta.title">
-  <meta property="og:locale" content="ar_AR">
-  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:image:alt" content="Tarmeem Center for the Preservation of Heritage" data-i18n-attr="content:meta.title">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ar_AR">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="تواصل معنا | مركز ترميم للمحافظة على التراث" data-i18n-attr="content:contact.metaTitle">
-  <meta name="twitter:description" content="تواصلوا مع مركز ترميم للمحافظة على التراث في عمّان، الأردن: البريد الإلكتروني والهاتف والعنوان." data-i18n-attr="content:contact.metaDescription">
+  <meta name="twitter:title" content="Contact | Tarmeem Center for the Preservation of Heritage" data-i18n-attr="content:contact.metaTitle">
+  <meta name="twitter:description" content="Contact Tarmeem Center for the Preservation of Heritage in Amman, Jordan: email, phone and address." data-i18n-attr="content:contact.metaDescription">
   <meta name="twitter:image" content="https://abedgr.github.io/tarmeem-center/assets/images/og-image.jpg">
 
   <!-- Favicons -->
@@ -38,13 +38,13 @@
   <link rel="icon" href="assets/images/favicon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
 
-  <!-- Apply the saved language before first paint to avoid a flash of the wrong direction. -->
+  <!-- English by default; a switch to Arabic is remembered for the rest of the visit (applied before first paint). -->
   <script>
     (function () {
       var root = document.documentElement;
       root.classList.add('js');
       try {
-        var saved = localStorage.getItem('tarmeem-lang');
+        var saved = sessionStorage.getItem('tarmeem-lang');
         if (saved === 'en' || saved === 'ar') {
           root.lang = saved;
           root.dir = saved === 'ar' ? 'rtl' : 'ltr';
@@ -58,49 +58,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap">
 
-  <link rel="stylesheet" href="css/style.css?v=20261101">
+  <link rel="stylesheet" href="css/style.css?v=20261101b">
 </head>
 <body id="top" class="subpage">
 
-  <a class="skip-link" href="#main" data-i18n="a11y.skip">الانتقال إلى المحتوى</a>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
 
   <!-- ============================== HEADER ============================== -->
   <!-- The header and footer are repeated on every page: change a menu item in all of them. -->
   <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="مركز ترميم للمحافظة على التراث - الرئيسية" data-i18n-attr="aria-label:brand.homeLink">
+      <a class="brand" href="index.html" aria-label="Tarmeem Center for the Preservation of Heritage - Home" data-i18n-attr="aria-label:brand.homeLink">
         <img class="brand__logo" src="assets/images/logo-mark.png" width="270" height="321" alt="" aria-hidden="true">
         <span class="brand__text">
-          <span class="brand__name" data-i18n="brand.name">مركز ترميم</span>
-          <span class="brand__sub" data-i18n="brand.sub">للمحافظة على التراث</span>
+          <span class="brand__name" data-i18n="brand.name">Tarmeem Center</span>
+          <span class="brand__sub" data-i18n="brand.sub">for the Preservation of Heritage</span>
         </span>
       </a>
 
-      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="فتح القائمة" data-i18n-attr="aria-label:nav.open">
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu" data-i18n-attr="aria-label:nav.open">
         <span class="nav-toggle__bar" aria-hidden="true"></span>
         <span class="nav-toggle__bar" aria-hidden="true"></span>
         <span class="nav-toggle__bar" aria-hidden="true"></span>
       </button>
 
-      <nav class="site-nav" id="site-nav" aria-label="القائمة الرئيسية" data-i18n-attr="aria-label:nav.label">
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-i18n-attr="aria-label:nav.label">
         <ul class="site-nav__list">
-          <li><a class="site-nav__link" href="about.html" data-i18n="nav.about">عن المركز</a></li>
-          <li><a class="site-nav__link" href="expertise.html" data-i18n="nav.expertise">خبراتنا</a></li>
-          <li><a class="site-nav__link" href="projects.html" data-i18n="nav.projects">المشاريع</a></li>
-          <li><a class="site-nav__link" href="team.html" data-i18n="nav.team">الفريق</a></li>
-          <li><a class="site-nav__link" href="partners.html" data-i18n="nav.partners">الشركاء</a></li>
+          <li><a class="site-nav__link" href="about.html" data-i18n="nav.about">About</a></li>
+          <li><a class="site-nav__link" href="expertise.html" data-i18n="nav.expertise">Expertise</a></li>
+          <li><a class="site-nav__link" href="projects.html" data-i18n="nav.projects">Projects</a></li>
+          <li><a class="site-nav__link" href="team.html" data-i18n="nav.team">Team</a></li>
+          <li><a class="site-nav__link" href="partners.html" data-i18n="nav.partners">Partners</a></li>
           <li class="site-nav__item--sub">
-            <a class="site-nav__link" href="opportunities.html"><span data-i18n="nav.opportunities">الفرص</span><svg class="icon site-nav__caret" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></a>
-            <button class="site-nav__subtoggle" type="button" aria-expanded="false" aria-controls="nav-sub-opp" aria-label="عرض الوظائف والدعوات" data-i18n-attr="aria-label:nav.subToggle"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
+            <a class="site-nav__link" href="opportunities.html"><span data-i18n="nav.opportunities">Opportunities</span><svg class="icon site-nav__caret" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></a>
+            <button class="site-nav__subtoggle" type="button" aria-expanded="false" aria-controls="nav-sub-opp" aria-label="Show Jobs and Calls" data-i18n-attr="aria-label:nav.subToggle"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg></button>
             <ul class="site-nav__sub" id="nav-sub-opp">
-              <li><a class="site-nav__sublink" href="jobs.html" data-i18n="nav.jobs">الوظائف</a></li>
-              <li><a class="site-nav__sublink" href="calls.html" data-i18n="nav.calls">الدعوات</a></li>
+              <li><a class="site-nav__sublink" href="jobs.html" data-i18n="nav.jobs">Jobs</a></li>
+              <li><a class="site-nav__sublink" href="calls.html" data-i18n="nav.calls">Calls</a></li>
             </ul>
           </li>
-          <li><a class="site-nav__link" href="contact.html" aria-current="page" data-i18n="nav.contact">تواصل معنا</a></li>
+          <li><a class="site-nav__link" href="contact.html" aria-current="page" data-i18n="nav.contact">Contact</a></li>
         </ul>
 
-        <div class="lang-toggle" role="group" aria-label="اللغة" data-i18n-attr="aria-label:lang.label">
+        <div class="lang-toggle" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.label">
           <button type="button" class="lang-toggle__btn" data-lang="ar" lang="ar" aria-pressed="true" aria-label="العربية">AR</button>
           <span class="lang-toggle__sep" aria-hidden="true">|</span>
           <button type="button" class="lang-toggle__btn" data-lang="en" lang="en" aria-pressed="false" aria-label="English">EN</button>
@@ -114,13 +114,13 @@
     <!-- ============================== PAGE HEADER ============================== -->
     <section class="section--dark page-hero page-hero--compact" aria-labelledby="page-title">
       <div class="container">
-        <nav class="breadcrumb" aria-label="مسار التنقل" data-i18n-attr="aria-label:nav.breadcrumb">
+        <nav class="breadcrumb" aria-label="Breadcrumb" data-i18n-attr="aria-label:nav.breadcrumb">
           <ol>
-            <li><a href="index.html" data-i18n="nav.home">الرئيسية</a></li>
-            <li><span aria-current="page" data-i18n="nav.contact">تواصل معنا</span></li>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><span aria-current="page" data-i18n="nav.contact">Contact</span></li>
           </ol>
         </nav>
-        <h1 class="page-hero__title" id="page-title" data-i18n="nav.contact">تواصل معنا</h1>
+        <h1 class="page-hero__title" id="page-title" data-i18n="nav.contact">Contact</h1>
       </div>
     </section>
 
@@ -129,33 +129,33 @@
       <div class="container">
         <div class="contact__grid">
           <div class="contact__info reveal">
-            <p class="eyebrow eyebrow--light" data-i18n="contact.eyebrow">تواصل معنا</p>
-            <h2 class="section-title section-title--light" id="contact-title" data-i18n="contact.title">لنعمل معاً على صون التراث</h2>
-            <p class="section-lead section-lead--light" data-i18n="contact.subtitle"></p>
+            <p class="eyebrow eyebrow--light" data-i18n="contact.eyebrow">Contact us</p>
+            <h2 class="section-title section-title--light" id="contact-title" data-i18n="contact.title">Let’s preserve heritage together</h2>
+            <p class="section-lead section-lead--light" data-i18n="contact.subtitle">We welcome inquiries, collaborations and partnerships in conservation and documentation projects.</p>
 
             <dl class="contact__list">
               <div class="contact__item">
-                <dt data-i18n="contact.email">البريد الإلكتروني</dt>
+                <dt data-i18n="contact.email">Email</dt>
                 <dd><a id="contact-email" href="mailto:info@tarmeem-center.com" dir="ltr">info@tarmeem-center.com</a></dd>
               </div>
               <div class="contact__item">
-                <dt data-i18n="contact.phone">الهاتف</dt>
+                <dt data-i18n="contact.phone">Phone</dt>
                 <dd><a href="tel:+962795109749" dir="ltr">+962 795 109 749</a></dd>
               </div>
               <div class="contact__item">
-                <dt data-i18n="contact.website">الموقع الإلكتروني</dt>
+                <dt data-i18n="contact.website">Website</dt>
                 <dd><a href="https://www.tarmeem-center.com" dir="ltr" rel="noopener" target="_blank">www.tarmeem-center.com</a></dd>
               </div>
               <div class="contact__item">
-                <dt data-i18n="contact.registration">التسجيل</dt>
-                <dd data-i18n="contact.registrationValue">رقم التسجيل 601</dd>
+                <dt data-i18n="contact.registration">Registration</dt>
+                <dd data-i18n="contact.registrationValue">Registration No. 601</dd>
               </div>
               <div class="contact__item contact__item--wide">
-                <dt data-i18n="contact.address">العنوان</dt>
+                <dt data-i18n="contact.address">Address</dt>
                 <dd>
-                  <span data-i18n="contact.addressValue">91 شارع جبل عرفات، الياسمين، عمّان 11623، الأردن</span>
+                  <span data-i18n="contact.addressValue">91 Jabal Arafat St., Yasmeen, Amman 11623, Jordan</span>
                   <a class="contact__map" href="https://www.google.com/maps/search/?api=1&amp;query=91+Jabal+Arafat+St%2C+Yasmeen%2C+Amman+11623%2C+Jordan" rel="noopener" target="_blank">
-                    <span data-i18n="contact.map">افتح في الخرائط</span>
+                    <span data-i18n="contact.map">Open in maps</span>
                     <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 17L17 7M9 7h8v8"/></svg>
                   </a>
                 </dd>
@@ -164,25 +164,25 @@
           </div>
 
           <form class="contact-form reveal" id="contact-form" action="#" method="get">
-            <p class="contact-form__note" data-i18n="form.note">سيؤدي الإرسال إلى فتح تطبيق البريد الإلكتروني لديكم مع رسالة مُعدّة مسبقًا.</p>
+            <p class="contact-form__note" data-i18n="form.note">Sending opens your email application with a pre-filled message.</p>
 
             <div class="field">
-              <label class="field__label" for="form-name" data-i18n="form.name">الاسم</label>
+              <label class="field__label" for="form-name" data-i18n="form.name">Name</label>
               <input class="field__input" id="form-name" name="name" type="text" autocomplete="name" required>
             </div>
 
             <div class="field">
-              <label class="field__label" for="form-email" data-i18n="form.email">البريد الإلكتروني</label>
+              <label class="field__label" for="form-email" data-i18n="form.email">Email</label>
               <input class="field__input" id="form-email" name="email" type="email" autocomplete="email" inputmode="email" dir="ltr" required>
             </div>
 
             <div class="field">
-              <label class="field__label" for="form-message" data-i18n="form.message">الرسالة</label>
+              <label class="field__label" for="form-message" data-i18n="form.message">Message</label>
               <textarea class="field__input" id="form-message" name="message" rows="5" required></textarea>
             </div>
 
             <button class="btn btn--primary" type="submit">
-              <span data-i18n="form.submit">إرسال الرسالة</span>
+              <span data-i18n="form.submit">Send Message</span>
               <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </button>
           </form>
@@ -197,10 +197,10 @@
     <div class="container footer-inner">
       <div class="footer__brand">
         <img class="footer__logo" src="assets/images/logo-full.png" width="274" height="446" loading="lazy" decoding="async"
-             alt="شعار مركز ترميم للمحافظة على التراث" data-i18n-attr="alt:brand.logoAlt">
+             alt="Tarmeem Center for the Preservation of Heritage logo" data-i18n-attr="alt:brand.logoAlt">
         <div>
-          <p class="footer__name" data-i18n="meta.title">مركز ترميم للمحافظة على التراث</p>
-          <p class="footer__meta" data-i18n="footer.founded">تأسس عام 2014 · عمّان، الأردن</p>
+          <p class="footer__name" data-i18n="meta.title">Tarmeem Center for the Preservation of Heritage</p>
+          <p class="footer__meta" data-i18n="footer.founded">Est. 2014 · Amman, Jordan</p>
           <p class="footer__contact">
             <a href="mailto:info@tarmeem-center.com" dir="ltr">info@tarmeem-center.com</a>
             <a href="tel:+962795109749" dir="ltr">+962 795 109 749</a>
@@ -208,23 +208,23 @@
         </div>
       </div>
 
-      <nav class="footer__nav" aria-label="روابط التذييل" data-i18n-attr="aria-label:footer.navLabel">
-        <a href="about.html" data-i18n="nav.about">عن المركز</a>
-        <a href="expertise.html" data-i18n="nav.expertise">خبراتنا</a>
-        <a href="projects.html" data-i18n="nav.projects">المشاريع</a>
-        <a href="team.html" data-i18n="nav.team">الفريق</a>
-        <a href="partners.html" data-i18n="nav.partners">الشركاء</a>
-        <a href="opportunities.html" data-i18n="nav.opportunities">الفرص</a>
-        <a href="contact.html" data-i18n="nav.contact">تواصل معنا</a>
+      <nav class="footer__nav" aria-label="Footer links" data-i18n-attr="aria-label:footer.navLabel">
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="expertise.html" data-i18n="nav.expertise">Expertise</a>
+        <a href="projects.html" data-i18n="nav.projects">Projects</a>
+        <a href="team.html" data-i18n="nav.team">Team</a>
+        <a href="partners.html" data-i18n="nav.partners">Partners</a>
+        <a href="opportunities.html" data-i18n="nav.opportunities">Opportunities</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <div class="footer__bottom">
         <p class="footer__copy">
           <span>&copy; <span id="footer-year">2026</span></span>
-          <span data-i18n="footer.rights">مركز ترميم للمحافظة على التراث. جميع الحقوق محفوظة.</span>
+          <span data-i18n="footer.rights">Tarmeem Center for the Preservation of Heritage. All rights reserved.</span>
         </p>
         <a class="footer__top" href="#top">
-          <span data-i18n="footer.backToTop">العودة إلى الأعلى</span>
+          <span data-i18n="footer.backToTop">Back to top</span>
           <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
         </a>
       </div>
@@ -236,7 +236,7 @@
     <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
   </template>
 
-  <script src="js/i18n.js?v=20261101"></script>
-  <script src="js/main.js?v=20261101"></script>
+  <script src="js/i18n.js?v=20261101b"></script>
+  <script src="js/main.js?v=20261101b"></script>
 </body>
 </html>
