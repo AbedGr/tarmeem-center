@@ -78,6 +78,20 @@
       link.addEventListener('click', function () { setOpen(false); });
     });
 
+    /* mobile: the chevron beside "Opportunities" opens / closes Jobs and Calls */
+    qsa('.site-nav__subtoggle', nav).forEach(function (btn) {
+      var item = btn.parentNode;
+      var setSub = function (open) {
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        item.classList.toggle('is-sub-open', open);
+      };
+      /* start expanded when we are on one of its sub-pages */
+      setSub(!!qs('.site-nav__sublink[aria-current="page"]', item));
+      btn.addEventListener('click', function () {
+        setSub(btn.getAttribute('aria-expanded') !== 'true');
+      });
+    });
+
     doc.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && isOpen()) {
         setOpen(false);

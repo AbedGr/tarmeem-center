@@ -495,8 +495,26 @@ html[lang="en"] .eyebrow { letter-spacing: 0.14em; text-transform: uppercase; fo
 .site-nav__sublink[aria-current="page"] { color: var(--gold-text); font-weight: 600; }
 .site-nav__link[aria-current="page"] { color: var(--gold-text); }
 .site-nav__item--sub > .site-nav__link .site-nav__caret { display: none; }
+.site-nav__subtoggle { display: none; }
 @media (max-width: 1099.98px) {
   .site-nav { max-height: calc(100vh - var(--header-h)); overflow-y: auto; }
+
+  /* Opportunities: link + chevron button; Jobs / Calls collapse underneath */
+  .site-nav__item--sub { display: flex; flex-wrap: wrap; align-items: stretch; }
+  .site-nav__item--sub > .site-nav__link { flex: 1; }
+  .js .site-nav__subtoggle {
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    color: var(--primary-deep);
+    border-block-end: 1px solid var(--line);
+    border-radius: 0;
+  }
+  .site-nav__subtoggle .icon { transition: transform var(--dur) var(--ease); }
+  .site-nav__subtoggle[aria-expanded="true"] .icon { transform: rotate(180deg); }
+  .site-nav__sub { flex-basis: 100%; }
+  .js .site-nav__sub { display: none; }
+  .js .is-sub-open > .site-nav__sub { display: block; }
 }
 @media (min-width: 1100px) {
   .site-nav__item--sub > .site-nav__link .site-nav__caret { display: block; }

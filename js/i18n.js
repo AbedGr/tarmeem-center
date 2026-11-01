@@ -196,6 +196,7 @@
       'nav.opportunities': 'الفرص',
       'nav.jobs': 'الوظائف',
       'nav.calls': 'الدعوات',
+      'nav.subToggle': 'عرض الوظائف والدعوات',
       'nav.breadcrumb': 'مسار التنقل',
 
       'opp.metaTitle': 'الفرص | مركز ترميم للمحافظة على التراث',
@@ -417,6 +418,7 @@
       'nav.opportunities': 'Opportunities',
       'nav.jobs': 'Jobs',
       'nav.calls': 'Calls',
+      'nav.subToggle': 'Show Jobs and Calls',
       'nav.breadcrumb': 'Breadcrumb',
 
       'opp.metaTitle': 'Opportunities | Tarmeem Center for the Preservation of Heritage',
