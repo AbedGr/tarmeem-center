@@ -190,129 +190,125 @@ window.PROJECTS = [
   },
   /* ------------------------------------------------------------------ 02 */
   {
-    id: 'al-matan',
+    id: 'beit-ras-theatre',
     number: '02',
-    years: '2017–2020',
+    years: '2024',
     ongoing: false,
-    site: { ar: 'قرية المعطن التراثية', en: 'Al Matan Heritage Village' },
-    title: {
-      ar: 'قيمة التراث محرّكاً للنمو الاقتصادي عبر السياحة المجتمعية التشاركية',
-      en: 'Heritage Value as a Driver for Economic Growth through Participatory Community-Based Tourism'
-    },
-    location: { ar: 'قرية المعطن التراثية، محافظة الطفيلة', en: 'Al Matan Heritage Village, Tafileh Governorate' },
-    period: { ar: '1 تشرين الثاني 2017 – 30 حزيران 2020', en: '1 November 2017 – 30 June 2020' },
-    value: { ar: '196,000 دينار أردني', en: '196,000 JOD' },
+    site: { ar: 'المسرح الروماني في بيت رأس', en: 'Roman Theatre of Beit Ras' },
+    title: { ar: 'مشروع صون مسرح بيت رأس', en: 'Beit Ras Theatre Conservation Project' },
+    location: { ar: 'المسرح الروماني في بيت رأس، محافظة إربد', en: 'Roman Theatre of Beit Ras, Irbid Governorate' },
+    period: { ar: '16 نيسان – 17 أيلول 2024', en: '16 April – 17 September 2024' },
     summary: {
-      ar: 'هُجرت قرية المعطن في ثمانينيات القرن الماضي حين انتقل سكانها إلى قرية عين البيضا المجاورة. وقد سكنها الأدوميون منذ القرن الحادي عشر قبل الميلاد ثم الأنباط، وعانت عقوداً من التدهور.',
-      en: 'Al Matan was abandoned in the 1980s when its residents relocated to nearby Ain Al Bayda. Inhabited by the Edomites since the 11th century BC and later by the Nabataeans, the village had suffered decades of deterioration.'
+      ar: 'يُعد المسرح الروماني في بيت رأس، مدينة كابيتولياس القديمة، من المعالم الكلاسيكية المهمة في شمال الأردن.',
+      en: 'The Roman theatre at Beit Ras, ancient Capitolias, is among the significant classical monuments of northern Jordan.'
     },
-    figures: [
-      {
-        value: '150+',
-        label: { ar: 'فرداً من المجتمع المحلي شاركوا في التنفيذ', en: 'community members engaged' }
-      },
-      { value: '50+', label: { ar: 'متدرباً في ورش موقعية', en: 'trained on site' } },
-      { value: '~500 m²', label: { ar: 'خمسة بيوت تراثية مرمّمة', en: 'five heritage houses restored' } }
-    ],
     cooperation: {
       ar: [
-        'بتمويل من سفارة مملكة هولندا (عقد وزارة الخارجية رقم 4000000869).',
-        'شركاء محليون: جمعية البقيعة التعاونية للسياحة، وجمعية همتنا غير.',
-        'بمتابعة وزارة الصناعة والتجارة، ووزارة السياحة والآثار، ووزارة الثقافة.'
+        'بالتعاون مع المركز الأمريكي للأبحاث (أكور).',
+        'ودائرة الآثار العامة.'
       ],
       en: [
-        'Funded by the Embassy of the Kingdom of the Netherlands.',
-        'Local partners: Al-Baqee’a Cooperative Society for Tourism; Himmitna Ghair NGO.',
-        'Monitored by the Ministry of Industry and Trade, the Ministry of Tourism and Antiquities, and the Ministry of Culture.'
+        'In cooperation with the American Center of Research (ACOR).',
+        'And the Department of Antiquities (DoA).'
       ]
     },
     objectives: {
       ar: [
-        'توظيف التراث محرّكاً للنمو الاقتصادي المستدام في قرية مهجورة.',
-        'تفعيل دور المجتمع المحلي في تنمية السياحة وإدارتها.',
-        'ترميم النسيج التراثي بمواد وحرفية محلية وفق أفضل الممارسات الدولية.',
-        'تطوير نزل بيئية ومسارات سياحية ونموذج تبادل ثقافي تفاعلي.'
+        'الحفاظ على التراث الثقافي: صون السلامة التاريخية والإنشائية للموقع للحفاظ على أهميته الثقافية للأجيال القادمة.',
+        'تحسين تجربة الزائر: رفع مستوى السلامة وسهولة الوصول وتفسير الموقع لتقديم تجربة ثرية وتعليمية.',
+        'الصون المستدام: اعتماد أساليب تقلل الأثر البيئي وتضمن استدامة المواد والتدخلات على المدى الطويل.'
       ],
       en: [
-        'Use heritage as a driver of sustainable economic growth in an abandoned village.',
-        'Activate the role of the local community in tourism development and management.',
-        'Restore the heritage fabric using local materials and craftsmanship to international best practice.',
-        'Develop eco-lodges, tourism routes and an interactive cultural exchange model.'
+        'Preserve cultural heritage — safeguard the historical and structural integrity of the site to maintain its cultural significance for future generations.',
+        'Enhance visitor experience — improve safety, accessibility and site interpretation to provide an engaging and educational experience.',
+        'Sustainable conservation — implement methods that minimise environmental impact and ensure the long-term sustainability of materials and interventions.'
       ]
     },
     works: {
       ar: [
-        'ترميم وإعادة تأهيل كاملة لمجموعة نموذجية من خمسة بيوت تراثية (نحو 500 م²) تشمل الفراغات الداخلية والخارجية والزقاق المؤدي إليها.',
-        'تطبيق ممارسات البناء الأخضر لتوفير التبريد والإضاءة الطبيعيين وخفض كلف التشغيل.',
-        'بنية تحتية جديدة تشمل شبكة منفصلة للمياه السوداء والرمادية لجميع البيوت.',
-        'إعداد دليل باللغة العربية للترميم وإعادة التأهيل مورداً للمجتمع المحلي.',
-        'برنامج توثيق بمشاركة طلبة الجامعات، وتوسيع الطريق المؤدي للموقع وتنظيفه.',
-        'ورش تدريب موقعية لأكثر من 50 فرداً من المجتمع المحلي في الترميم وصيانة الموقع والتشغيل والسياحة التجريبية والإشراف الفندقي والإرشاد السياحي.',
-        'تطوير نموذج السياحة المجتمعية مع جمعية همتنا غير، وتثبيته بعقد تشغيل موقّع بين الجمعيتين المحليتين.',
-        'خطة تشغيلية متكاملة، وهوية للوجهة السياحية، وموقع إلكتروني وتطبيق للهواتف.'
+        'إدارة جميع أعمال الترميم الميدانية في الموقع والإشراف عليها بما يضمن الالتزام بمنهجيات الصون المعتمدة وأفضل الممارسات الدولية.',
+        'تقييم الحالة وتحديد أولويات التدخل للمدرجات الحجرية والجدران الساندة وعناصر الحركة والملامح المعمارية المكشوفة.',
+        'تدخلات صون مباشرة تشمل تنظيف الحجر وتقويته وإعادة التكحيل وتثبيت العناصر المفكوكة وإجراءات الحماية الوقائية.',
+        'تنفيذ جميع أعمال الصون في الموقع بما فيها التفاصيل الهندسية والمعمارية.',
+        'تنسيق يومي بين المستشارين الفنيين في أكور وممثلي دائرة الآثار ومهندسي الموقع والمرمّمين وفرق العمل المهرة.',
+        'التزام صارم بإجراءات ضبط الجودة وتوكيدها ومعايير توافق المواد ومتطلبات التوثيق.',
+        'متابعة سلامة الموقع وتسلسل الأعمال والتنسيق اللوجستي لتقليل المخاطر على النسيج الأثري أثناء الترميم.'
       ],
       en: [
-        'Full restoration and rehabilitation of a model cluster of five heritage houses (~500 m²), including indoor and outdoor spaces and the main alley leading to the cluster.',
-        'Green building practices delivering natural cooling and lighting to reduce operational costs.',
-        'New site infrastructure including a separate network for black and grey water across all houses.',
-        'Development of an Arabic-language manual for restoration and rehabilitation as a community resource.',
-        'Documentation programme engaging university students; access route widened and cleared.',
-        'On-site training workshops for more than 50 community members in restoration, site maintenance, operations, experiential tourism, housekeeping and tour guiding.',
-        'Community-Based Tourism model developed with Himmitna Ghair, formalised in a signed operating contract between the two local NGOs.',
-        'Full operational plan, destination branding, website and mobile application.'
+        'Directed and supervised all on-site field restoration works, ensuring compliance with approved conservation methodologies and international best practice.',
+        'Condition assessments and verification of intervention priorities for stone seating, retaining walls, circulation elements and exposed architectural features.',
+        'Hands-on conservation interventions: stone cleaning, consolidation, re-pointing, stabilisation of loose elements and preventive protection measures.',
+        'Implementation of all on-site conservation works including engineering and architectural details.',
+        'Daily coordination between ACOR technical advisors, Department of Antiquities representatives, site engineers, conservators and skilled labour teams.',
+        'Strict adherence to QA/QC procedures, material compatibility standards and documentation requirements.',
+        'Monitoring of site safety, sequencing of works and logistical coordination to minimise risk to archaeological fabric during active restoration.'
       ]
     },
     achievements: {
       ar: [
-        'ترشّح ضمن القائمة القصيرة لجائزة إيكروم–الشارقة للممارسات الجيدة في صون التراث الثقافي.',
-        'أول مشروع من نوعه في الأردن ينفّذ الترميم وإعادة التأهيل عبر إشراك المجتمع المحلي.',
-        'إشراك أكثر من 150 فرداً من المجتمع المحلي في التنفيذ، واستشارة 100 فرد في تصميم الوجهة، وتشغيل أكثر من 40 عاملاً محلياً.',
-        'الحصول على رخصة تشغيل كاملة من وزارة السياحة، وتسجيل 24 موظفاً في الضمان الاجتماعي لدى الجمعية المشغّلة.',
-        'إدراج المشروع في خطة العمل الوطنية للنمو الأخضر 2021–2025، والتوصية باعتماده نموذجاً قابلاً للتوسع في قرى تراثية أخرى.',
-        'تأمين منحة أوروبية لاحقة بقيمة 30,000 يورو للجمعية المشغّلة، ودعم إضافي من مؤسسة ولي العهد والديوان الملكي.',
-        'اختيار الموقع من الهيئة الملكية للأفلام موقعاً للتصوير، بعائد تجاوز 12,000 دينار للمجتمع المحلي وتشغيل 25 شخصاً و9 نساء من القرية.',
-        'زيارة رفيعة المستوى من الديوان الملكي ووزارة السياحة والآثار بتاريخ 22 شباط 2020.',
-        'إدراج القرية على درب الأردن السياحي، وثلاث منشورات علمية منها مقال في مجلة علم الآثار في الأردن الصادرة عن أكور.'
+        'إنجاز بحث تاريخي شامل وتقييم للحالة وتوثيق كامل، بما يوفّر أساساً متيناً لأعمال الصون اللاحقة.',
+        'إزالة كميات كبيرة من الرمال والأنقاض من محيط الموقع، مما حسّن مظهره وقلّل مخاطر التدهور الإنشائي.',
+        'مباشرة تثبيت إنشائي في المناطق الحرجة، شمل ردم الفراغات المحفورة وتقوية العناصر الإنشائية الرئيسية.',
+        'تحسين سهولة الوصول عبر تطوير الممرات ونقاط الدخول بما يسهّل حركة الزوّار بأمان.',
+        'بدء معالجات صون موجّهة للمواد الرئيسية لمعالجة تدهور الحجر وغيره من المسائل المهمة.',
+        'تثبيت وصون ناجحان للعناصر المعمارية ذات الأولوية، مما عزّز السلامة الإنشائية والتكامل المادي للمسرح.',
+        'تحسين وضوح المعلم وعرضه بما يدعم الزيارة المنظمة والأنشطة الثقافية مستقبلاً.',
+        'مستوى عالٍ من الالتزام بأنظمة دائرة الآثار العامة ومعايير الصون في أكور.',
+        'تعزيز القدرات الفنية المحلية عبر التوجيه والإشراف الموقعي، بما يسهم في ممارسة صون مستدامة في شمال الأردن.'
       ],
       en: [
-        'Shortlisted for the ICCROM-Sharjah Award for Good Practices in Cultural Heritage Conservation.',
-        'First project of its kind in Jordan to deliver restoration and rehabilitation through community engagement.',
-        'More than 150 community members engaged in delivery; 100 consulted in destination design; over 40 local labourers employed.',
-        'Full operating licence secured from the Ministry of Tourism; 24 employees registered with Social Security under the operating NGO.',
-        'Featured in the Jordan Green Growth National Action Plan 2021–2025 and recommended as an upscaling model for other heritage villages.',
-        '€30,000 EU follow-on grant secured for the operating NGO; further support from the Crown Prince Foundation and the Royal Court.',
-        'Selected by the Royal Film Commission as a shooting location, generating over 12,000 JOD for the community and hiring 25 local people and 9 local women.',
-        'High-level visit by the Royal Court and the Ministry of Tourism and Antiquities, 22 February 2020.',
-        'Listed on the Jordan Tourism Trail; three academic publications including an article in Archaeology in Jordan (ACOR).'
+        'Comprehensive historical research, condition assessment and documentation completed, providing a solid foundation for further conservation.',
+        'Significant sand and debris cleared from the site perimeter, improving appearance and reducing risks of further structural deterioration.',
+        'Structural stabilisation initiated on critical areas, including backfilling of excavated spaces and consolidation of key structural elements.',
+        'Accessibility enhanced through improved pathways and access points, facilitating safer visitor circulation.',
+        'Targeted conservation treatments begun on key materials, addressing stone degradation and other significant issues.',
+        'Successful stabilisation and conservation of priority architectural elements, enhancing the structural safety and physical integrity of the theatre.',
+        'Improved legibility and presentation of the monument, supporting future controlled visitation and cultural activities.',
+        'High level of compliance with Department of Antiquities regulations and ACOR conservation standards.',
+        'Strengthened local technical capacity through on-site guidance and supervision, contributing to sustainable conservation practice in northern Jordan.'
       ]
     },
     cover: {
-      src: 'assets/images/projects/almatan-3.webp',
+      src: 'assets/images/projects/beitras-1.webp',
       alt: {
-        ar: 'عمّال يرمّمون قوساً حجرياً داخل أحد بيوت قرية المعطن التراثية',
-        en: 'Workers restoring a stone arch inside one of the heritage houses at Al Matan'
+        ar: 'منظر عام للمسرح الروماني في بيت رأس خلال أعمال الصون، وتظهر البلدة في الخلفية',
+        en: 'Overview of the Roman theatre at Beit Ras during conservation works, with the town behind'
       }
     },
     gallery: [
       {
-        src: 'assets/images/projects/almatan-3.webp',
+        src: 'assets/images/projects/beitras-1.webp',
         alt: {
-          ar: 'عمّال يرمّمون قوساً حجرياً داخل أحد بيوت قرية المعطن التراثية',
-          en: 'Workers restoring a stone arch inside one of the heritage houses at Al Matan'
+          ar: 'منظر عام للمسرح الروماني في بيت رأس خلال أعمال الصون، وتظهر البلدة في الخلفية',
+          en: 'Overview of the Roman theatre at Beit Ras during conservation works, with the town behind'
         }
       },
       {
-        src: 'assets/images/projects/almatan-1.webp',
+        src: 'assets/images/projects/beitras-5.webp',
         alt: {
-          ar: 'بيوت قرية المعطن الحجرية على سفح الجبل بين الأشجار',
-          en: 'The stone houses of Al Matan on the hillside among the trees'
+          ar: 'زوّار يستخدمون الدرج المعدني الجديد المؤدي إلى مدرجات المسرح',
+          en: 'Visitors using the new steel staircase leading to the theatre seating'
         }
       },
       {
-        src: 'assets/images/projects/almatan-2.webp',
+        src: 'assets/images/projects/beitras-2.webp',
         alt: {
-          ar: 'أربع صور مرقّمة لمجموعة البيوت التراثية في المعطن خلال مراحل الترميم',
-          en: 'Four numbered views of the Al Matan house cluster through the stages of restoration'
+          ar: 'ممر معدني جديد بمحاذاة المدرجات الحجرية',
+          en: 'A new steel walkway alongside the stone seating'
+        }
+      },
+      {
+        src: 'assets/images/projects/beitras-3.webp',
+        alt: {
+          ar: 'درجات حجرية مرمّمة ولوحة تفسيرية في الموقع',
+          en: 'Restored stone steps and an interpretation panel on site'
+        }
+      },
+      {
+        src: 'assets/images/projects/beitras-4.webp',
+        alt: {
+          ar: 'المسرح من الأعلى خلال الأعمال مع رافعة في الموقع',
+          en: 'The theatre from above during works, with a crane on site'
         }
       }
     ]
@@ -622,125 +618,129 @@ window.PROJECTS = [
   },
   /* ------------------------------------------------------------------ 05 */
   {
-    id: 'beit-ras-theatre',
+    id: 'al-matan',
     number: '05',
-    years: '2024',
+    years: '2017–2020',
     ongoing: false,
-    site: { ar: 'المسرح الروماني في بيت رأس', en: 'Roman Theatre of Beit Ras' },
-    title: { ar: 'مشروع صون مسرح بيت رأس', en: 'Beit Ras Theatre Conservation Project' },
-    location: { ar: 'المسرح الروماني في بيت رأس، محافظة إربد', en: 'Roman Theatre of Beit Ras, Irbid Governorate' },
-    period: { ar: '16 نيسان – 17 أيلول 2024', en: '16 April – 17 September 2024' },
-    summary: {
-      ar: 'يُعد المسرح الروماني في بيت رأس، مدينة كابيتولياس القديمة، من المعالم الكلاسيكية المهمة في شمال الأردن.',
-      en: 'The Roman theatre at Beit Ras, ancient Capitolias, is among the significant classical monuments of northern Jordan.'
+    site: { ar: 'قرية المعطن التراثية', en: 'Al Matan Heritage Village' },
+    title: {
+      ar: 'قيمة التراث محرّكاً للنمو الاقتصادي عبر السياحة المجتمعية التشاركية',
+      en: 'Heritage Value as a Driver for Economic Growth through Participatory Community-Based Tourism'
     },
+    location: { ar: 'قرية المعطن التراثية، محافظة الطفيلة', en: 'Al Matan Heritage Village, Tafileh Governorate' },
+    period: { ar: '1 تشرين الثاني 2017 – 30 حزيران 2020', en: '1 November 2017 – 30 June 2020' },
+    value: { ar: '196,000 دينار أردني', en: '196,000 JOD' },
+    summary: {
+      ar: 'هُجرت قرية المعطن في ثمانينيات القرن الماضي حين انتقل سكانها إلى قرية عين البيضا المجاورة. وقد سكنها الأدوميون منذ القرن الحادي عشر قبل الميلاد ثم الأنباط، وعانت عقوداً من التدهور.',
+      en: 'Al Matan was abandoned in the 1980s when its residents relocated to nearby Ain Al Bayda. Inhabited by the Edomites since the 11th century BC and later by the Nabataeans, the village had suffered decades of deterioration.'
+    },
+    figures: [
+      {
+        value: '150+',
+        label: { ar: 'فرداً من المجتمع المحلي شاركوا في التنفيذ', en: 'community members engaged' }
+      },
+      { value: '50+', label: { ar: 'متدرباً في ورش موقعية', en: 'trained on site' } },
+      { value: '~500 m²', label: { ar: 'خمسة بيوت تراثية مرمّمة', en: 'five heritage houses restored' } }
+    ],
     cooperation: {
       ar: [
-        'بالتعاون مع المركز الأمريكي للأبحاث (أكور).',
-        'ودائرة الآثار العامة.'
+        'بتمويل من سفارة مملكة هولندا (عقد وزارة الخارجية رقم 4000000869).',
+        'شركاء محليون: جمعية البقيعة التعاونية للسياحة، وجمعية همتنا غير.',
+        'بمتابعة وزارة الصناعة والتجارة، ووزارة السياحة والآثار، ووزارة الثقافة.'
       ],
       en: [
-        'In cooperation with the American Center of Research (ACOR).',
-        'And the Department of Antiquities (DoA).'
+        'Funded by the Embassy of the Kingdom of the Netherlands.',
+        'Local partners: Al-Baqee’a Cooperative Society for Tourism; Himmitna Ghair NGO.',
+        'Monitored by the Ministry of Industry and Trade, the Ministry of Tourism and Antiquities, and the Ministry of Culture.'
       ]
     },
     objectives: {
       ar: [
-        'الحفاظ على التراث الثقافي: صون السلامة التاريخية والإنشائية للموقع للحفاظ على أهميته الثقافية للأجيال القادمة.',
-        'تحسين تجربة الزائر: رفع مستوى السلامة وسهولة الوصول وتفسير الموقع لتقديم تجربة ثرية وتعليمية.',
-        'الصون المستدام: اعتماد أساليب تقلل الأثر البيئي وتضمن استدامة المواد والتدخلات على المدى الطويل.'
+        'توظيف التراث محرّكاً للنمو الاقتصادي المستدام في قرية مهجورة.',
+        'تفعيل دور المجتمع المحلي في تنمية السياحة وإدارتها.',
+        'ترميم النسيج التراثي بمواد وحرفية محلية وفق أفضل الممارسات الدولية.',
+        'تطوير نزل بيئية ومسارات سياحية ونموذج تبادل ثقافي تفاعلي.'
       ],
       en: [
-        'Preserve cultural heritage — safeguard the historical and structural integrity of the site to maintain its cultural significance for future generations.',
-        'Enhance visitor experience — improve safety, accessibility and site interpretation to provide an engaging and educational experience.',
-        'Sustainable conservation — implement methods that minimise environmental impact and ensure the long-term sustainability of materials and interventions.'
+        'Use heritage as a driver of sustainable economic growth in an abandoned village.',
+        'Activate the role of the local community in tourism development and management.',
+        'Restore the heritage fabric using local materials and craftsmanship to international best practice.',
+        'Develop eco-lodges, tourism routes and an interactive cultural exchange model.'
       ]
     },
     works: {
       ar: [
-        'إدارة جميع أعمال الترميم الميدانية في الموقع والإشراف عليها بما يضمن الالتزام بمنهجيات الصون المعتمدة وأفضل الممارسات الدولية.',
-        'تقييم الحالة وتحديد أولويات التدخل للمدرجات الحجرية والجدران الساندة وعناصر الحركة والملامح المعمارية المكشوفة.',
-        'تدخلات صون مباشرة تشمل تنظيف الحجر وتقويته وإعادة التكحيل وتثبيت العناصر المفكوكة وإجراءات الحماية الوقائية.',
-        'تنفيذ جميع أعمال الصون في الموقع بما فيها التفاصيل الهندسية والمعمارية.',
-        'تنسيق يومي بين المستشارين الفنيين في أكور وممثلي دائرة الآثار ومهندسي الموقع والمرمّمين وفرق العمل المهرة.',
-        'التزام صارم بإجراءات ضبط الجودة وتوكيدها ومعايير توافق المواد ومتطلبات التوثيق.',
-        'متابعة سلامة الموقع وتسلسل الأعمال والتنسيق اللوجستي لتقليل المخاطر على النسيج الأثري أثناء الترميم.'
+        'ترميم وإعادة تأهيل كاملة لمجموعة نموذجية من خمسة بيوت تراثية (نحو 500 م²) تشمل الفراغات الداخلية والخارجية والزقاق المؤدي إليها.',
+        'تطبيق ممارسات البناء الأخضر لتوفير التبريد والإضاءة الطبيعيين وخفض كلف التشغيل.',
+        'بنية تحتية جديدة تشمل شبكة منفصلة للمياه السوداء والرمادية لجميع البيوت.',
+        'إعداد دليل باللغة العربية للترميم وإعادة التأهيل مورداً للمجتمع المحلي.',
+        'برنامج توثيق بمشاركة طلبة الجامعات، وتوسيع الطريق المؤدي للموقع وتنظيفه.',
+        'ورش تدريب موقعية لأكثر من 50 فرداً من المجتمع المحلي في الترميم وصيانة الموقع والتشغيل والسياحة التجريبية والإشراف الفندقي والإرشاد السياحي.',
+        'تطوير نموذج السياحة المجتمعية مع جمعية همتنا غير، وتثبيته بعقد تشغيل موقّع بين الجمعيتين المحليتين.',
+        'خطة تشغيلية متكاملة، وهوية للوجهة السياحية، وموقع إلكتروني وتطبيق للهواتف.'
       ],
       en: [
-        'Directed and supervised all on-site field restoration works, ensuring compliance with approved conservation methodologies and international best practice.',
-        'Condition assessments and verification of intervention priorities for stone seating, retaining walls, circulation elements and exposed architectural features.',
-        'Hands-on conservation interventions: stone cleaning, consolidation, re-pointing, stabilisation of loose elements and preventive protection measures.',
-        'Implementation of all on-site conservation works including engineering and architectural details.',
-        'Daily coordination between ACOR technical advisors, Department of Antiquities representatives, site engineers, conservators and skilled labour teams.',
-        'Strict adherence to QA/QC procedures, material compatibility standards and documentation requirements.',
-        'Monitoring of site safety, sequencing of works and logistical coordination to minimise risk to archaeological fabric during active restoration.'
+        'Full restoration and rehabilitation of a model cluster of five heritage houses (~500 m²), including indoor and outdoor spaces and the main alley leading to the cluster.',
+        'Green building practices delivering natural cooling and lighting to reduce operational costs.',
+        'New site infrastructure including a separate network for black and grey water across all houses.',
+        'Development of an Arabic-language manual for restoration and rehabilitation as a community resource.',
+        'Documentation programme engaging university students; access route widened and cleared.',
+        'On-site training workshops for more than 50 community members in restoration, site maintenance, operations, experiential tourism, housekeeping and tour guiding.',
+        'Community-Based Tourism model developed with Himmitna Ghair, formalised in a signed operating contract between the two local NGOs.',
+        'Full operational plan, destination branding, website and mobile application.'
       ]
     },
     achievements: {
       ar: [
-        'إنجاز بحث تاريخي شامل وتقييم للحالة وتوثيق كامل، بما يوفّر أساساً متيناً لأعمال الصون اللاحقة.',
-        'إزالة كميات كبيرة من الرمال والأنقاض من محيط الموقع، مما حسّن مظهره وقلّل مخاطر التدهور الإنشائي.',
-        'مباشرة تثبيت إنشائي في المناطق الحرجة، شمل ردم الفراغات المحفورة وتقوية العناصر الإنشائية الرئيسية.',
-        'تحسين سهولة الوصول عبر تطوير الممرات ونقاط الدخول بما يسهّل حركة الزوّار بأمان.',
-        'بدء معالجات صون موجّهة للمواد الرئيسية لمعالجة تدهور الحجر وغيره من المسائل المهمة.',
-        'تثبيت وصون ناجحان للعناصر المعمارية ذات الأولوية، مما عزّز السلامة الإنشائية والتكامل المادي للمسرح.',
-        'تحسين وضوح المعلم وعرضه بما يدعم الزيارة المنظمة والأنشطة الثقافية مستقبلاً.',
-        'مستوى عالٍ من الالتزام بأنظمة دائرة الآثار العامة ومعايير الصون في أكور.',
-        'تعزيز القدرات الفنية المحلية عبر التوجيه والإشراف الموقعي، بما يسهم في ممارسة صون مستدامة في شمال الأردن.'
+        'ترشّح ضمن القائمة القصيرة لجائزة إيكروم–الشارقة للممارسات الجيدة في صون التراث الثقافي.',
+        'أول مشروع من نوعه في الأردن ينفّذ الترميم وإعادة التأهيل عبر إشراك المجتمع المحلي.',
+        'إشراك أكثر من 150 فرداً من المجتمع المحلي في التنفيذ، واستشارة 100 فرد في تصميم الوجهة، وتشغيل أكثر من 40 عاملاً محلياً.',
+        'الحصول على رخصة تشغيل كاملة من وزارة السياحة، وتسجيل 24 موظفاً في الضمان الاجتماعي لدى الجمعية المشغّلة.',
+        'إدراج المشروع في خطة العمل الوطنية للنمو الأخضر 2021–2025، والتوصية باعتماده نموذجاً قابلاً للتوسع في قرى تراثية أخرى.',
+        'تأمين منحة أوروبية لاحقة بقيمة 30,000 يورو للجمعية المشغّلة، ودعم إضافي من مؤسسة ولي العهد والديوان الملكي.',
+        'اختيار الموقع من الهيئة الملكية للأفلام موقعاً للتصوير، بعائد تجاوز 12,000 دينار للمجتمع المحلي وتشغيل 25 شخصاً و9 نساء من القرية.',
+        'زيارة رفيعة المستوى من الديوان الملكي ووزارة السياحة والآثار بتاريخ 22 شباط 2020.',
+        'إدراج القرية على درب الأردن السياحي، وثلاث منشورات علمية منها مقال في مجلة علم الآثار في الأردن الصادرة عن أكور.'
       ],
       en: [
-        'Comprehensive historical research, condition assessment and documentation completed, providing a solid foundation for further conservation.',
-        'Significant sand and debris cleared from the site perimeter, improving appearance and reducing risks of further structural deterioration.',
-        'Structural stabilisation initiated on critical areas, including backfilling of excavated spaces and consolidation of key structural elements.',
-        'Accessibility enhanced through improved pathways and access points, facilitating safer visitor circulation.',
-        'Targeted conservation treatments begun on key materials, addressing stone degradation and other significant issues.',
-        'Successful stabilisation and conservation of priority architectural elements, enhancing the structural safety and physical integrity of the theatre.',
-        'Improved legibility and presentation of the monument, supporting future controlled visitation and cultural activities.',
-        'High level of compliance with Department of Antiquities regulations and ACOR conservation standards.',
-        'Strengthened local technical capacity through on-site guidance and supervision, contributing to sustainable conservation practice in northern Jordan.'
+        'Shortlisted for the ICCROM-Sharjah Award for Good Practices in Cultural Heritage Conservation.',
+        'First project of its kind in Jordan to deliver restoration and rehabilitation through community engagement.',
+        'More than 150 community members engaged in delivery; 100 consulted in destination design; over 40 local labourers employed.',
+        'Full operating licence secured from the Ministry of Tourism; 24 employees registered with Social Security under the operating NGO.',
+        'Featured in the Jordan Green Growth National Action Plan 2021–2025 and recommended as an upscaling model for other heritage villages.',
+        '€30,000 EU follow-on grant secured for the operating NGO; further support from the Crown Prince Foundation and the Royal Court.',
+        'Selected by the Royal Film Commission as a shooting location, generating over 12,000 JOD for the community and hiring 25 local people and 9 local women.',
+        'High-level visit by the Royal Court and the Ministry of Tourism and Antiquities, 22 February 2020.',
+        'Listed on the Jordan Tourism Trail; three academic publications including an article in Archaeology in Jordan (ACOR).'
       ]
     },
     cover: {
-      src: 'assets/images/projects/beitras-1.webp',
+      src: 'assets/images/projects/almatan-3.webp',
       alt: {
-        ar: 'منظر عام للمسرح الروماني في بيت رأس خلال أعمال الصون، وتظهر البلدة في الخلفية',
-        en: 'Overview of the Roman theatre at Beit Ras during conservation works, with the town behind'
+        ar: 'عمّال يرمّمون قوساً حجرياً داخل أحد بيوت قرية المعطن التراثية',
+        en: 'Workers restoring a stone arch inside one of the heritage houses at Al Matan'
       }
     },
     gallery: [
       {
-        src: 'assets/images/projects/beitras-1.webp',
+        src: 'assets/images/projects/almatan-3.webp',
         alt: {
-          ar: 'منظر عام للمسرح الروماني في بيت رأس خلال أعمال الصون، وتظهر البلدة في الخلفية',
-          en: 'Overview of the Roman theatre at Beit Ras during conservation works, with the town behind'
+          ar: 'عمّال يرمّمون قوساً حجرياً داخل أحد بيوت قرية المعطن التراثية',
+          en: 'Workers restoring a stone arch inside one of the heritage houses at Al Matan'
         }
       },
       {
-        src: 'assets/images/projects/beitras-5.webp',
+        src: 'assets/images/projects/almatan-1.webp',
         alt: {
-          ar: 'زوّار يستخدمون الدرج المعدني الجديد المؤدي إلى مدرجات المسرح',
-          en: 'Visitors using the new steel staircase leading to the theatre seating'
+          ar: 'بيوت قرية المعطن الحجرية على سفح الجبل بين الأشجار',
+          en: 'The stone houses of Al Matan on the hillside among the trees'
         }
       },
       {
-        src: 'assets/images/projects/beitras-2.webp',
+        src: 'assets/images/projects/almatan-2.webp',
         alt: {
-          ar: 'ممر معدني جديد بمحاذاة المدرجات الحجرية',
-          en: 'A new steel walkway alongside the stone seating'
-        }
-      },
-      {
-        src: 'assets/images/projects/beitras-3.webp',
-        alt: {
-          ar: 'درجات حجرية مرمّمة ولوحة تفسيرية في الموقع',
-          en: 'Restored stone steps and an interpretation panel on site'
-        }
-      },
-      {
-        src: 'assets/images/projects/beitras-4.webp',
-        alt: {
-          ar: 'المسرح من الأعلى خلال الأعمال مع رافعة في الموقع',
-          en: 'The theatre from above during works, with a crane on site'
+          ar: 'أربع صور مرقّمة لمجموعة البيوت التراثية في المعطن خلال مراحل الترميم',
+          en: 'Four numbered views of the Al Matan house cluster through the stages of restoration'
         }
       }
     ]
