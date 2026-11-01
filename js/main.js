@@ -780,6 +780,31 @@
     if (year) { year.textContent = String(new Date().getFullYear()); }
   }
 
+  /* ------------------------------------------------------- back to top */
+
+  /** Floating button that stays in the corner while scrolling (added to every page). */
+  function initToTop() {
+    var btn = el('a', {
+      class: 'to-top',
+      href: '#top',
+      'aria-label': I18n.t('footer.backToTop'),
+      title: I18n.t('footer.backToTop'),
+      'data-i18n-attr': 'aria-label:footer.backToTop;title:footer.backToTop'
+    }, svgIcon('M12 19V5M6 11l6-6 6 6'));
+    doc.body.appendChild(btn);
+
+    var onScroll = function () { btn.classList.toggle('is-visible', window.scrollY > 300); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    btn.addEventListener('click', function (event) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: motionOK() ? 'smooth' : 'auto' });
+      var skip = qs('.skip-link');
+      if (skip) { skip.focus({ preventScroll: true }); }
+    });
+  }
+
   /* ------------------------------------------------------------------- boot */
 
   function onLangChange() {
@@ -799,6 +824,7 @@
     initModal();
     initContactForm();
     initFooter();
+    initToTop();
   }
 
   doc.addEventListener('langchange', onLangChange);
