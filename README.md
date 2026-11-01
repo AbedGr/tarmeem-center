@@ -10,11 +10,15 @@ Plain HTML, CSS and vanilla JavaScript — no build step, no frameworks.
 ```
 index.html          Page markup: hero, about, vision & mission, expertise, materials,
                     methodology, projects, team, partners, contact
+opportunities.html  Opportunities hub (links to Jobs and Calls)
+jobs.html           Job vacancies, rendered from js/opportunities.js
+calls.html          Open calls, rendered from js/opportunities.js
 404.html            Bilingual "page not found" page
 css/style.css       All styles (mobile-first, RTL/LTR via logical properties)
 js/i18n.js          All Arabic / English text for the fixed sections
 js/projects.js      The five key projects (text, figures, quantities, photos)
 js/content.js       Key personnel (TEAM) and partner logos (PARTNERS)
+js/opportunities.js Job vacancies and open calls (OPPORTUNITIES.jobs / .calls)
 js/main.js          Behaviour: language toggle, menu, project cards & modal, team, partners, form
 assets/images/
   hero.webp, og-image.jpg, logos, favicons
@@ -34,6 +38,16 @@ documents every field. Each text field is bilingual (`{ ar: '...', en: '...' }`)
 
 Photos: WebP, lowercase names, no spaces, ideally under ~300 KB, in `assets/images/projects/`.
 The first gallery image is usually the same as the cover.
+
+## Posting a job or a call
+
+Add an entry to `jobs` or `calls` in **`js/opportunities.js`** - the comment at the top of the file
+has a ready-to-copy example. Entries past their `deadline` are shown as *Closed* below the open ones;
+delete an entry to remove it. With an empty list the page shows a "nothing open right now" note.
+The Opportunities page shows how many of each are open.
+
+The header and footer are repeated in `index.html`, `opportunities.html`, `jobs.html` and `calls.html`;
+change a menu item in all four.
 
 ## Editing other text
 
@@ -73,3 +87,18 @@ python -m http.server 8000
 - [ ] Every image has Arabic and English `alt` text.
 - [ ] Partner logos go in `assets/images/partners/` and are listed in `js/content.js`.
 - [ ] Images are WebP and under ~300 KB; share image `assets/images/og-image.jpg` is 1200×630.
+
+## Site editor (no code needed)
+
+Open **`/admin/`** on the live site (https://abedgr.github.io/tarmeem-center/admin/) to edit content in the browser:
+
+- **Projects** - text, cover photo and gallery; drag & drop photos to add or replace them, drag ⋮⋮ to reorder.
+- **Page photos** - replace any section photo by dropping a new one on it.
+- **Page text** - every Arabic / English string from `js/i18n.js`, with search.
+- **Team** and **Partners** - edit people, drop partner logos.
+
+Photos are resized and converted to WebP in the browser. **Publish** commits all changes to `main`
+in one commit (the site updates in 1–2 minutes); photos no longer used are removed.
+
+Sign-in uses a GitHub *fine-grained personal access token* limited to this repository with
+**Contents: Read and write**. The token stays in your browser only.

@@ -191,7 +191,51 @@
       'footer.founded': 'تأسس عام 2014 · عمّان، الأردن',
       'footer.navLabel': 'روابط التذييل',
       'footer.rights': 'مركز ترميم للمحافظة على التراث. جميع الحقوق محفوظة.',
-      'footer.backToTop': 'العودة إلى الأعلى'
+      'footer.backToTop': 'العودة إلى الأعلى',
+
+      'nav.opportunities': 'الفرص',
+      'nav.jobs': 'الوظائف',
+      'nav.calls': 'الدعوات',
+      'nav.breadcrumb': 'مسار التنقل',
+
+      'opp.metaTitle': 'الفرص | مركز ترميم للمحافظة على التراث',
+      'opp.metaDescription': 'الوظائف الشاغرة ودعوات التقديم المفتوحة لدى مركز ترميم للمحافظة على التراث في عمّان، الأردن.',
+      'opp.eyebrow': 'انضمّوا إلينا',
+      'opp.title': 'الفرص',
+      'opp.lead': 'نبحث باستمرار عن مختصين ومتدربين وشركاء يشاركوننا شغف صون التراث في الأردن. تصفّحوا الوظائف الشاغرة ودعوات التقديم المفتوحة.',
+      'opp.jobsText': 'الوظائف الشاغرة في الصون والترميم والتوثيق والهندسة وإدارة المشاريع.',
+      'opp.callsText': 'دعوات تقديم العروض، وبرامج التدريب، وطلبات المشاركة والتعاون.',
+      'opp.openCount': 'متاح حاليًا: {count}',
+      'opp.noneOpen': 'لا يوجد ما هو متاح حاليًا',
+      'opp.browse': 'تصفّح',
+      'opp.cvTitle': 'لم تجدوا ما يناسبكم؟',
+      'opp.cvText': 'أرسلوا سيرتكم الذاتية ونبذة عن اهتماماتكم، وسنتواصل معكم عند توفّر فرصة مناسبة.',
+      'opp.cvCta': 'أرسلوا سيرتكم الذاتية',
+      'opp.cvSubject': 'سيرة ذاتية - موقع مركز ترميم',
+
+      'jobs.metaTitle': 'الوظائف | مركز ترميم للمحافظة على التراث',
+      'jobs.metaDescription': 'الوظائف الشاغرة لدى مركز ترميم للمحافظة على التراث في الصون والترميم والتوثيق والهندسة.',
+      'jobs.title': 'الوظائف',
+      'jobs.lead': 'انضمّوا إلى فريق يعمل في الميدان على صون أهم المواقع التراثية في الأردن.',
+      'jobs.empty': 'لا توجد وظائف شاغرة حاليًا',
+      'jobs.emptyText': 'تابعوا هذه الصفحة، أو أرسلوا سيرتكم الذاتية لنحتفظ بها ونتواصل معكم عند توفّر فرصة مناسبة.',
+
+      'calls.metaTitle': 'الدعوات | مركز ترميم للمحافظة على التراث',
+      'calls.metaDescription': 'دعوات تقديم العروض وبرامج التدريب وطلبات المشاركة المفتوحة لدى مركز ترميم للمحافظة على التراث.',
+      'calls.title': 'الدعوات',
+      'calls.lead': 'دعوات تقديم العروض وبرامج التدريب وطلبات المشاركة المفتوحة لدى المركز.',
+      'calls.empty': 'لا توجد دعوات مفتوحة حاليًا',
+      'calls.emptyText': 'تُنشر الدعوات الجديدة هنا فور إطلاقها. للاستفسار، تواصلوا معنا عبر البريد الإلكتروني.',
+
+      'listing.open': 'مفتوح',
+      'listing.closed': 'مغلق',
+      'listing.deadline': 'آخر موعد للتقديم: {date}',
+      'listing.posted': 'نُشر في {date}',
+      'listing.details': 'عرض التفاصيل',
+      'listing.apply': 'قدّم الآن',
+      'listing.download': 'تحميل الإعلان',
+      'listing.applySubject': 'طلب تقديم: {title}',
+      'listing.contact': 'تواصل معنا'
     },
 
     /* ----------------------------------------------------------------------- */
@@ -368,7 +412,51 @@
       'footer.founded': 'Est. 2014 · Amman, Jordan',
       'footer.navLabel': 'Footer links',
       'footer.rights': 'Tarmeem Center for the Preservation of Heritage. All rights reserved.',
-      'footer.backToTop': 'Back to top'
+      'footer.backToTop': 'Back to top',
+
+      'nav.opportunities': 'Opportunities',
+      'nav.jobs': 'Jobs',
+      'nav.calls': 'Calls',
+      'nav.breadcrumb': 'Breadcrumb',
+
+      'opp.metaTitle': 'Opportunities | Tarmeem Center for the Preservation of Heritage',
+      'opp.metaDescription': 'Job vacancies and open calls at Tarmeem Center for the Preservation of Heritage, Amman, Jordan.',
+      'opp.eyebrow': 'Join us',
+      'opp.title': 'Opportunities',
+      'opp.lead': 'We are always looking for specialists, trainees and partners who share our passion for preserving Jordan’s heritage. Browse our job vacancies and open calls.',
+      'opp.jobsText': 'Vacancies in conservation, restoration, documentation, engineering and project management.',
+      'opp.callsText': 'Calls for proposals, training programmes, and invitations to participate and collaborate.',
+      'opp.openCount': 'Open now: {count}',
+      'opp.noneOpen': 'Nothing open right now',
+      'opp.browse': 'Browse',
+      'opp.cvTitle': 'Didn’t find the right fit?',
+      'opp.cvText': 'Send us your CV and a short note about your interests, and we will get in touch when a suitable opportunity opens.',
+      'opp.cvCta': 'Send your CV',
+      'opp.cvSubject': 'CV - Tarmeem Center website',
+
+      'jobs.metaTitle': 'Jobs | Tarmeem Center for the Preservation of Heritage',
+      'jobs.metaDescription': 'Job vacancies at Tarmeem Center for the Preservation of Heritage in conservation, restoration, documentation and engineering.',
+      'jobs.title': 'Jobs',
+      'jobs.lead': 'Join a team working in the field to preserve some of Jordan’s most important heritage sites.',
+      'jobs.empty': 'No open positions right now',
+      'jobs.emptyText': 'Check back soon, or send us your CV and we will keep it on file and contact you when a suitable role opens.',
+
+      'calls.metaTitle': 'Calls | Tarmeem Center for the Preservation of Heritage',
+      'calls.metaDescription': 'Open calls for proposals, training programmes and participation at Tarmeem Center for the Preservation of Heritage.',
+      'calls.title': 'Calls',
+      'calls.lead': 'Open calls for proposals, training programmes and invitations to participate.',
+      'calls.empty': 'No open calls right now',
+      'calls.emptyText': 'New calls are published here as soon as they launch. For enquiries, contact us by email.',
+
+      'listing.open': 'Open',
+      'listing.closed': 'Closed',
+      'listing.deadline': 'Deadline: {date}',
+      'listing.posted': 'Posted {date}',
+      'listing.details': 'View details',
+      'listing.apply': 'Apply now',
+      'listing.download': 'Download announcement',
+      'listing.applySubject': 'Application: {title}',
+      'listing.contact': 'Contact us'
     }
   };
 

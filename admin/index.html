@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Tarmeem Site Editor</title>
+  <link rel="icon" href="../assets/images/favicon-32.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <!-- ======================================================== LOGIN -->
+  <section id="login" class="login" hidden>
+    <form id="login-form" class="login__card">
+      <img src="../assets/images/logo-mark.png" alt="" width="54" height="64">
+      <h1>Tarmeem Site Editor</h1>
+      <p class="muted">Edit the website's text and photos and publish them to GitHub. You'll need a GitHub
+        <strong>fine-grained personal access token</strong> with <em>Contents: Read and write</em> access to the site repository.</p>
+      <label><span>Repository <span class="muted">(owner/name)</span></span>
+        <input id="login-repo" required value="AbedGr/tarmeem-center" autocomplete="off" spellcheck="false">
+      </label>
+      <label>Branch
+        <input id="login-branch" required value="main" autocomplete="off" spellcheck="false">
+      </label>
+      <label>Access token
+        <input id="login-token" type="password" required autocomplete="off" spellcheck="false" placeholder="github_pat_…">
+      </label>
+      <label class="check"><input id="login-remember" type="checkbox" checked> Remember on this computer</label>
+      <button class="btn btn--primary" type="submit">Connect</button>
+      <p id="login-error" class="error" role="alert"></p>
+      <details class="help">
+        <summary>How do I create a token?</summary>
+        <ol>
+          <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub → Settings → Developer settings → Fine-grained tokens</a>.</li>
+          <li>Repository access: <em>Only select repositories</em> → choose the site repository.</li>
+          <li>Permissions → Repository → <em>Contents</em>: <strong>Read and write</strong>.</li>
+          <li>Generate, copy the token and paste it here. Treat it like a password.</li>
+        </ol>
+      </details>
+    </form>
+  </section>
+
+  <!-- ======================================================== APP -->
+  <div id="app" class="app" hidden>
+    <header class="topbar">
+      <div class="topbar__brand">
+        <img src="../assets/images/logo-mark.png" alt="" width="27" height="32">
+        <span>Site Editor</span>
+      </div>
+      <nav class="tabs" role="tablist" aria-label="Sections">
+        <button role="tab" data-tab="projects" aria-selected="true">Projects</button>
+        <button role="tab" data-tab="images" aria-selected="false">Page photos</button>
+        <button role="tab" data-tab="text" aria-selected="false">Page text</button>
+        <button role="tab" data-tab="team" aria-selected="false">Team</button>
+        <button role="tab" data-tab="partners" aria-selected="false">Partners</button>
+      </nav>
+      <div class="topbar__actions">
+        <span id="dirty-badge" class="badge" hidden>Unsaved changes</span>
+        <a id="view-site" class="btn btn--ghost" target="_blank" rel="noopener">View site ↗</a>
+        <button id="btn-discard" class="btn btn--ghost" type="button">Discard</button>
+        <button id="btn-publish" class="btn btn--primary" type="button" disabled>Publish</button>
+        <button id="btn-logout" class="btn btn--ghost btn--icon" type="button" title="Disconnect" aria-label="Disconnect">⏻</button>
+      </div>
+    </header>
+
+    <main id="main" class="main">
+      <div id="loading" class="loading">Loading site content…</div>
+      <section id="tab-projects" class="tab" hidden></section>
+      <section id="tab-images" class="tab" hidden></section>
+      <section id="tab-text" class="tab" hidden></section>
+      <section id="tab-team" class="tab" hidden></section>
+      <section id="tab-partners" class="tab" hidden></section>
+    </main>
+  </div>
+
+  <!-- ======================================================== PUBLISH DIALOG -->
+  <dialog id="publish-dialog" class="dialog">
+    <form method="dialog" id="publish-form">
+      <h2>Publish changes</h2>
+      <p class="muted">These files will be committed to <strong id="publish-target"></strong>. The live site updates within 1–2 minutes.</p>
+      <ul id="publish-files" class="file-list"></ul>
+      <label>Change description
+        <input id="publish-message" required value="Update site content">
+      </label>
+      <p id="publish-error" class="error" role="alert"></p>
+      <div class="dialog__actions">
+        <button class="btn btn--ghost" value="cancel" formnovalidate>Cancel</button>
+        <button id="publish-confirm" class="btn btn--primary" value="ok">Publish now</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

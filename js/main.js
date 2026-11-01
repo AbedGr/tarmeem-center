@@ -74,7 +74,7 @@
 
     toggle.addEventListener('click', function () { setOpen(!isOpen()); });
 
-    qsa('.site-nav__link', nav).forEach(function (link) {
+    qsa('.site-nav__link, .site-nav__sublink', nav).forEach(function (link) {
       link.addEventListener('click', function () { setOpen(false); });
     });
 
@@ -99,7 +99,8 @@
 
   function initActiveNav() {
     var links = qsa('.site-nav__link[data-nav]');
-    if (!links.length || !('IntersectionObserver' in window)) { return; }
+    /* only the home page has scroll sections; other pages mark their link in the HTML */
+    if (!qs('.hero') || !links.length || !('IntersectionObserver' in window)) { return; }
 
     /* sections without their own nav link highlight the closest parent topic */
     var sections = [
@@ -397,6 +398,149 @@
     });
   }
 
+  /* ---------------------------------------------------------- opportunities */
+
+  var OPPS = window.OPPORTUNITIES || {};
+  var CONTACT_EMAIL = 'info@tarmeem-center.com';
+
+  function svgIcon(d) {
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = doc.createElementNS(ns, 'svg');
+    svg.setAttribute('class', 'icon');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    var path = doc.createElementNS(ns, 'path');
+    path.setAttribute('d', d);
+    svg.appendChild(path);
+    return svg;
+  }
+
+  function parseDate(value) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value || '');
+    return m ? new Date(+m[1], +m[2] - 1, +m[3]) : null;
+  }
+
+  function formatDate(value) {
+    var date = parseDate(value);
+    if (!date) { return value || ''; }
+    try {
+      return date.toLocaleDateString(I18n.getLang() === 'ar' ? 'ar-JO-u-nu-latn' : 'en-GB',
+        { day: 'numeric', month: 'long', year: 'numeric' });
+    } catch (e) { return value; }
+  }
+
+  /** Open until the end of the deadline day; no deadline = open. */
+  function isOpen(item) {
+    var deadline = parseDate(item.deadline);
+    if (!deadline) { return true; }
+    deadline.setDate(deadline.getDate() + 1);
+    return new Date() < deadline;
+  }
+
+  function oppList(kind) { return Array.isArray(OPPS[kind]) ? OPPS[kind] : []; }
+
+  function mailto(subject) {
+    return 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(subject);
+  }
+
+  function buildOpportunity(item, index) {
+    var open = isOpen(item);
+    var title = I18n.pick(item.title);
+
+    var badges = el('div', { class: 'listing__badges' }, [
+      el('span', { class: 'listing__badge listing__badge--' + (open ? 'open' : 'closed'), text: I18n.t(open ? 'listing.open' : 'listing.closed') }),
+      item.type ? el('span', { class: 'listing__badge', text: I18n.pick(item.type) }) : null
+    ]);
+
+    var metaItems = [];
+    if (item.location) { metaItems.push(el('li', null, [svgIcon('M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z'), el('span', { text: I18n.pick(item.location) })])); }
+    if (item.deadline) { metaItems.push(el('li', null, [svgIcon('M4 6h16v14H4zM4 10h16M8 3v4M16 3v4'), el('span', { text: I18n.t('listing.deadline', { date: formatDate(item.deadline) }) })])); }
+    if (item.posted) { metaItems.push(el('li', null, [svgIcon('M12 7v5l3 2M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z'), el('span', { text: I18n.t('listing.posted', { date: formatDate(item.posted) }) })])); }
+
+    var sections = (item.sections || []).filter(function (s) { return pickList(s.items).length; });
+    var details = sections.length ? el('details', { class: 'person__more listing__more' }, [
+      el('summary', null, [
+        el('span', { text: I18n.t('listing.details') }),
+        el('span', { class: 'person__chev', 'aria-hidden': 'true' })
+      ]),
+      el('div', { class: 'person__more-body' }, sections.map(function (s) {
+        return el('div', { class: 'person__group' }, [
+          el('h3', { class: 'person__label', text: I18n.pick(s.title) }),
+          el('ul', { class: 'ticks' }, pickList(s.items).map(function (text) { return el('li', { text: text }); }))
+        ]);
+      }))
+    ]) : null;
+
+    var actions = [];
+    var apply = item.apply || {};
+    if (open && (apply.url || apply.email)) {
+      var href = apply.url || ('mailto:' + apply.email + '?subject=' + encodeURIComponent(I18n.t('listing.applySubject', { title: title })));
+      actions.push(el('a', apply.url
+        ? { class: 'btn btn--primary', href: href, target: '_blank', rel: 'noopener' }
+        : { class: 'btn btn--primary', href: href }, [el('span', { text: I18n.t('listing.apply') }), cloneTemplate('tpl-icon-arrow')]));
+    }
+    if (item.file) {
+      actions.push(el('a', { class: 'btn btn--outline', href: item.file, target: '_blank', rel: 'noopener' }, [
+        svgIcon('M12 4v11M7 10l5 5 5-5M5 20h14'),
+        el('span', { text: I18n.t('listing.download') })
+      ]));
+    }
+
+    var card = el('article', { class: 'listing' + (open ? '' : ' listing--closed') }, [
+      badges,
+      el('h2', { class: 'listing__title', text: title }),
+      metaItems.length ? el('ul', { class: 'listing__meta' }, metaItems) : null,
+      item.summary ? el('p', { class: 'listing__summary', text: I18n.pick(item.summary) }) : null,
+      details,
+      actions.length ? el('div', { class: 'listing__actions' }, actions) : null
+    ]);
+
+    var li = el('li', { class: 'listings__item reveal' }, card);
+    li.style.setProperty('--i', String(index % 3));
+    return li;
+  }
+
+  function renderListings() {
+    var list = qs('#listings');
+    if (!list) { return; }
+    var kind = list.getAttribute('data-kind');
+    list.textContent = '';
+
+    var items = oppList(kind).slice().sort(function (a, b) {
+      var oa = isOpen(a), ob = isOpen(b);
+      if (oa !== ob) { return oa ? -1 : 1; }
+      return (a.deadline || '9999').localeCompare(b.deadline || '9999');
+    });
+
+    var nodes;
+    if (!items.length) {
+      nodes = [el('li', { class: 'listings__item reveal' }, el('div', { class: 'listing listing--empty' }, [
+        el('span', { class: 'listing__empty-mark', 'aria-hidden': 'true' }, svgIcon(kind === 'jobs'
+          ? 'M4 8h16v12H4zM9 8V5h6v3M4 13h16'
+          : 'M4 5h16v11H8l-4 4zM8 10h8')),
+        el('h2', { class: 'listing__title', text: I18n.t(kind + '.empty') }),
+        el('p', { class: 'listing__summary', text: I18n.t(kind + '.emptyText') }),
+        el('div', { class: 'listing__actions' }, el('a', {
+          class: 'btn btn--primary',
+          href: mailto(I18n.t(kind === 'jobs' ? 'opp.cvSubject' : 'form.subject'))
+        }, [el('span', { text: I18n.t(kind === 'jobs' ? 'opp.cvCta' : 'listing.contact') }), cloneTemplate('tpl-icon-arrow')]))
+      ]))];
+    } else {
+      nodes = items.map(buildOpportunity);
+    }
+    nodes.forEach(function (n) { list.appendChild(n); });
+    observeReveal(nodes);
+  }
+
+  function renderOppCounts() {
+    qsa('[data-opp-count]').forEach(function (node) {
+      var count = oppList(node.getAttribute('data-opp-count')).filter(isOpen).length;
+      node.textContent = count ? I18n.t('opp.openCount', { count: count }) : I18n.t('opp.noneOpen');
+      node.classList.toggle('is-empty', !count);
+    });
+  }
+
   /* ------------------------------------------------------------------ modal */
 
   var modal = qs('#project-modal');
@@ -668,6 +812,8 @@
     renderProjects();
     renderTeam();
     renderPartners();
+    renderListings();
+    renderOppCounts();
     if (isModalOpen()) { renderModal(); }
   }
 

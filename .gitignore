@@ -12,3 +12,9 @@ node_modules/
 # Editors
 .vscode/
 .idea/
+
+# Secrets - never commit
+admin/Admin_Token.txt
+
+# Godot editor metadata (not part of the site)
+*.import
