@@ -495,7 +495,7 @@
     if (item.file) {
       actions.push(el('a', { class: 'btn btn--outline', href: item.file, target: '_blank', rel: 'noopener' }, [
         svgIcon('M12 4v11M7 10l5 5 5-5M5 20h14'),
-        el('span', { text: I18n.t('listing.download') })
+        el('span', { text: item.fileLabel ? I18n.pick(item.fileLabel) : I18n.t('listing.download') })
       ]));
     }
 
@@ -522,7 +522,9 @@
     var items = oppList(kind).slice().sort(function (a, b) {
       var oa = isOpen(a), ob = isOpen(b);
       if (oa !== ob) { return oa ? -1 : 1; }
-      return (a.deadline || '9999').localeCompare(b.deadline || '9999');
+      /* open: soonest deadline first · closed: most recent deadline first */
+      var order = (a.deadline || '9999').localeCompare(b.deadline || '9999');
+      return oa ? order : -order;
     });
 
     var nodes;
