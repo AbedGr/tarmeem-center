@@ -1186,6 +1186,7 @@ html[lang="en"] .project-card__kicker { letter-spacing: 0.1em; text-transform: u
 
 .modal__inner {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);   /* never let the thumbnail strip widen the modal */
   grid-template-rows: auto 1fr;
   max-height: min(100vh - 1.5rem, 94vh);
   overflow-y: auto;
@@ -1209,7 +1210,7 @@ html[lang="en"] .project-card__kicker { letter-spacing: 0.1em; text-transform: u
 }
 .modal__close:hover { background: var(--white); transform: rotate(90deg); }
 
-.gallery { background: var(--teal-deep); }
+.gallery { min-width: 0; background: var(--teal-deep); }
 .gallery__stage {
   position: relative;
   aspect-ratio: 3 / 2;
@@ -1256,6 +1257,7 @@ html[lang="en"] .project-card__kicker { letter-spacing: 0.1em; text-transform: u
   overflow-x: auto;
   scrollbar-width: thin;
 }
+.gallery__thumbs > li { flex: none; }
 .gallery__thumb {
   display: block;
   width: 4.75rem;
@@ -1375,7 +1377,7 @@ html[lang="en"] .modal__section-title { letter-spacing: 0.12em; text-transform: 
 }
 @media (min-width: 960px) {
   .modal__inner {
-    grid-template-columns: 1.1fr 1fr;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
     grid-template-rows: none;
     overflow: hidden;
   }

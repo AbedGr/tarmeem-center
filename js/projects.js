@@ -118,6 +118,83 @@ window.PROJECTS = [
           ar: 'خريطتان لحوض البحر المتوسط تبيّنان شركاء مشروع DIEM في ست دول والمواقع التراثية التجريبية العشرة',
           en: 'Two Mediterranean maps showing the DIEM partners in six countries and the ten cultural heritage pilot sites'
         }
+      },
+      {
+        src: 'assets/images/projects/diem-3.webp',
+        alt: {
+          ar: 'ما هو DIEM؟ مشروع يرسم ملامح التعليم الشامل في حوض البحر المتوسط، فوق صورة لواجهات صخرية من الحجر الرملي',
+          en: 'What’s DIEM? A project shaping inclusive education in the Mediterranean, over a photo of sandstone cliffs'
+        }
+      },
+      {
+        src: 'assets/images/projects/diem-4.webp',
+        alt: {
+          ar: 'ماذا لو فتح التعليم فرصاً حقيقية للجميع؟ DIEM مشروع عابر للحدود يموّله برنامج إنترريغ نِكست ميد ويركّز على تعليم شامل ومتاح وعالي الجودة في قطاع التراث الثقافي',
+          en: 'What if education could open real opportunities for everyone? DIEM is a transnational Interreg NEXT MED project focused on inclusive, accessible, high-quality education in the cultural heritage sector'
+        }
+      },
+      {
+        src: 'assets/images/projects/diem-5.webp',
+        alt: {
+          ar: 'ربط الجامعات والمؤسسات والمجتمعات، وبناء المهارات وخلق فرص جديدة',
+          en: 'Connecting universities, institutions and communities. Creating skills and new opportunities'
+        }
+      },
+      {
+        src: 'assets/images/projects/diem-6.webp',
+        alt: {
+          ar: 'DIEM حيث يلتقي التعليم بالأثر، مع رابط صفحة المشروع على موقع إنترريغ نِكست ميد',
+          en: 'DIEM is where education meets impact, with a link to the project page on the Interreg NEXT MED website'
+        }
+      },
+      {
+        src: 'assets/images/projects/diem-7.webp',
+        alt: {
+          ar: 'ماذا نفعل: نهج عابر للحدود يربط الدول والأنظمة، فوق صورة لأقواس حجرية في قصر أموي',
+          en: 'What we do: a transnational approach connecting countries and systems, over a photo of stone arches at an Umayyad palace'
+        }
+      },
+      {
+        src: 'assets/images/projects/diem-8.webp',
+        alt: {
+          ar: 'مواءمة نماذج التعليم والتدريب: أنظمة التدريب مجزّأة بين الدول',
+          en: 'Harmonising education and training models: training systems are fragmented across countries'
+        }
+      },
+      {
+        src: 'assets/images/projects/diem-9.webp',
+        alt: {
+          ar: 'منصة رقمية للتعلّم المتاح، تتيح تعلّماً عابراً للحدود يتجاوز الحواجز الاجتماعية والجغرافية',
+          en: 'Digital platform for accessible learning, enabling transnational learning beyond social and geographical barriers'
+        }
+      },
+      {
+        src: 'assets/images/projects/diem-10.webp',
+        alt: {
+          ar: 'إشراك المجتمع عبر مراكز وأدوات متنقلة: وحدات تعلّم متنقلة توصل التدريب الشامل وأدواته إلى المناطق الأقل حظاً',
+          en: 'Community engagement through mobile hubs and tools: mobile learning units deliver inclusive training and tools to underserved areas'
+        }
+      },
+      {
+        src: 'assets/images/projects/diem-11.webp',
+        alt: {
+          ar: 'تدريب المدرّبين: بناء خبرات راسخة عبر إعداد مدرّبي المستقبل لتعظيم أثر المشروع على المدى الطويل',
+          en: 'Training of Trainers: building strong expertise by training future trainers to maximise the project’s long-term impact'
+        }
+      },
+      {
+        src: 'assets/images/projects/diem-12.webp',
+        alt: {
+          ar: 'نموذج التدريب المتتالي: يعتمد DIEM نهجاً تعليمياً يضاعف المهارات عبر المجتمعات والدول',
+          en: 'Cascade training model: DIEM adopts a learning approach that multiplies skills across communities and countries'
+        }
+      },
+      {
+        src: 'assets/images/projects/diem-13.webp',
+        alt: {
+          ar: 'نموذج صُمّم ليدوم وينمو، مع رابط صفحة المشروع على موقع إنترريغ نِكست ميد',
+          en: 'A model designed to last and grow, with a link to the project page on the Interreg NEXT MED website'
+        }
       }
     ]
   },
