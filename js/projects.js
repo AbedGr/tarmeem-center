@@ -11,7 +11,8 @@
         id: 'unique-id',
         number: '06',                              // shown on the card
         years: '2025',                             // short label on the card
-        ongoing: false,                            // true shows an "Ongoing" badge
+        ongoing: false,                            // true = "Ongoing", false = "Accomplished"
+                                                   // (badge + category filter on projects.html)
         site:        { ar: '...', en: '...' },     // short site name (card kicker)
         title:       { ar: '...', en: '...' },
         location:    { ar: '...', en: '...' },
@@ -741,6 +742,95 @@ window.PROJECTS = [
         alt: {
           ar: 'أربع صور مرقّمة لمجموعة البيوت التراثية في المعطن خلال مراحل الترميم',
           en: 'Four numbered views of the Al Matan house cluster through the stages of restoration'
+        }
+      }
+    ]
+  },
+
+  /* ------------------------------------------------------------------ 06 */
+  {
+    id: 'diem',
+    number: '06',
+    years: '2025–',
+    ongoing: true,
+    site: { ar: 'DIEM · إنترريغ نِكست ميد', en: 'DIEM · Interreg NEXT MED' },
+    title: {
+      ar: 'تطوير التعليم الشامل في حوض البحر المتوسط (DIEM)',
+      en: 'Developing Inclusive Education in the Mediterranean (DIEM)'
+    },
+    location: {
+      ar: 'إيطاليا، الأردن، إسبانيا، تونس، مصر، فلسطين · المواقع التجريبية في الأردن: قصر المشتى ومحمية البترا الأثرية',
+      en: 'Italy, Jordan, Spain, Tunisia, Egypt and Palestine · Jordan pilot sites: Qasr Al-Mshatta and Petra Archaeological Park'
+    },
+    period: {
+      ar: 'الاجتماع الافتتاحي: 6 تشرين الثاني 2025 · جارٍ',
+      en: 'Kick-off meeting: 6 November 2025 · Ongoing'
+    },
+    summary: {
+      ar: 'شبكة عابرة لحوض البحر المتوسط لتعزيز التعليم الشامل من خلال التراث الثقافي، ضمن برنامج إنترريغ نِكست ميد وبتمويل مشترك من الاتحاد الأوروبي. يجمع المشروع جامعات ومؤسسات من ست دول، ويتعامل مع التراث الثقافي المتوسطي بوصفه أرضية مشتركة ومحرّكاً للدمج والتنمية في مجالات السياحة والمشهد الطبيعي والعمارة والإدارة والمشهد الحضري وعلم الآثار. ويشارك مركز ترميم بصفته الشريك الأردني (PP2).',
+      en: 'A cross-Mediterranean network for inclusive education through cultural heritage, under the Interreg NEXT MED programme and co-funded by the European Union. The project brings together universities and institutions from six countries and treats Mediterranean cultural heritage as common ground and a driver for inclusion and development across tourism, landscape, architecture, management, cityscape and archaeology. Tarmeem Center takes part as the Jordanian partner (PP2).'
+    },
+    figures: [
+      { value: '6', label: { ar: 'دول شريكة', en: 'partner countries' } },
+      { value: '7', label: { ar: 'شركاء في المشروع', en: 'project partners' } },
+      { value: '10', label: { ar: 'مواقع تراثية تجريبية', en: 'heritage pilot sites' } }
+    ],
+    cooperation: {
+      ar: [
+        'برنامج إنترريغ نِكست ميد، بتمويل مشترك من الاتحاد الأوروبي.',
+        'الشريك الرئيسي: جامعة سابينزا في روما، إيطاليا (LEP).',
+        'الشركاء: مؤسسة MeNo، إيطاليا (PP1) · مركز ترميم للتدريب على صون التراث الثقافي والطبيعي، الأردن (PP2) · الجامعة البوليتكنيكية في فالنسيا، إسبانيا (PP3) · Animed SARL، تونس (PP4) · كلية الهندسة، جامعة عين شمس – القاهرة، مصر (PP5) · جامعة النجاح الوطنية، فلسطين (PP6).',
+        'الشركاء المساندون: بلديتا فيومفريدو بروتسيو وتشينتولا (إيطاليا) · مبادرة فكرة المعمارية (الأردن) · المعهد الفالنسي للصون والترميم والبحث وبلدية بيكورب (إسبانيا) · مختبر العمارة والآثار في المغرب العربي، والمعهد العالي للفنون الجميلة بتونس، ومركز تقديم معالم مدينة تونس العتيقة (تونس) · وزارة السياحة والآثار (فلسطين).'
+      ],
+      en: [
+        'Interreg NEXT MED programme, co-funded by the European Union.',
+        'Lead partner: Sapienza, Università di Roma, Italy (LEP).',
+        'Partners: Fondazione MeNo, Italy (PP1) · Tarmeem Center for the Training on the Preservation of Cultural and Natural Heritage, Jordan (PP2) · Universitat Politècnica de València, Spain (PP3) · Animed SARL, Tunisia (PP4) · Faculty of Engineering, Ain Shams University – Cairo, Egypt (PP5) · An-Najah National University, Palestine (PP6).',
+        'Associated partners: Municipal Administrations of Fiumefreddo Bruzio and Centola (Italy) · Fikra Architectural Initiative (Jordan) · Valencian Institute of Conservation, Restoration and Research and the Municipal Administration of Bicorp (Spain) · Laboratory of Architecture and Archaeology of Maghreb (LAAM), High Institute of Fine Arts of Tunis and the Center of Presentation of the Monuments of the Medina of Tunis (Tunisia) · Ministry of Tourism and Antiquities (Palestine).'
+      ]
+    },
+    objectives: {
+      ar: [
+        'بناء شبكة متوسطية للتعليم الشامل قائمة على التراث الثقافي.',
+        'توظيف التراث الثقافي المتوسطي أرضيةً مشتركة ومحرّكاً للدمج والتنمية.',
+        'ربط التعليم بمجالات السياحة والمشهد الطبيعي والعمارة والإدارة والمشهد الحضري وعلم الآثار.'
+      ],
+      en: [
+        'Build a Mediterranean network for inclusive education grounded in cultural heritage.',
+        'Use Mediterranean cultural heritage as common ground and a driver for inclusion and development.',
+        'Connect education with tourism, landscape, architecture, management, cityscape and archaeology.'
+      ]
+    },
+    works: {
+      ar: [
+        'العمل في عشرة مواقع تراثية تجريبية: فيومفريدو بروتسيو وتشينتولا (إيطاليا) · قصر المشتى الأموي ومحمية البترا الأثرية (الأردن) · الفن الصخري في حوض البحر المتوسط (إسبانيا) · مدينة أوذنة ومدينة تونس العتيقة (تونس) · القاهرة الخديوية ورشيد (مصر) · قصر هشام (فلسطين).',
+        'قيادة مركز ترميم للمواقع التجريبية الأردنية في قصر المشتى والبترا.'
+      ],
+      en: [
+        'Ten cultural heritage pilot sites: Fiumefreddo Bruzio and Centola (Italy) · Umayyad Qasr Al-Mshatta and Petra Archaeological Park (Jordan) · Rock Art of the Mediterranean Basin (Spain) · Medina of Oudhna and Medina of Tunis (Tunisia) · Khedive Cairo and Rashid (Egypt) · Qasr Hisham (Palestine).',
+        'Tarmeem Center leads the Jordanian pilot sites at Qasr Al-Mshatta and Petra.'
+      ]
+    },
+    cover: {
+      src: 'assets/images/projects/diem-1.webp',
+      alt: {
+        ar: 'ملصق الاجتماع الافتتاحي لمشروع DIEM: تطوير التعليم الشامل في حوض البحر المتوسط، إنترريغ نِكست ميد',
+        en: 'Kick-off meeting poster for DIEM: Developing Inclusive Education in the Mediterranean, Interreg NEXT MED'
+      }
+    },
+    gallery: [
+      {
+        src: 'assets/images/projects/diem-1.webp',
+        alt: {
+          ar: 'ملصق الاجتماع الافتتاحي لمشروع DIEM: تطوير التعليم الشامل في حوض البحر المتوسط، إنترريغ نِكست ميد',
+          en: 'Kick-off meeting poster for DIEM: Developing Inclusive Education in the Mediterranean, Interreg NEXT MED'
+        }
+      },
+      {
+        src: 'assets/images/projects/diem-2.webp',
+        alt: {
+          ar: 'خريطتان لحوض البحر المتوسط تبيّنان شركاء مشروع DIEM في ست دول والمواقع التراثية التجريبية العشرة',
+          en: 'Two Mediterranean maps showing the DIEM partners in six countries and the ten cultural heritage pilot sites'
         }
       }
     ]

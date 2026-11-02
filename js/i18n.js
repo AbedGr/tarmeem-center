@@ -130,10 +130,14 @@
 
       'projects.eyebrow': 'أبرز المشاريع',
       'projects.title': 'مشاريع منجزة وجارية',
-      'projects.subtitle': 'خمسة مشاريع منجزة وجارية في خمس محافظات، نُفّذت بالتعاون مع الجهات الوطنية وبتمويل من آليات دولية ووطنية.',
+      'projects.subtitle': 'ستة مشاريع منجزة وجارية في الأردن وحوض البحر المتوسط، نُفّذت بالتعاون مع الجهات الوطنية وبتمويل من آليات دولية ووطنية.',
       'projects.viewDetails': 'تفاصيل المشروع',
       'projects.openDetails': 'عرض تفاصيل مشروع: {title}',
       'projects.ongoing': 'جارٍ',
+      'projects.accomplished': 'منجز',
+      'projects.all': 'الكل',
+      'projects.filterLabel': 'تصفية المشاريع حسب الفئة',
+      'projects.emptyFilter': 'لا توجد مشاريع في هذه الفئة حاليًا.',
       'projects.photos': '{count} صور',
 
       'modal.close': 'إغلاق',
@@ -375,10 +379,14 @@
 
       'projects.eyebrow': 'Key Projects',
       'projects.title': 'Delivered and ongoing projects',
-      'projects.subtitle': 'Five delivered and ongoing projects across five governorates, implemented with national authorities and funded by international and national mechanisms.',
+      'projects.subtitle': 'Six delivered and ongoing projects in Jordan and across the Mediterranean, implemented with national authorities and funded by international and national mechanisms.',
       'projects.viewDetails': 'Project details',
       'projects.openDetails': 'View project details: {title}',
       'projects.ongoing': 'Ongoing',
+      'projects.accomplished': 'Accomplished',
+      'projects.all': 'All',
+      'projects.filterLabel': 'Filter projects by category',
+      'projects.emptyFilter': 'There are no projects in this category yet.',
       'projects.photos': '{count} photos',
 
       'modal.close': 'Close',

@@ -58,7 +58,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap">
 
-  <link rel="stylesheet" href="css/style.css?v=20261101b">
+  <link rel="stylesheet" href="css/style.css?v=20261101c">
 </head>
 <body id="top" class="subpage">
 
@@ -130,8 +130,23 @@
         <header class="section-header reveal">
           <p class="eyebrow" data-i18n="projects.eyebrow">Key Projects</p>
           <h2 class="section-title" id="projects-title" data-i18n="projects.title">Delivered and ongoing projects</h2>
-          <p class="section-lead" data-i18n="projects.subtitle">Five delivered and ongoing projects across five governorates, implemented with national authorities and funded by international and national mechanisms.</p>
+          <p class="section-lead" data-i18n="projects.subtitle">Six delivered and ongoing projects in Jordan and across the Mediterranean, implemented with national authorities and funded by international and national mechanisms.</p>
         </header>
+
+        <div class="project-filter reveal" role="group" aria-label="Filter projects by category" data-i18n-attr="aria-label:projects.filterLabel">
+          <button type="button" class="project-filter__btn" data-filter="all" aria-pressed="true" aria-controls="project-grid">
+            <span data-i18n="projects.all">All</span>
+            <span class="project-filter__count" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="project-filter__btn" data-filter="ongoing" aria-pressed="false" aria-controls="project-grid">
+            <span data-i18n="projects.ongoing">Ongoing</span>
+            <span class="project-filter__count" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="project-filter__btn" data-filter="accomplished" aria-pressed="false" aria-controls="project-grid">
+            <span data-i18n="projects.accomplished">Accomplished</span>
+            <span class="project-filter__count" aria-hidden="true"></span>
+          </button>
+        </div>
 
         <ul class="project-grid" id="project-grid" aria-labelledby="projects-title">
           <!-- Project cards are rendered from js/projects.js -->
@@ -221,8 +236,8 @@
     <svg class="icon icon--dir" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
   </template>
 
-  <script src="js/i18n.js?v=20261101b"></script>
-  <script src="js/projects.js?v=20261101b"></script>
-  <script src="js/main.js?v=20261101b"></script>
+  <script src="js/i18n.js?v=20261101c"></script>
+  <script src="js/projects.js?v=20261101c"></script>
+  <script src="js/main.js?v=20261101c"></script>
 </body>
 </html>

@@ -229,7 +229,9 @@
 
     var badges = el('div', { class: 'project-card__badges' }, [
       el('span', { class: 'project-card__badge project-card__badge--num', text: project.number || '' }),
-      project.ongoing ? el('span', { class: 'project-card__badge project-card__badge--live', text: I18n.t('projects.ongoing') }) : null
+      project.ongoing
+        ? el('span', { class: 'project-card__badge project-card__badge--live', text: I18n.t('projects.ongoing') })
+        : el('span', { class: 'project-card__badge project-card__badge--done', text: I18n.t('projects.accomplished') })
     ]);
 
     var photos = el('span', { class: 'project-card__photos', 'aria-hidden': 'true' }, [
@@ -282,12 +284,48 @@
     return svg;
   }
 
+  /* Category filter: 'all', 'ongoing' or 'accomplished' (= not ongoing).
+     A link such as projects.html#accomplished opens with that category selected. */
+  var FILTERS = {
+    all: function () { return true; },
+    ongoing: function (p) { return !!p.ongoing; },
+    accomplished: function (p) { return !p.ongoing; }
+  };
+  var projectFilter = (function () {
+    var hash = (window.location.hash || '').slice(1);
+    return FILTERS[hash] ? hash : 'all';
+  })();
+
   function renderProjects() {
     if (!gridNode) { return; }
     gridNode.textContent = '';
-    var items = PROJECTS.map(buildCard);
+    var items = PROJECTS.filter(FILTERS[projectFilter]).map(buildCard);
+    if (!items.length) {
+      items = [el('li', { class: 'project-grid__empty reveal', text: I18n.t('projects.emptyFilter') })];
+    }
     items.forEach(function (item) { gridNode.appendChild(item); });
     observeReveal(items);
+
+    qsa('.project-filter__btn').forEach(function (btn) {
+      var key = btn.getAttribute('data-filter');
+      btn.setAttribute('aria-pressed', key === projectFilter ? 'true' : 'false');
+      var count = qs('.project-filter__count', btn);
+      if (count && FILTERS[key]) { count.textContent = String(PROJECTS.filter(FILTERS[key]).length); }
+    });
+  }
+
+  function initProjectFilter() {
+    qsa('.project-filter__btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var key = btn.getAttribute('data-filter');
+        if (!FILTERS[key] || key === projectFilter) { return; }
+        projectFilter = key;
+        renderProjects();
+        try {
+          history.replaceState(null, '', key === 'all' ? window.location.pathname + window.location.search : '#' + key);
+        } catch (e) { /* ignore */ }
+      });
+    });
   }
 
   /* ------------------------------------------------------------------- team */
@@ -607,7 +645,7 @@
     var n = modalNodes();
 
     n.kicker.textContent = I18n.t('modal.project', { number: project.number || '' })
-      + (project.ongoing ? ' · ' + I18n.t('projects.ongoing') : '');
+      + ' · ' + I18n.t(project.ongoing ? 'projects.ongoing' : 'projects.accomplished');
     n.title.textContent = I18n.pick(project.title);
 
     n.meta.textContent = '';
@@ -836,6 +874,7 @@
     safe(initReveal);
     safe(initStats);
     safe(initModal);
+    safe(initProjectFilter);
     safe(initContactForm);
     safe(initFooter);
   }

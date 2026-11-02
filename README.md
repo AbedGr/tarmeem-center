@@ -87,7 +87,7 @@ git push
 
 Hard-refresh the browser (Ctrl+F5) if you still see the old version.
 
-Every page loads its CSS and JavaScript with a version number, e.g. `css/style.css?v=20261101b`.
+Every page loads its CSS and JavaScript with a version number, e.g. `css/style.css?v=20261101c`.
 After changing `css/style.css` or a file in `js/`, change that number on every page (any new value,
 such as today's date) so phones and browsers download the new files instead of a cached copy.
 

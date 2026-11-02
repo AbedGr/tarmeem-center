@@ -724,7 +724,7 @@
         h('label', { class: 'field' }, labelEl('Number'), field(p, 'number', { onInput: refreshRow })),
         h('label', { class: 'field' }, labelEl('Years', 'card label'), field(p, 'years')),
         h('label', { class: 'field' }, labelEl('ID', 'letters & dashes'), idInput),
-        h('label', { class: 'check' }, ongoing, 'Ongoing project')
+        h('label', { class: 'check' }, ongoing, 'Ongoing project (untick = Accomplished)')
       ),
       biField('Site name', p.site, { hint: 'short name shown on the card', onInput: refreshRow }),
       biField('Project title', p.title, { multiline: true, onInput: refreshRow }),
