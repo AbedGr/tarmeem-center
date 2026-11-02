@@ -106,20 +106,6 @@ window.PROJECTS = [
     },
     gallery: [
       {
-        src: 'assets/images/projects/diem-1.webp',
-        alt: {
-          ar: 'ملصق الاجتماع الافتتاحي لمشروع DIEM: تطوير التعليم الشامل في حوض البحر المتوسط، إنترريغ نِكست ميد',
-          en: 'Kick-off meeting poster for DIEM: Developing Inclusive Education in the Mediterranean, Interreg NEXT MED'
-        }
-      },
-      {
-        src: 'assets/images/projects/diem-2.webp',
-        alt: {
-          ar: 'خريطتان لحوض البحر المتوسط تبيّنان شركاء مشروع DIEM في ست دول والمواقع التراثية التجريبية العشرة',
-          en: 'Two Mediterranean maps showing the DIEM partners in six countries and the ten cultural heritage pilot sites'
-        }
-      },
-      {
         src: 'assets/images/projects/diem-3.webp',
         alt: {
           ar: 'ما هو DIEM؟ مشروع يرسم ملامح التعليم الشامل في حوض البحر المتوسط، فوق صورة لواجهات صخرية من الحجر الرملي',
@@ -131,6 +117,20 @@ window.PROJECTS = [
         alt: {
           ar: 'ماذا لو فتح التعليم فرصاً حقيقية للجميع؟ DIEM مشروع عابر للحدود يموّله برنامج إنترريغ نِكست ميد ويركّز على تعليم شامل ومتاح وعالي الجودة في قطاع التراث الثقافي',
           en: 'What if education could open real opportunities for everyone? DIEM is a transnational Interreg NEXT MED project focused on inclusive, accessible, high-quality education in the cultural heritage sector'
+        }
+      },
+      {
+        src: 'assets/images/projects/diem-2.webp',
+        alt: {
+          ar: 'خريطتان لحوض البحر المتوسط تبيّنان شركاء مشروع DIEM في ست دول والمواقع التراثية التجريبية العشرة',
+          en: 'Two Mediterranean maps showing the DIEM partners in six countries and the ten cultural heritage pilot sites'
+        }
+      },
+      {
+        src: 'assets/images/projects/diem-1.webp',
+        alt: {
+          ar: 'ملصق الاجتماع الافتتاحي لمشروع DIEM: تطوير التعليم الشامل في حوض البحر المتوسط، إنترريغ نِكست ميد',
+          en: 'Kick-off meeting poster for DIEM: Developing Inclusive Education in the Mediterranean, Interreg NEXT MED'
         }
       },
       {
