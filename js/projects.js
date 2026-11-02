@@ -98,7 +98,7 @@ window.PROJECTS = [
     },
     achievements: { ar: [], en: [] },
     cover: {
-      src: 'assets/images/projects/diem-1.webp',
+      src: 'assets/images/projects/diem-a1i9u.webp',
       alt: {
         ar: 'ملصق الاجتماع الافتتاحي لمشروع DIEM: تطوير التعليم الشامل في حوض البحر المتوسط، إنترريغ نِكست ميد',
         en: 'Kick-off meeting poster for DIEM: Developing Inclusive Education in the Mediterranean, Interreg NEXT MED'
