@@ -7,6 +7,7 @@
    Files it edits:
      js/projects.js  - projects (text, cover, gallery)
      js/content.js   - team and partners
+     js/opportunities.js - job vacancies and calls
      js/i18n.js      - page text (only the changed strings are rewritten)
      *.html pages    - page photo paths (and their width/height)
    Photos are resized in the browser and saved as WebP.
@@ -22,6 +23,8 @@
   var PROJECT_KEYS = ['id', 'number', 'years', 'ongoing', 'site', 'title', 'location', 'period', 'value', 'summary',
     'figures', 'cooperation', 'objectives', 'works', 'boq', 'achievements', 'cover', 'gallery'];
   var LIST_KEYS = ['cooperation', 'objectives', 'works', 'achievements'];
+  var OPP_KEYS = ['id', 'title', 'type', 'location', 'posted', 'deadline', 'status', 'summary', 'sections', 'apply', 'file', 'fileLabel'];
+  var OPP_KINDS = [['calls', 'Calls', 'calls.html'], ['jobs', 'Jobs', 'jobs.html']];
   var SECTION_NAMES = {
     meta: 'Browser title & search description', a11y: 'Accessibility labels', brand: 'Brand name', nav: 'Menu',
     lang: 'Language switch', hero: 'Hero (top of the page)', about: 'About', stats: 'Key numbers',
@@ -37,13 +40,14 @@
     tree: new Map(),       // path -> blob sha (repository state when loaded)
     files: {},             // path -> { sha, text }
     projects: [], team: [], partners: { international: [], national: [] },
+    opps: { jobs: [], calls: [] },
     tr: { ar: {}, en: {} },
     pages: {},             // page file -> current HTML (photo edits are applied here)
     photos: [],
     orig: {},
     origRefs: new Set(),
     pending: new Map(),    // new image path -> { blob, url }
-    open: { projects: null, team: null },
+    open: { projects: null, team: null, opps: null },
     tab: 'projects',
     busy: false
   };
@@ -265,6 +269,18 @@
       .replace(/\r?\n/g, eolOf(src));
   }
 
+  function buildOppsJs() {
+    var src = S.files['js/opportunities.js'].text;
+    var at = src.indexOf('window.OPPORTUNITIES');
+    var head = at > 0 ? src.slice(0, at) : '';
+    var lists = ['jobs', 'calls'].map(function (kind) {
+      var items = S.opps[kind].map(cleanOpp).map(function (o) { return '    ' + ser(o, 2); });
+      return '  ' + kind + ': [\n' + (items.length ? items.join(',\n\n') + '\n' : '') + '  ]';
+    });
+    return (head + 'window.OPPORTUNITIES = {\n' + lists.join(',\n\n') + '\n};\n').replace(/\r?\n/g, eolOf(src));
+  }
+  function cleanOpps() { return { jobs: S.opps.jobs.map(cleanOpp), calls: S.opps.calls.map(cleanOpp) }; }
+
   /* ===================================================================== data shape */
   function bi(v) { return { ar: (v && v.ar) || '', en: (v && v.en) || '' }; }
   function biArr(v) { return { ar: (v && Array.isArray(v.ar)) ? v.ar.slice() : [], en: (v && Array.isArray(v.en)) ? v.en.slice() : [] }; }
@@ -309,6 +325,47 @@
     return out;
   }
 
+  function normalizeOpp(o) {
+    o = clone(o || {});
+    ['title', 'type', 'location', 'summary', 'fileLabel'].forEach(function (k) { o[k] = bi(o[k]); });
+    o.sections = (o.sections || []).map(function (s) { return { title: bi(s.title), items: biArr(s.items) }; });
+    o.apply = { email: (o.apply && o.apply.email) || '', url: (o.apply && o.apply.url) || '' };
+    ['id', 'posted', 'deadline', 'file'].forEach(function (k) { o[k] = o[k] || ''; });
+    o.status = o.status === 'open' || o.status === 'closed' ? o.status : '';
+    return o;
+  }
+  /** Canonical key order; optional fields dropped when empty. */
+  function cleanOpp(o) {
+    var out = {};
+    function has(v) { return !!(v && (v.ar || v.en)); }
+    OPP_KEYS.forEach(function (k) {
+      var v = o[k];
+      if (k === 'id' || k === 'title' || k === 'summary') { out[k] = v; return; }
+      if (k === 'type' || k === 'location' || k === 'fileLabel') { if (has(v)) { out[k] = v; } return; }
+      if (k === 'sections') {
+        var secs = v.filter(function (s) { return has(s.title) || s.items.ar.length || s.items.en.length; });
+        if (secs.length) { out[k] = secs; }
+        return;
+      }
+      if (k === 'apply') {
+        if (v.url) { out[k] = { url: v.url }; } else if (v.email) { out[k] = { email: v.email }; }
+        return;
+      }
+      if (v) { out[k] = v; }
+    });
+    if (!o.file) { delete out.fileLabel; }
+    Object.keys(o).forEach(function (k) { if (OPP_KEYS.indexOf(k) === -1) { out[k] = o[k]; } });
+    return out;
+  }
+  /** Same rule as the site: a set status wins; otherwise open until the end of the deadline day. */
+  function oppIsOpen(o) {
+    if (o.status === 'closed') { return false; }
+    if (o.status === 'open') { return true; }
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(o.deadline || '');
+    if (!m) { return true; }
+    return new Date() < new Date(+m[1], +m[2] - 1, +m[3] + 1);
+  }
+
   function partnerPath(slug) { return 'assets/images/partners/' + slug + '.webp'; }
 
   function collectRefs() {
@@ -343,6 +400,7 @@
     return JSON.stringify(S.projects.map(cleanProject)) !== S.orig.projects ||
       JSON.stringify(S.team) !== S.orig.team ||
       JSON.stringify(S.partners) !== S.orig.partners ||
+      JSON.stringify(cleanOpps()) !== S.orig.opps ||
       JSON.stringify(S.tr) !== S.orig.tr ||
       PAGE_FILES.some(function (p) { return S.pages[p] !== S.files[p].text; });
   }
@@ -980,8 +1038,123 @@
     );
   }
 
+  /* ===================================================================== tab: jobs & calls */
+  function renderOpps() {
+    var root = $('#tab-opps');
+    var groups = h('div');
+    OPP_KINDS.forEach(function (kind) {
+      var key = kind[0], arr = S.opps[key];
+      var single = kind[1].toLowerCase().replace(/s$/, '');
+      var list = h('div', { class: 'sortable' });
+      arr.forEach(function (o, i) {
+        var status = h('span', { class: 'status' });
+        var title = h('div', { class: 'row__title' }), sub = h('div', { class: 'row__sub' });
+        function refresh() {
+          var open = oppIsOpen(o);
+          status.textContent = open ? 'Open' : 'Closed';
+          status.className = 'status status--' + (open ? 'open' : 'closed');
+          title.textContent = o.title.en || o.title.ar || 'Untitled';
+          sub.textContent = (o.status ? 'Set to ' + o.status + ' manually · ' : '') +
+            (o.deadline ? 'Deadline ' + o.deadline : 'No deadline');
+        }
+        refresh();
+        var isOpen = S.open.opps === o;
+        list.append(expandRow({
+          list: list, index: i, open: isOpen, thumb: status, title: title, sub: sub,
+          toggle: function () { S.open.opps = isOpen ? null : o; renderOpps(); },
+          editor: function () { return oppEditor(o, arr, refresh); }
+        }));
+      });
+      sortable(list, arr, renderOpps);
+      groups.append(h('div', { class: 'opp-group' },
+        h('div', { class: 'opp-group__head' },
+          h('h3', null, kind[1] + ' ', h('span', { class: 'muted', style: 'font-weight:400' }, '(' + arr.length + ') · ' + kind[2])),
+          h('button', { class: 'btn btn--primary btn--sm', type: 'button', onclick: function () {
+            var o = normalizeOpp({ id: single + '-' + Date.now().toString(36), posted: new Date().toISOString().slice(0, 10) });
+            arr.unshift(o); S.open.opps = o; renderOpps(); changed();
+          } }, '+ Add ' + single)),
+        arr.length ? list : h('p', { class: 'muted' }, 'Nothing published - the page shows a "nothing open right now" note.')));
+    });
+    root.replaceChildren(
+      h('div', { class: 'tab-head' }, h('div', null, h('h2', null, 'Jobs & calls'),
+        h('p', null, 'Status "Automatic" opens/closes a listing by its deadline (Closed after that day); choose Open or Closed to set it yourself. ' +
+          'On the site, open listings come first (soonest deadline first), then closed ones (newest first).'))),
+      groups
+    );
+  }
+
+  function oppEditor(o, arr, refresh) {
+    function dateInput(key) {
+      var el = h('input', { type: 'date', dir: 'ltr' });
+      el.value = o[key];
+      el.addEventListener('input', function () { o[key] = el.value; refresh(); changed(); });
+      return el;
+    }
+    var status = h('select', null,
+      h('option', { value: '' }, 'Automatic (from deadline)'),
+      h('option', { value: 'open' }, 'Open'),
+      h('option', { value: 'closed' }, 'Closed'));
+    status.value = o.status;
+    status.addEventListener('change', function () { o.status = status.value; refresh(); changed(); });
+    var idInput = field(o, 'id', { placeholder: 'e.g. site-conservator-2026', dir: 'ltr' });
+    idInput.addEventListener('change', function () { o.id = slugify(o.id); idInput.value = o.id; changed(); });
+
+    var applyMode = h('select', null,
+      h('option', { value: 'none' }, 'No apply button'),
+      h('option', { value: 'email' }, 'E-mail'),
+      h('option', { value: 'url' }, 'Link to a form / website'));
+    applyMode.value = o.apply.url ? 'url' : (o.apply.email ? 'email' : 'none');
+    var applyValue = h('input', { type: 'text', dir: 'ltr' });
+    function syncApply() {
+      var m = applyMode.value;
+      applyValue.hidden = m === 'none';
+      applyValue.placeholder = m === 'url' ? 'https://…' : 'info@tarmeem-center.org';
+      applyValue.value = m === 'url' ? o.apply.url : o.apply.email;
+    }
+    applyMode.addEventListener('change', function () {
+      var v = applyValue.value.trim();
+      o.apply = { email: '', url: '' };
+      if (applyMode.value !== 'none') { o.apply[applyMode.value] = v; }
+      syncApply(); changed();
+    });
+    applyValue.addEventListener('input', function () {
+      o.apply = { email: '', url: '' };
+      o.apply[applyMode.value] = applyValue.value.trim();
+      changed();
+    });
+    syncApply();
+
+    var box = h('div', { class: 'editor' },
+      h('div', { class: 'inline-fields' },
+        h('label', { class: 'field' }, labelEl('Status'), status),
+        h('label', { class: 'field' }, labelEl('Deadline', 'optional'), dateInput('deadline')),
+        h('label', { class: 'field' }, labelEl('Posted', 'optional'), dateInput('posted')),
+        h('label', { class: 'field' }, labelEl('ID', 'letters & dashes'), idInput)
+      ),
+      biField('Title', o.title, { multiline: true, onInput: refresh }),
+      biField('Type', o.type, { hint: 'short label, e.g. Full-time · Call for experts' }),
+      biField('Location', o.location, { hint: 'optional' }),
+      biField('Summary', o.summary, { multiline: true, rows: 4 }),
+      subList('Details', o.sections, function () { return { title: { ar: '', en: '' }, items: { ar: [], en: [] } }; }, function (s) {
+        return [biField('Heading', s.title, { hint: 'e.g. Requirements, How to apply' }), biListField('Points', s.items)];
+      }, 'shown under "View details"'),
+      h('div', { class: 'field' }, labelEl('Apply button', 'hidden automatically once the listing is closed'),
+        h('div', { class: 'inline-fields' }, applyMode, applyValue)),
+      h('label', { class: 'field' }, labelEl('Document link', 'optional - a PDF on the site or any URL, e.g. Google Drive'),
+        field(o, 'file', { dir: 'ltr', placeholder: 'assets/docs/call.pdf or https://…' })),
+      biField('Document button text', o.fileLabel, { hint: 'optional - default "Download announcement"' }),
+      h('div', { style: 'display:flex;justify-content:flex-end' },
+        h('button', { class: 'btn btn--danger btn--sm', type: 'button', onclick: function () {
+          if (!confirm('Delete "' + (o.title.en || o.title.ar || o.id) + '"? (Nothing changes on the live site until you publish.)')) { return; }
+          arr.splice(arr.indexOf(o), 1); S.open.opps = null; renderOpps(); changed();
+        } }, 'Delete listing'))
+    );
+    autosizeAll(box);
+    return box;
+  }
+
   /* ===================================================================== tabs */
-  var RENDER = { projects: renderProjects, images: renderImages, text: renderText, team: renderTeam, partners: renderPartners };
+  var RENDER = { projects: renderProjects, images: renderImages, text: renderText, team: renderTeam, partners: renderPartners, opps: renderOpps };
   function showTab(name) {
     if (!RENDER[name]) { name = 'projects'; }
     S.tab = name;
@@ -1026,10 +1199,12 @@
   }
 
   function setup() {
-    var data = evalData(S.files['js/projects.js'].text + '\n' + S.files['js/content.js'].text);
+    var data = evalData(S.files['js/projects.js'].text + '\n' + S.files['js/content.js'].text + '\n' + S.files['js/opportunities.js'].text);
     S.projects = (data.PROJECTS || []).map(normalizeProject);
     S.team = (data.TEAM || []).map(normalizeMember);
     S.partners = clone(data.PARTNERS || { international: [], national: [] });
+    var opps = data.OPPORTUNITIES || {};
+    S.opps = { jobs: (opps.jobs || []).map(normalizeOpp), calls: (opps.calls || []).map(normalizeOpp) };
     var tr = extractTranslations(S.files['js/i18n.js'].text);
     S.tr = { ar: clone(tr.ar || {}), en: clone(tr.en || {}) };
     S.pages = {};
@@ -1039,13 +1214,14 @@
       projects: JSON.stringify(S.projects.map(cleanProject)),
       team: JSON.stringify(S.team),
       partners: JSON.stringify(S.partners),
+      opps: JSON.stringify(cleanOpps()),
       tr: JSON.stringify(S.tr),
       trObj: clone(S.tr)
     };
     S.origRefs = collectRefs();
     S.pending.forEach(function (v) { URL.revokeObjectURL(v.url); });
     S.pending.clear();
-    S.open = { projects: null, team: null };
+    S.open = { projects: null, team: null, opps: null };
     changed();
   }
 
@@ -1068,6 +1244,20 @@
         if (!(pt.name.en || pt.name.ar)) { errors.push('A partner logo (' + pt.logo + ') has no name.'); }
       });
     });
+    var oppIds = {};
+    OPP_KINDS.forEach(function (kind) {
+      var single = kind[1].toLowerCase().replace(/s$/, '');
+      S.opps[kind[0]].forEach(function (o, i) {
+        var name = o.title.en || o.title.ar || (single + ' ' + (i + 1));
+        o.id = slugify(o.id);
+        if (!o.id) { errors.push('"' + name + '" needs an ID.'); }
+        else if (oppIds[o.id]) { errors.push('Two jobs/calls use the ID "' + o.id + '".'); }
+        oppIds[o.id] = true;
+        if (!(o.title.en || o.title.ar)) { errors.push('A ' + single + ' needs a title.'); }
+        if (o.apply.email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(o.apply.email)) { errors.push('"' + name + '": the apply e-mail looks wrong.'); }
+        if (o.apply.url && !/^https?:\/\//.test(o.apply.url)) { errors.push('"' + name + '": the apply link must start with https://'); }
+      });
+    });
     return errors;
   }
 
@@ -1085,6 +1275,11 @@
       if (JSON.stringify(c.TEAM) !== JSON.stringify(S.team.map(cleanMember)) || JSON.stringify(c.PARTNERS) !== JSON.stringify(S.partners)) {
         throw new Error('Internal check failed for js/content.js - nothing was published.');
       }
+    }
+    if (JSON.stringify(cleanOpps()) !== S.orig.opps) {
+      texts['js/opportunities.js'] = buildOppsJs();
+      var o = evalData(texts['js/opportunities.js']).OPPORTUNITIES;
+      if (JSON.stringify(o) !== JSON.stringify(cleanOpps())) { throw new Error('Internal check failed for js/opportunities.js - nothing was published.'); }
     }
     if (JSON.stringify(S.tr) !== S.orig.tr) {
       texts['js/i18n.js'] = writeTranslations(S.files['js/i18n.js'].text);

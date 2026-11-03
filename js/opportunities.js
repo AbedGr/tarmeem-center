@@ -12,6 +12,8 @@
      posted    'YYYY-MM-DD' optional
      deadline  'YYYY-MM-DD' optional - after this day the entry is shown as
                             "Closed" and moved below the open ones
+     status    optional 'open' or 'closed' - overrides the deadline
+               (leave it out to open/close automatically by deadline)
      summary   { ar, en }   one or two sentences
      sections  optional list of detail blocks, shown under "View details":
                [{ title: { ar, en }, items: { ar: ['...'], en: ['...'] } }]

@@ -313,3 +313,14 @@ label.check input { width: auto; }
 
 .photo-card .bi { grid-template-columns: 1fr; }
 .login__card label > span .muted { font-weight: 400; }
+
+/* ------------------------------------------------------------ jobs & calls */
+.opp-group + .opp-group { margin-top: 28px; }
+.opp-group__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.opp-group__head h3 { margin: 0; font-size: 17px; }
+.status {
+  flex: none; min-width: 64px; text-align: center; font-size: 12px; font-weight: 600;
+  padding: 4px 9px; border-radius: 999px;
+}
+.status--open { background: rgba(47, 122, 74, 0.14); color: var(--ok); }
+.status--closed { background: var(--surface-2); color: var(--muted); }
