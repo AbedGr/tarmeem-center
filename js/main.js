@@ -217,15 +217,28 @@
       decoding: 'async'
     });
 
-    var trigger = el('button', {
-      type: 'button',
-      class: 'project-card__trigger',
-      'data-project-id': project.id,
-      'aria-haspopup': 'dialog',
-      'aria-label': I18n.t('projects.openDetails', { title: title }),
-      text: title
-    });
-    trigger.addEventListener('click', function () { openProject(project.id, trigger); });
+    /* Ongoing projects open on their own page (project.html?id=...);
+       accomplished projects open in the pop-up dialog. */
+    var trigger;
+    if (project.ongoing) {
+      trigger = el('a', {
+        class: 'project-card__trigger',
+        href: 'project.html?id=' + encodeURIComponent(project.id),
+        'data-project-id': project.id,
+        'aria-label': I18n.t('projects.openDetails', { title: title }),
+        text: title
+      });
+    } else {
+      trigger = el('button', {
+        type: 'button',
+        class: 'project-card__trigger',
+        'data-project-id': project.id,
+        'aria-haspopup': 'dialog',
+        'aria-label': I18n.t('projects.openDetails', { title: title }),
+        text: title
+      });
+      trigger.addEventListener('click', function () { openProject(project.id, trigger); });
+    }
 
     var badges = el('div', { class: 'project-card__badges' }, [
       el('span', { class: 'project-card__badge project-card__badge--num', text: project.number || '' }),
@@ -442,8 +455,10 @@
     } catch (e) { return value; }
   }
 
-  /** Open until the end of the deadline day; no deadline = open. */
+  /** status 'open' / 'closed' overrides; otherwise open until the end of the deadline day (no deadline = open). */
   function isOpen(item) {
+    if (item.status === 'closed') { return false; }
+    if (item.status === 'open') { return true; }
     var deadline = parseDate(item.deadline);
     if (!deadline) { return true; }
     deadline.setDate(deadline.getDate() + 1);
@@ -558,6 +573,7 @@
   /* ------------------------------------------------------------------ modal */
 
   var modal = qs('#project-modal');
+  var projectPage = qs('#project-page');
   var modalState = { project: null, index: 0, trigger: null, images: [] };
 
   function modalNodes() {
@@ -595,7 +611,7 @@
 
     qsa('button', n.thumbs).forEach(function (btn, i) {
       btn.setAttribute('aria-pressed', i === index ? 'true' : 'false');
-      if (i === index && btn.scrollIntoView && isModalOpen()) {
+      if (i === index && btn.scrollIntoView && isModalOpen() && !projectPage) {
         btn.scrollIntoView({ block: 'nearest', inline: 'nearest' });
       }
     });
@@ -782,6 +798,55 @@
     });
   }
 
+  /* ----------------------------------------------------------- project page */
+
+  /* project.html?id=<project id> shows one project as a full page, using the
+     same gallery/content markup (and ids) as the pop-up dialog. */
+  function pageProjectId() {
+    var match = /[?&]id=([^&#]*)/.exec(window.location.search || '');
+    try { return match ? decodeURIComponent(match[1]) : ''; } catch (e) { return ''; }
+  }
+
+  function renderProjectPage() {
+    if (!projectPage) { return; }
+    var id = pageProjectId();
+    var project = PROJECTS.filter(function (p) { return p.id === id; })[0];
+    var crumb = qs('#project-crumb');
+    var siteTitle = I18n.t('meta.title');
+
+    if (!project) {
+      qs('#modal-title').textContent = I18n.t('project.notFound');
+      if (crumb) { crumb.textContent = I18n.t('project.notFound'); }
+      qs('#project-body').hidden = true;
+      doc.title = siteTitle;
+      return;
+    }
+
+    if (modalState.project !== project) { modalState.index = 0; }
+    modalState.project = project;
+    renderModal();
+
+    var title = I18n.pick(project.title);
+    if (crumb) { crumb.textContent = title; }
+    doc.title = title + ' | ' + siteTitle;
+  }
+
+  function initProjectPage() {
+    if (!projectPage) { return; }
+    var n = modalNodes();
+    n.prev.addEventListener('click', function () { showImage(modalState.index - 1); });
+    n.next.addEventListener('click', function () { showImage(modalState.index + 1); });
+
+    qs('#gallery').addEventListener('keydown', function (event) {
+      if (!modalState.images || modalState.images.length < 2) { return; }
+      var rtl = isRTL();
+      var next = rtl ? 'ArrowLeft' : 'ArrowRight';
+      var prev = rtl ? 'ArrowRight' : 'ArrowLeft';
+      if (event.key === next) { event.preventDefault(); showImage(modalState.index + 1); }
+      else if (event.key === prev) { event.preventDefault(); showImage(modalState.index - 1); }
+    });
+  }
+
   /* ---------------------------------------------------------------- contact */
 
   function initContactForm() {
@@ -861,6 +926,7 @@
     renderListings();
     renderOppCounts();
     if (isModalOpen()) { renderModal(); }
+    renderProjectPage();
   }
 
   /* Each part starts on its own, so a problem in one (e.g. an older phone
@@ -876,6 +942,7 @@
     safe(initReveal);
     safe(initStats);
     safe(initModal);
+    safe(initProjectPage);
     safe(initProjectFilter);
     safe(initContactForm);
     safe(initFooter);

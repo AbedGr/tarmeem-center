@@ -130,7 +130,7 @@
 
       'projects.eyebrow': 'أبرز المشاريع',
       'projects.title': 'مشاريع منجزة وجارية',
-      'projects.subtitle': 'ستة مشاريع منجزة وجارية في الأردن وحوض البحر المتوسط، نُفّذت بالتعاون مع الجهات الوطنية وبتمويل من آليات دولية ووطنية.',
+      'projects.subtitle': 'ستة مشاريع منجزة وجارية في الأردن وحوض البحر المتوسط، نُفّذت بالشراكة مع الجهات الوطنية وبدعم من تمويل دولي ووطني.',
       'projects.viewDetails': 'تفاصيل المشروع',
       'projects.openDetails': 'عرض تفاصيل مشروع: {title}',
       'projects.ongoing': 'جارٍ',
@@ -140,6 +140,8 @@
       'projects.emptyFilter': 'لا توجد مشاريع في هذه الفئة حاليًا.',
       'projects.photos': '{count} صور',
 
+      'project.back': 'جميع المشاريع',
+      'project.notFound': 'لم يتم العثور على هذا المشروع.',
       'modal.close': 'إغلاق',
       'modal.project': 'مشروع {number}',
       'modal.location': 'الموقع',
@@ -378,8 +380,8 @@
       'method.scan2Alt': '3D photogrammetric model of a heritage site',
 
       'projects.eyebrow': 'Key Projects',
-      'projects.title': 'Delivered and ongoing projects',
-      'projects.subtitle': 'Six delivered and ongoing projects in Jordan and across the Mediterranean, implemented with national authorities and funded by international and national mechanisms.',
+      'projects.title': 'Completed and Ongoing Projects',
+      'projects.subtitle': 'Six completed and ongoing projects in Jordan and across the Mediterranean, implemented in partnership with national authorities and supported by international and national funding.',
       'projects.viewDetails': 'Project details',
       'projects.openDetails': 'View project details: {title}',
       'projects.ongoing': 'Ongoing',
@@ -389,6 +391,8 @@
       'projects.emptyFilter': 'There are no projects in this category yet.',
       'projects.photos': '{count} photos',
 
+      'project.back': 'All projects',
+      'project.notFound': 'This project could not be found.',
       'modal.close': 'Close',
       'modal.project': 'Project {number}',
       'modal.location': 'Location',

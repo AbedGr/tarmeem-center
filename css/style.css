@@ -1387,6 +1387,47 @@ html[lang="en"] .modal__section-title { letter-spacing: 0.12em; text-transform: 
   .modal__content { overflow-y: auto; max-height: min(100vh - 1.5rem, 94vh); overscroll-behavior: contain; }
 }
 
+/* ------------------------------------------------------------ project page */
+/* project.html: the same gallery + content as the pop-up, laid out in the page */
+a.project-card__trigger { text-decoration: none; }
+.section.project-page { padding-block-start: clamp(1.5rem, 4vw, 2.5rem); }
+
+.project-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-block-end: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+.project-page__back:hover { color: var(--primary-deep); text-decoration: underline; }
+.project-page__back .icon { width: 1.1rem; height: 1.1rem; }
+
+.project-page__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+.project-page .modal__content { max-height: none; overflow: visible; }
+
+/* full-width layout: gallery on top, text below across the whole page */
+.project-page .gallery__stage { aspect-ratio: auto; height: clamp(16rem, 62vh, 40rem); }
+.project-page .gallery__image { position: absolute; inset: 0; }
+.project-page .modal__content { padding: clamp(1.5rem, 4vw, 3rem); }
+@media (min-width: 960px) {
+  .project-page .modal__sections {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 3rem;
+    align-items: start;
+  }
+  .project-page .modal__section + .modal__section { margin-block-start: 0; }
+}
+
 /* -------------------------------------------------------------------- team */
 .team__intro {
   display: grid;
